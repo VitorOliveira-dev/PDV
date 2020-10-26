@@ -1,5 +1,5 @@
 
-package com.mycompany.pdv;
+package br.instumentosmusicais.pdv.utils;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;

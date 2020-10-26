@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.pdv;
+package br.instrumentosmusicais.pdv.view;
 
+import br.instumentosmusicais.pdv.utils.Validador;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
@@ -12,12 +13,12 @@ import java.awt.event.KeyEvent;
  *
  * @author Amanda
  */
-public class CadastroProduto extends javax.swing.JFrame {
+public class CadastroProdutoView extends javax.swing.JFrame {
 
     /**
      * Creates new form CadastroProduto
      */
-    public CadastroProduto() {
+    public CadastroProdutoView() {
         initComponents();
     }
 
@@ -335,7 +336,7 @@ public class CadastroProduto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 549, Short.MAX_VALUE)
+            .addComponent(pnlCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,20 +425,21 @@ jblMensagemFabricante.setText("");
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroProdutoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroProduto().setVisible(true);
+                new CadastroProdutoView().setVisible(true);
             }
         });
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.pdv;
+package br.instrumentosmusicais.pdv.view;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
  *
  * @author PICHAU
  */
-public class Main extends javax.swing.JFrame {
+public class MainView extends javax.swing.JFrame {
 
     /**
      * Creates new form tstst
      */
-    public Main() {
+    public MainView() {
         initComponents();
     }
 
@@ -211,23 +211,23 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClientesActionPerformed
-    new CadastroCliente().setVisible(true);        
+    new CadastroClienteView().setVisible(true);        
     }//GEN-LAST:event_btnCadastroClientesActionPerformed
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-    new TelaVendas().setVisible(true);
+    new VendaView().setVisible(true);
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnCadastroProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutosActionPerformed
-    new CadastroProduto().setVisible(true);
+    new CadastroProdutoView().setVisible(true);
     }//GEN-LAST:event_btnCadastroProdutosActionPerformed
 
     private void btnManutencaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManutencaoActionPerformed
-        new Manutencao().setVisible(true);
+        new ManutencaoView().setVisible(true);
     }//GEN-LAST:event_btnManutencaoActionPerformed
 
     private void btnRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatoriosActionPerformed
-     new TelaRelatorioSintetico().setVisible(true);
+     new RelatorioSinteticoView().setVisible(true);
     }//GEN-LAST:event_btnRelatoriosActionPerformed
 
     /**
@@ -247,14 +247,16 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -262,7 +264,7 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-                new Main().setVisible(true);
+                new MainView().setVisible(true);
 
             }
         });

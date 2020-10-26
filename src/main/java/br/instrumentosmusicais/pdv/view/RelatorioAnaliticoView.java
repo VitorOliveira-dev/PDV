@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.pdv;
+package br.instrumentosmusicais.pdv.view;
 
 /**
  *
  * @author Computador
  */
-public class TelaRelatorioAnalitico extends javax.swing.JFrame {
+public class RelatorioAnaliticoView extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaRelatorioAnalitico
      */
-    public TelaRelatorioAnalitico() {
+    public RelatorioAnaliticoView() {
         initComponents();
     }
 
@@ -328,20 +328,21 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatorioAnalitico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioAnaliticoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatorioAnalitico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioAnaliticoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatorioAnalitico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioAnaliticoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaRelatorioAnalitico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioAnaliticoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaRelatorioAnalitico().setVisible(true);
+                new RelatorioAnaliticoView().setVisible(true);
             }
         });
     }
