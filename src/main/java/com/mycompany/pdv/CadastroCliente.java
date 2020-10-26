@@ -53,6 +53,13 @@ public class CadastroCliente extends javax.swing.JFrame {
         lblCadastrarCliente = new javax.swing.JLabel();
         lblVlrCodigo = new javax.swing.JLabel();
         lblicone = new javax.swing.JLabel();
+        jblMensagemNome = new javax.swing.JLabel();
+        jblMensagemCpf = new javax.swing.JLabel();
+        jblMensagemEndereco = new javax.swing.JLabel();
+        jblMensagemCidade = new javax.swing.JLabel();
+        jblMensagemTelefone = new javax.swing.JLabel();
+        jblMensagemData = new javax.swing.JLabel();
+        jblMensagemEmail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,26 +103,33 @@ public class CadastroCliente extends javax.swing.JFrame {
         lblEndereco.setText("Endereço:");
 
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        txtNome.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNomeFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNomeFocusLost(evt);
-            }
-        });
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNomeKeyTyped(evt);
+            }
+        });
 
         txtCidade.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        txtCidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCidadeKeyTyped(evt);
+            }
+        });
 
         txtEndereco.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         txtEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEnderecoActionPerformed(evt);
+            }
+        });
+        txtEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEnderecoKeyTyped(evt);
             }
         });
 
@@ -172,6 +186,13 @@ public class CadastroCliente extends javax.swing.JFrame {
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email:");
 
+        txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailKeyTyped(evt);
+            }
+        });
+
         pnlBotoes.setBackground(new java.awt.Color(153, 153, 153));
         pnlBotoes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -179,6 +200,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         btnVoltar.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
+        btnVoltar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnVoltar.setContentAreaFilled(false);
         btnVoltar.setOpaque(true);
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -191,6 +213,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         btnAdicionar.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         btnAdicionar.setForeground(new java.awt.Color(255, 255, 255));
         btnAdicionar.setText("Adicionar");
+        btnAdicionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnAdicionar.setContentAreaFilled(false);
         btnAdicionar.setOpaque(true);
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -204,11 +227,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         pnlBotoesLayout.setHorizontalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotoesLayout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(55, 55, 55)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
+                .addGap(81, 81, 81))
         );
         pnlBotoesLayout.setVerticalGroup(
             pnlBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,6 +254,27 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         lblicone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/TesteCli2.png"))); // NOI18N
 
+        jblMensagemNome.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemNome.setForeground(new java.awt.Color(255, 255, 255));
+
+        jblMensagemCpf.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemCpf.setForeground(new java.awt.Color(255, 255, 255));
+
+        jblMensagemEndereco.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemEndereco.setForeground(new java.awt.Color(255, 255, 255));
+
+        jblMensagemCidade.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemCidade.setForeground(new java.awt.Color(255, 255, 255));
+
+        jblMensagemTelefone.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemTelefone.setForeground(new java.awt.Color(255, 255, 255));
+
+        jblMensagemData.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemData.setForeground(new java.awt.Color(255, 255, 255));
+
+        jblMensagemEmail.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemEmail.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout pnlInformacoesClienteLayout = new javax.swing.GroupLayout(pnlInformacoesCliente);
         pnlInformacoesCliente.setLayout(pnlInformacoesClienteLayout);
         pnlInformacoesClienteLayout.setHorizontalGroup(
@@ -239,59 +283,67 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                                    .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblEndereco)
-                                        .addComponent(lblNome)
-                                        .addComponent(lblCodigo))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblVlrCodigo)))
-                                .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                                    .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                                            .addComponent(lblCPF)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                                            .addComponent(lblCidade)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                                            .addComponent(lblTelefone)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                                            .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(lblEmail)
-                                                .addComponent(lblNascimento))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                                .addComponent(txtEmail)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlInformacoesClienteLayout.createSequentialGroup()
-                                            .addGap(61, 61, 61)
-                                            .addComponent(lblSexo)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(btnFeminino)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(btnMasculino)))
-                                    .addGap(52, 52, 52))))
-                        .addContainerGap(14, Short.MAX_VALUE))
-                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblCadastrarCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(112, 112, 112)
                         .addComponent(lblicone)
-                        .addGap(43, 43, 43))))
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblCodigo)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblVlrCodigo)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEndereco)
+                                    .addComponent(lblCPF)
+                                    .addComponent(lblCidade))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblMensagemCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                    .addComponent(jblMensagemEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblMensagemCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(lblTelefone)
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblMensagemTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmail)
+                                    .addComponent(lblNascimento))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jblMensagemData, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblMensagemEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(lblSexo)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnFeminino)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnMasculino))
+                            .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addComponent(lblNome)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jblMensagemNome, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE))))
+                        .addGap(0, 8, Short.MAX_VALUE))))
         );
-
-        pnlInformacoesClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtData, txtEmail});
-
         pnlInformacoesClienteLayout.setVerticalGroup(
             pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
@@ -299,61 +351,81 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblCadastrarCliente)
                     .addComponent(lblicone))
-                .addGap(29, 29, 29)
-                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(lblVlrCodigo))
-                .addGap(18, 18, 18)
+                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(lblVlrCodigo))
+                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCodigo)))
+                .addGap(28, 28, 28)
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblMensagemNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblMensagemCpf)
+                .addGap(10, 10, 10)
+                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblMensagemEndereco)
+                .addGap(5, 5, 5)
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefone)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNascimento)
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmail)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblMensagemCidade)
+                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmail)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacoesClienteLayout.createSequentialGroup()
+                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTelefone)
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jblMensagemTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNascimento)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblMensagemData)
+                        .addGap(38, 38, 38)))
+                .addComponent(jblMensagemEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
                     .addComponent(btnFeminino)
                     .addComponent(btnMasculino))
-                .addGap(77, 77, 77)
-                .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pnlInformacoesClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCidade, txtCpf, txtData, txtEmail, txtEndereco, txtNome, txtTelefone});
+
+        pnlInformacoesClienteLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jblMensagemCidade, jblMensagemCpf, jblMensagemData, jblMensagemEmail, jblMensagemEndereco, jblMensagemNome});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+            .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -361,7 +433,15 @@ public class CadastroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        // TODO add your handling code here:
+        Validador objValidar = new Validador();
+        objValidar.CampoVazio(txtNome,jblMensagemNome);
+        objValidar.CampoVazio(txtCpf,jblMensagemCpf);
+        objValidar.CampoVazio(txtEndereco,jblMensagemEndereco);
+        objValidar.CampoVazio(txtCidade,jblMensagemCidade);
+        objValidar.CampoVazio(txtTelefone,jblMensagemTelefone);
+        objValidar.CampoVazio(txtData,jblMensagemData);
+        objValidar.CampoVazio(txtEmail,jblMensagemEmail);                                      
+
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -388,20 +468,42 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void txtNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusLost
-        if (txtNome.getText().equals("")) {
-            txtNome.setText("Insira seu nome");
-            txtNome.setForeground(new java.awt.Color(204, 204, 204));
-        }
-    }//GEN-LAST:event_txtNomeFocusLost
+    private void txtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyTyped
+                if(txtNome.getText().length()>=40)
+{
+    evt.consume();
+    jblMensagemNome.setText("Máximo de 40 caracteres atingido!");
+}else      
+jblMensagemNome.setText("");        
+   
+    }//GEN-LAST:event_txtNomeKeyTyped
 
-    private void txtNomeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNomeFocusGained
-        if (txtNome.getText().equals("Insira seu nome")) {
-            txtNome.setText("");
-            txtNome.setForeground(new java.awt.Color(0,0,0));
+    private void txtEnderecoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEnderecoKeyTyped
+     if(txtEndereco.getText().length()>=40)
+{
+    evt.consume();
+    jblMensagemEndereco.setText("Máximo de 40 caracteres atingido!");
+}else      
+jblMensagemEndereco.setText("");    
+    }//GEN-LAST:event_txtEnderecoKeyTyped
 
-        }
-    }//GEN-LAST:event_txtNomeFocusGained
+    private void txtCidadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCidadeKeyTyped
+        if(txtCidade.getText().length()>=40)
+{
+    evt.consume();
+    jblMensagemCidade.setText("Máximo de 40 caracteres atingido!");
+}else      
+jblMensagemCidade.setText("");    
+    }//GEN-LAST:event_txtCidadeKeyTyped
+
+    private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
+       if(txtEmail.getText().length()>=40)
+{
+    evt.consume();
+    jblMensagemEmail.setText("Máximo de 40 caracteres atingido!");
+}else      
+jblMensagemEmail.setText("");    
+    }//GEN-LAST:event_txtEmailKeyTyped
 
     /**
      * @param args the command line arguments
@@ -444,6 +546,13 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnMasculino;
     private javax.swing.ButtonGroup btnSexo;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jblMensagemCidade;
+    private javax.swing.JLabel jblMensagemCpf;
+    private javax.swing.JLabel jblMensagemData;
+    private javax.swing.JLabel jblMensagemEmail;
+    private javax.swing.JLabel jblMensagemEndereco;
+    private javax.swing.JLabel jblMensagemNome;
+    private javax.swing.JLabel jblMensagemTelefone;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCadastrarCliente;
     private javax.swing.JLabel lblCidade;
