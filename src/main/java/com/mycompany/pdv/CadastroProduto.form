@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlCadastroProduto" alignment="0" max="32767" attributes="0"/>
+          <Component id="pnlCadastroProduto" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -55,66 +55,64 @@
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
+                                  <Component id="lblInstrumento" min="-2" pref="116" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtInstrumento" min="-2" pref="402" max="-2" attributes="0"/>
+                                      <Component id="jblMensagemInstrumento" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                                      <Component id="txtCor" linkSize="6" alignment="0" pref="201" max="32767" attributes="0"/>
+                                      <Component id="jblMensagemCor" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                          <Component id="lblValor" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="lblTipo" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCor" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblFabricante" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="lblQuantidade" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtFabricante" alignment="0" min="-2" pref="406" max="-2" attributes="0"/>
+                                      <Component id="spnQuantidade" min="-2" pref="53" max="-2" attributes="0"/>
+                                      <Component id="cbbTipo" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jblMensagemFabricante" linkSize="7" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                      <Component id="jblMensagemValor" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtValor" linkSize="6" min="-2" pref="160" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="lblCodigo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                   <Component id="lblCodigoInstrumento" min="-2" pref="54" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblInstrumento" min="-2" pref="116" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtInstrumento" min="-2" pref="402" max="-2" attributes="0"/>
-                                              <Component id="jblMensagemInstrumento" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
-                                              <Component id="txtCor" linkSize="6" alignment="0" pref="201" max="32767" attributes="0"/>
-                                              <Component id="jblMensagemCor" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                                  <Component id="lblValor" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="lblTipo" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblCor" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="lblFabricante" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Component id="lblQuantidade" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtFabricante" alignment="0" min="-2" pref="406" max="-2" attributes="0"/>
-                                              <Component id="spnQuantidade" min="-2" pref="53" max="-2" attributes="0"/>
-                                              <Component id="cbbTipo" min="-2" pref="81" max="-2" attributes="0"/>
-                                              <Component id="jblMensagemFabricante" linkSize="7" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                              <Component id="jblMensagemValor" linkSize="7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtValor" linkSize="6" min="-2" pref="160" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace pref="14" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="pnlBotoes" max="32767" attributes="0"/>
-                          <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblCadastroProdutos" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                  <Component id="lblIcone" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCadastroProdutos" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -122,8 +120,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="lblCadastroProdutos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCadastroProdutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblIcone" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCodigoInstrumento" linkSize="1" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
@@ -133,14 +134,12 @@
                       <Component id="lblInstrumento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtInstrumento" linkSize="1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="jblMensagemInstrumento" min="-2" pref="24" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCor" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="jblMensagemCor" min="-2" pref="21" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -152,7 +151,6 @@
                       <Component id="txtFabricante" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblFabricante" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="jblMensagemFabricante" linkSize="8" min="-2" pref="24" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -164,11 +162,9 @@
                       <Component id="txtValor" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblValor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Component id="jblMensagemValor" linkSize="8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="pnlBotoes" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -336,21 +332,21 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                      <Component id="btnSalvar" pref="142" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="btnCancelar" pref="142" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalvar" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="btnCancelar" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnCancelar" alignment="3" pref="61" max="32767" attributes="0"/>
-                          <Component id="btnSalvar" alignment="3" pref="61" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnSalvar" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="btnCancelar" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -434,10 +430,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/testeProduto2.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Cadastro de Produtos"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar Produto"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblValor">
@@ -516,6 +509,13 @@
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblIcone">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/testeProduto2.png"/>
             </Property>
           </Properties>
         </Component>

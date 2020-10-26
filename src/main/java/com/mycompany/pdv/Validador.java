@@ -40,8 +40,7 @@ public class Validador {
             txt.setBackground(Color.red);
             jbl.setText("Campo Obrigatório");
         }
-    }
-    
+    }    
      public void ValidarFloat(JTextField txt, JLabel jbl){
      
          try{
