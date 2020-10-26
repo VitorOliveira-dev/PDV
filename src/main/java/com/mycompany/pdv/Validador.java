@@ -2,22 +2,18 @@
 package com.mycompany.pdv;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author fernando.tfernandes
- */
+
 public class Validador {
     
     public ArrayList<String> mensagensErro = new ArrayList<>();
     
-    /**
-     * Valida somente campos inteiros
-     * @param txt Recebe um objeto do tipo JTextField
-     */
-    public void ValidarNumero(JTextField txt){
+
+        public void ValidarNumero(JTextField txt){
     
         try{
             
@@ -25,13 +21,11 @@ public class Validador {
             txt.setBackground(Color.WHITE);
             
         }catch(NumberFormatException e){
-        
-            this.mensagensErro.add("Falha ao converter o valor do campo " + txt.getName() + " em inteiro");
             txt.setBackground(Color.red);
         }
     
     }
-    public void CampoVazio( JTextField txt){
+    public void CampoVazio( JTextField txt, JLabel jbl){
         try{
             
             //Verifico se o campo está vazio
@@ -40,13 +34,15 @@ public class Validador {
                 
             }
             txt.setBackground(Color.WHITE);
+            jbl.setText("");
             }
         catch(IllegalArgumentException e){
             txt.setBackground(Color.red);
+            jbl.setText("Campo Obrigatório");
         }
     }
     
-     public void ValidarFloat(JTextField txt){
+     public void ValidarFloat(JTextField txt, JLabel jbl){
      
          try{
             
@@ -57,14 +53,11 @@ public class Validador {
             
             float valorConvertido = Float.parseFloat(txt.getText());
             txt.setBackground(Color.WHITE);
+            jbl.setText("");
             
         }catch(NumberFormatException e){
-        
-            this.mensagensErro.add("Falha ao converter o valor do campo " + txt.getName() + " em float");
             txt.setBackground(Color.red);
-        }catch(IllegalArgumentException e){
-            this.mensagensErro.add("Digite um valor para o campo " + txt.getName());
-            txt.setBackground(Color.red);
+            jbl.setText("Somente números");
         }
      
      }
@@ -73,48 +66,4 @@ public class Validador {
      
          this.mensagensErro.clear();
      }
-public void ExibirMensagensErro(){
-         
-        String errosFormulario = "";
-        for (String msg : this.mensagensErro) {
-            errosFormulario += msg + "\n";
-        }
-        
-        if(!errosFormulario.equals("")){
-            JOptionPane.showMessageDialog(null, errosFormulario);
-            this.limparMensagens();
-        }     
-
-     }
-     
-     /**
-      * Resgata todos os erros gerados em uma única String
-      * @return 
-      */
-     public String getMensagensErro(){
-         
-        String errosFormulario = "";
-        
-        //Percorro o arrayList e concateno na variável errosFormulario
-        for (String msg : this.mensagensErro) {
-            errosFormulario += msg + "\n";
-        }
-        
-        if(!errosFormulario.equals("")){
-            this.limparMensagens();
-        }     
-        
-        return errosFormulario;
-        
-     }
-     
-     public boolean hasErro(){
-     
-         if(this.mensagensErro.size()>0){
-            return true;    
-         }else{
-             return false;
-         }
-     }
-    
 }
