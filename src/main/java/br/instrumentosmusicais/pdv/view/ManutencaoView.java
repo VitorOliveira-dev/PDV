@@ -128,6 +128,11 @@ public class ManutencaoView extends javax.swing.JFrame {
         btnPesquisar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnPesquisar1.setContentAreaFilled(false);
         btnPesquisar1.setOpaque(true);
+        btnPesquisar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisar1ActionPerformed(evt);
+            }
+        });
 
         btnExcluir1.setBackground(new java.awt.Color(51, 51, 51));
         btnExcluir1.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
@@ -446,6 +451,10 @@ public class ManutencaoView extends javax.swing.JFrame {
         pnlClientes.setVisible(false);
         pnlProdutos.setVisible(true);
     }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
+
+    private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisar1ActionPerformed
 
     /**
      * @param args the command line arguments

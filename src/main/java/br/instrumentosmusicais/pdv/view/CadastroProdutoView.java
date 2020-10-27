@@ -406,6 +406,7 @@ jblMensagemFabricante.setText("");
     private void txtValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyReleased
        Validador objValidador = new Validador();
        objValidador.ValidarFloat(txtValor,jblMensagemValor);
+       
     }//GEN-LAST:event_txtValorKeyReleased
 
     /**

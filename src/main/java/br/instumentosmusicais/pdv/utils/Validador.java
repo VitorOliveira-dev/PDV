@@ -46,7 +46,7 @@ public class Validador {
         try{
             
             //Verifico se o campo está vazio
-            if(txt.getText().replace(".", "").replace("/", "").replace("-", "").trim().equals("")){
+            if(txt.getText().replace(".", "").replace("/", "").replace("-", "").replace("(", "").replace(")", "").trim().equals("")){
                 throw new IllegalArgumentException();
                 
             }

@@ -427,11 +427,11 @@ public class CadastroClienteView extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         Validador objValidar = new Validador();
         objValidar.CampoVazio(txtNome,jblMensagemNome);
-        objValidar.CampoVazio(txtCpf,jblMensagemCpf);
+        objValidar.CampoVazioFormatado(txtCpf,jblMensagemCpf);
         objValidar.CampoVazio(txtEndereco,jblMensagemEndereco);
         objValidar.CampoVazio(txtCidade,jblMensagemCidade);
-        objValidar.CampoVazio(txtTelefone,jblMensagemTelefone);
-        objValidar.CampoVazio(txtData,jblMensagemData);
+        objValidar.CampoVazioFormatado(txtTelefone,jblMensagemTelefone);
+        objValidar.CampoVazioFormatado(txtData,jblMensagemData);
         objValidar.CampoVazio(txtEmail,jblMensagemEmail);                                      
 
     }//GEN-LAST:event_btnAdicionarActionPerformed
