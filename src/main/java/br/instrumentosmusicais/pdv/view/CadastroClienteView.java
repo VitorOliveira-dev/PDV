@@ -18,6 +18,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
      */
     public CadastroClienteView() {
         initComponents();
+        lblCodigo.setVisible(false);
     }
 
     /**
@@ -63,7 +64,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         jblMensagemData = new javax.swing.JLabel();
         jblMensagemEmail = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlInformacoesCliente.setBackground(new java.awt.Color(51, 51, 51));
         pnlInformacoesCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -72,17 +73,17 @@ public class CadastroClienteView extends javax.swing.JFrame {
         lblNome.setBackground(new java.awt.Color(255, 255, 255));
         lblNome.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblNome.setForeground(java.awt.Color.white);
-        lblNome.setText("Nome:");
+        lblNome.setText("* Nome:");
 
         lblCPF.setBackground(new java.awt.Color(255, 255, 255));
         lblCPF.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblCPF.setForeground(java.awt.Color.white);
-        lblCPF.setText("CPF:");
+        lblCPF.setText("* CPF:");
 
         lblNascimento.setBackground(new java.awt.Color(255, 255, 255));
         lblNascimento.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblNascimento.setForeground(new java.awt.Color(255, 255, 255));
-        lblNascimento.setText("Data de nasc.");
+        lblNascimento.setText("* Data de nasc:");
 
         lblSexo.setBackground(new java.awt.Color(255, 255, 255));
         lblSexo.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
@@ -92,17 +93,17 @@ public class CadastroClienteView extends javax.swing.JFrame {
         lblTelefone.setBackground(new java.awt.Color(255, 255, 255));
         lblTelefone.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblTelefone.setForeground(new java.awt.Color(255, 255, 255));
-        lblTelefone.setText("Telefone:");
+        lblTelefone.setText("* Telefone:");
 
         lblCidade.setBackground(new java.awt.Color(255, 255, 255));
         lblCidade.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblCidade.setForeground(java.awt.Color.white);
-        lblCidade.setText("Cidade:");
+        lblCidade.setText("* Cidade:");
 
         lblEndereco.setBackground(new java.awt.Color(255, 255, 255));
         lblEndereco.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblEndereco.setForeground(java.awt.Color.white);
-        lblEndereco.setText("Endereço:");
+        lblEndereco.setText("* Endereço:");
 
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +187,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         lblEmail.setBackground(new java.awt.Color(255, 255, 255));
         lblEmail.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmail.setText("Email:");
+        lblEmail.setText("* Email:");
 
         txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -286,9 +287,9 @@ public class CadastroClienteView extends javax.swing.JFrame {
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(lblicone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblicone, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
                         .addGap(149, 149, 149))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInformacoesClienteLayout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -303,16 +304,22 @@ public class CadastroClienteView extends javax.swing.JFrame {
                                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblTelefone)
                                     .addComponent(lblNascimento))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jblMensagemTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jblMensagemData, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jblMensagemTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jblMensagemData, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlInformacoesClienteLayout.createSequentialGroup()
                                 .addGap(58, 58, 58)
                                 .addComponent(lblEmail)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(5, 5, 5)
                                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jblMensagemEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -327,24 +334,26 @@ public class CadastroClienteView extends javax.swing.JFrame {
                                 .addGap(53, 53, 53)
                                 .addComponent(lblNome)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jblMensagemNome, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jblMensagemNome, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                                    .addComponent(txtNome)))
                             .addComponent(pnlBotoes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlInformacoesClienteLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblEndereco)
-                                    .addComponent(lblCPF)
-                                    .addComponent(lblCidade))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
+                                            .addGap(65, 65, 65)
+                                            .addComponent(lblCPF))
+                                        .addComponent(lblCidade, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(lblEndereco, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jblMensagemCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jblMensagemEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jblMensagemCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEndereco))))
+                                    .addComponent(txtEndereco)
+                                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(12, 12, 12))))
         );
         pnlInformacoesClienteLayout.setVerticalGroup(
@@ -413,7 +422,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 530, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -6,7 +6,7 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -80,18 +80,28 @@
                                       <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblNascimento" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtTelefone" min="-2" pref="180" max="-2" attributes="0"/>
-                                      <Component id="jblMensagemTelefone" alignment="0" min="-2" pref="295" max="-2" attributes="0"/>
-                                      <Component id="txtData" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
-                                      <Component id="jblMensagemData" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jblMensagemTelefone" alignment="0" min="-2" pref="295" max="-2" attributes="0"/>
+                                              <Component id="jblMensagemData" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                          <Component id="txtTelefone" min="-2" pref="180" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                          <Component id="txtData" min="-2" pref="136" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                   <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtEmail" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
                                       <Component id="jblMensagemEmail" alignment="0" min="-2" pref="345" max="-2" attributes="0"/>
@@ -109,27 +119,31 @@
                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                   <Component id="lblNome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jblMensagemNome" min="-2" pref="379" max="-2" attributes="0"/>
-                                      <Component id="txtNome" min="-2" pref="403" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jblMensagemNome" pref="379" max="32767" attributes="0"/>
+                                      <Component id="txtNome" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="pnlBotoes" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCidade" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                              <Component id="lblCPF" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="lblCidade" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="txtCpf" min="-2" pref="146" max="-2" attributes="0"/>
                                       <Component id="jblMensagemCpf" min="-2" pref="286" max="-2" attributes="0"/>
                                       <Component id="jblMensagemEndereco" alignment="0" pref="400" max="32767" attributes="0"/>
-                                      <Component id="txtCidade" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
                                       <Component id="jblMensagemCidade" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
                                       <Component id="txtEndereco" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCidade" min="-2" pref="227" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -223,7 +237,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nome:"/>
+            <Property name="text" type="java.lang.String" value="* Nome:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCPF">
@@ -237,7 +251,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CPF:"/>
+            <Property name="text" type="java.lang.String" value="* CPF:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNascimento">
@@ -251,7 +265,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Data de nasc."/>
+            <Property name="text" type="java.lang.String" value="* Data de nasc:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSexo">
@@ -279,7 +293,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Telefone:"/>
+            <Property name="text" type="java.lang.String" value="* Telefone:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCidade">
@@ -293,7 +307,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cidade:"/>
+            <Property name="text" type="java.lang.String" value="* Cidade:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEndereco">
@@ -307,7 +321,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
+            <Property name="text" type="java.lang.String" value="* Endere&#xe7;o:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNome">
@@ -439,7 +453,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Email:"/>
+            <Property name="text" type="java.lang.String" value="* Email:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmail">
