@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlFundo" min="-2" max="-2" attributes="0"/>
+          <Component id="pnlFundo" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -47,8 +47,8 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="resumoGeral" alignment="0" max="32767" attributes="0"/>
-                      <Component id="tblProduto" alignment="0" min="-2" pref="684" max="-2" attributes="0"/>
-                      <Component id="txtDados" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDados" alignment="0" max="32767" attributes="0"/>
+                      <Component id="tblProduto" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -60,7 +60,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtDados" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tblProduto" pref="112" max="32767" attributes="0"/>
+                  <Component id="tblProduto" pref="247" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="resumoGeral" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -82,45 +82,16 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lblNomeNPedido" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblNomeCPF" alignment="1" min="-2" pref="66" max="-2" attributes="0"/>
-                          <Component id="lblNomeCliente" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtNomeNPedido" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNomeCPF" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNomeCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="65" max="32767" attributes="0"/>
+                      <Component id="DadosPessoais" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                       <Component id="DadosCliente" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="DadosCliente" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtNomeCliente" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="lblNomeCliente" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNomeCPF" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtNomeCPF" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNomeNPedido" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="txtNomeNPedido" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="DadosPessoais" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -167,7 +138,7 @@
                                   <Component id="txtNomeComplemento1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -195,7 +166,7 @@
                                   <Component id="txtNomeComplemento3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -283,54 +254,102 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="lblNomeCliente">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bookman Old Style" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cliente:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="txtNomeCliente">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bookman Old Style" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Carlos Fernandes da Silva"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="txtNomeCPF">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bookman Old Style" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="222.555.999-00"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNomeCPF">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bookman Old Style" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="CPF:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNomeNPedido">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bookman Old Style" size="12" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="N&#xba; Pedido:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="txtNomeNPedido">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Bookman Old Style" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="10.539"/>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JPanel" name="DadosPessoais">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblNomeNPedido" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblNomeCPF" alignment="1" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="lblNomeCliente" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="txtNomeNPedido" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNomeCPF" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNomeCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="98" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtNomeCliente" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="lblNomeCliente" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblNomeCPF" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtNomeCPF" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblNomeNPedido" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtNomeNPedido" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="txtNomeCPF">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Bookman Old Style" size="11" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="222.555.999-00"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNomeNPedido">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Bookman Old Style" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="N&#xba; Pedido:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="txtNomeNPedido">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Bookman Old Style" size="11" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="10.539"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNomeCliente">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Bookman Old Style" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Cliente:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNomeCPF">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Bookman Old Style" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="CPF:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="txtNomeCliente">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Bookman Old Style" size="11" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Carlos Fernandes da Silva"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="tblProduto">
@@ -354,7 +373,7 @@
                   <Font name="Bookman Old Style" size="11" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
+                  <Table columnCount="4" rowCount="0">
                     <Column editable="false" title="C&#xf3;digo" type="java.lang.String"/>
                     <Column editable="false" title="Descri&#xe7;&#xe3;o do Produto" type="java.lang.String"/>
                     <Column editable="false" title="Pre&#xe7;o Un." type="java.lang.Double"/>

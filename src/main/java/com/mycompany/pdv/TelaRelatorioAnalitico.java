@@ -40,12 +40,13 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
         txtNomeBairro1 = new javax.swing.JLabel();
         lblNomeCidade1 = new javax.swing.JLabel();
         txtNomeComplemento3 = new javax.swing.JLabel();
-        lblNomeCliente = new javax.swing.JLabel();
-        txtNomeCliente = new javax.swing.JLabel();
+        DadosPessoais = new javax.swing.JPanel();
         txtNomeCPF = new javax.swing.JLabel();
-        lblNomeCPF = new javax.swing.JLabel();
         lblNomeNPedido = new javax.swing.JLabel();
         txtNomeNPedido = new javax.swing.JLabel();
+        lblNomeCliente = new javax.swing.JLabel();
+        lblNomeCPF = new javax.swing.JLabel();
+        txtNomeCliente = new javax.swing.JLabel();
         tblProduto = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         resumoGeral = new javax.swing.JPanel();
@@ -122,7 +123,7 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
                         .addComponent(lblNomeComplemento1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNomeComplemento1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         DadosClienteLayout.setVerticalGroup(
             DadosClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,20 +145,11 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
                         .addComponent(txtNomeBairro1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblNomeCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtNomeComplemento3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        lblNomeCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        lblNomeCliente.setText("Cliente:");
-
-        txtNomeCliente.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeCliente.setText("Carlos Fernandes da Silva");
 
         txtNomeCPF.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         txtNomeCPF.setText("222.555.999-00");
-
-        lblNomeCPF.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        lblNomeCPF.setText("CPF:");
 
         lblNomeNPedido.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeNPedido.setText("Nº Pedido:");
@@ -165,42 +157,63 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
         txtNomeNPedido.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         txtNomeNPedido.setText("10.539");
 
+        lblNomeCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        lblNomeCliente.setText("Cliente:");
+
+        lblNomeCPF.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        lblNomeCPF.setText("CPF:");
+
+        txtNomeCliente.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
+        txtNomeCliente.setText("Carlos Fernandes da Silva");
+
+        javax.swing.GroupLayout DadosPessoaisLayout = new javax.swing.GroupLayout(DadosPessoais);
+        DadosPessoais.setLayout(DadosPessoaisLayout);
+        DadosPessoaisLayout.setHorizontalGroup(
+            DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DadosPessoaisLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblNomeNPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNomeCPF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNomeNPedido, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeCPF, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+        DadosPessoaisLayout.setVerticalGroup(
+            DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DadosPessoaisLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(DadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeNPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomeNPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout txtDadosLayout = new javax.swing.GroupLayout(txtDados);
         txtDados.setLayout(txtDadosLayout);
         txtDadosLayout.setHorizontalGroup(
             txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(txtDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblNomeNPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNomeCPF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNomeNPedido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeCPF, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(DadosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 61, Short.MAX_VALUE))
+                .addComponent(DadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(DadosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         txtDadosLayout.setVerticalGroup(
             txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(DadosCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(txtDadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeNPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeNPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addComponent(DadosPessoais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTable1.setBackground(new java.awt.Color(153, 153, 153));
@@ -208,10 +221,7 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Código", "Descrição do Produto", "Preço Un.", "Quantidade"
@@ -281,8 +291,8 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(resumoGeral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tblProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tblProduto))
                 .addContainerGap())
         );
         pnlFundoLayout.setVerticalGroup(
@@ -291,7 +301,7 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(txtDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tblProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addComponent(tblProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resumoGeral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -301,7 +311,7 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,6 +358,7 @@ public class TelaRelatorioAnalitico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DadosCliente;
+    private javax.swing.JPanel DadosPessoais;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblNomeBairro1;
     private javax.swing.JLabel lblNomeCPF;

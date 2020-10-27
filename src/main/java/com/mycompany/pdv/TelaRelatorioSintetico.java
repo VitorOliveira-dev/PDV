@@ -5,6 +5,11 @@
  */
 package com.mycompany.pdv;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Computador
@@ -42,6 +47,7 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
         pnlRelatorio = new javax.swing.JPanel();
         pnlTabelaVender = new javax.swing.JScrollPane();
         tbTabelaProdutosVenda = new javax.swing.JTable();
+        btnPesquisaAnalitico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,6 +74,11 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
         btnPesquisaMes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
         btnPesquisaMes.setContentAreaFilled(false);
         btnPesquisaMes.setOpaque(true);
+        btnPesquisaMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaMesActionPerformed(evt);
+            }
+        });
 
         lblNomeOU.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeOU.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -89,12 +100,17 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
         lblNomeAte.setText("Até");
 
         btnPesquisaPersonalizada.setBackground(new java.awt.Color(51, 51, 51));
-        btnPesquisaPersonalizada.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        btnPesquisaPersonalizada.setFont(new java.awt.Font("Bookman Old Style", 1, 16)); // NOI18N
         btnPesquisaPersonalizada.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisaPersonalizada.setText("<html> Pesquisa <br>Personalizada");
         btnPesquisaPersonalizada.setContentAreaFilled(false);
         btnPesquisaPersonalizada.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPesquisaPersonalizada.setOpaque(true);
+        btnPesquisaPersonalizada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaPersonalizadaActionPerformed(evt);
+            }
+        });
 
         txtNomeFinal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNomeFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
@@ -170,21 +186,19 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
         tbTabelaProdutosVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         tbTabelaProdutosVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Data", "Nº Ped", "Cliente", "Valor Ped", "+ INFO"
+                "Data", "Nº Pedido", "Cliente", "Valor Pedido"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -202,6 +216,19 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
         tbTabelaProdutosVenda.setSelectionBackground(new java.awt.Color(51, 51, 51));
         pnlTabelaVender.setViewportView(tbTabelaProdutosVenda);
 
+        btnPesquisaAnalitico.setBackground(new java.awt.Color(51, 51, 51));
+        btnPesquisaAnalitico.setFont(new java.awt.Font("Bookman Old Style", 1, 16)); // NOI18N
+        btnPesquisaAnalitico.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisaAnalitico.setText("Pesquisar");
+        btnPesquisaAnalitico.setContentAreaFilled(false);
+        btnPesquisaAnalitico.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnPesquisaAnalitico.setOpaque(true);
+        btnPesquisaAnalitico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisaAnaliticoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlRelatorioLayout = new javax.swing.GroupLayout(pnlRelatorio);
         pnlRelatorio.setLayout(pnlRelatorioLayout);
         pnlRelatorioLayout.setHorizontalGroup(
@@ -210,13 +237,23 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlRelatorioLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnPesquisaAnalitico, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         pnlRelatorioLayout.setVerticalGroup(
             pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRelatorioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRelatorioLayout.createSequentialGroup()
+                    .addContainerGap(343, Short.MAX_VALUE)
+                    .addComponent(btnPesquisaAnalitico, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout pnlFundoLayout = new javax.swing.GroupLayout(pnlFundo);
@@ -237,8 +274,8 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
                 .addComponent(pnlPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlFundoLayout.createSequentialGroup()
-                .addComponent(pnlRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(pnlRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,6 +295,46 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
     private void jcbNomeMesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNomeMesesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbNomeMesesActionPerformed
+
+    private void btnPesquisaMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaMesActionPerformed
+        if(jcbNomeMeses.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(this, "Selecione um mês!!!","Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        else{            
+            //Chamar função
+            String mes = jcbNomeMeses.getSelectedItem().toString();
+            JOptionPane.showMessageDialog(this, "Mês selecionado "+mes);
+        }
+        
+    }//GEN-LAST:event_btnPesquisaMesActionPerformed
+
+    private void btnPesquisaPersonalizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaPersonalizadaActionPerformed
+        if(txtNomeInicio.getText().equals("")){
+            txtNomeInicio.setBorder(new LineBorder(Color.RED));
+        }       
+        else if(txtNomeFinal.getText().equals("")){
+            txtNomeFinal.setBorder(new LineBorder(Color.RED));
+        }
+        else{
+            txtNomeInicio.setBorder(new LineBorder(Color.BLACK));
+            txtNomeFinal.setBorder(new LineBorder(Color.BLACK));
+            
+            String nomeInicio = new String(txtNomeInicio.getText());
+            String nomeFinal = new String(txtNomeFinal.getText());
+            
+            
+            
+            JOptionPane.showMessageDialog(this, nomeInicio+" | "+nomeFinal);
+        }
+        
+    }//GEN-LAST:event_btnPesquisaPersonalizadaActionPerformed
+
+    private void btnPesquisaAnaliticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaAnaliticoActionPerformed
+        DefaultTableModel ListaTbl = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
+        int linhaTbl = tbTabelaProdutosVenda.getSelectedRow();
+        if(linhaTbl==-1)
+            JOptionPane.showMessageDialog(this, "Selecione um registro na tabela!!!","Aviso", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnPesquisaAnaliticoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,6 +372,7 @@ public class TelaRelatorioSintetico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPesquisaAnalitico;
     private javax.swing.JButton btnPesquisaMes;
     private javax.swing.JButton btnPesquisaPersonalizada;
     private javax.swing.JComboBox<String> jcbNomeMeses;
