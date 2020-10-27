@@ -5,6 +5,8 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
+import br.instumentosmusicais.pdv.utils.Validador;
+
 /**
  *
  * @author eduardo
@@ -34,24 +36,26 @@ public class ManutencaoView extends javax.swing.JFrame {
         sPnlProdutos = new javax.swing.JScrollPane();
         tblProdutos = new javax.swing.JTable();
         pnlBuscaProduto = new javax.swing.JPanel();
-        btnAtualizar1 = new javax.swing.JButton();
-        lblNome1 = new javax.swing.JLabel();
-        btnAdicionar1 = new javax.swing.JButton();
-        txtNome1 = new javax.swing.JTextField();
-        btnPesquisar1 = new javax.swing.JButton();
-        btnExcluir1 = new javax.swing.JButton();
+        btnAtualizarProduto = new javax.swing.JButton();
+        lblNomeProduto = new javax.swing.JLabel();
+        btnAdicionarProduto = new javax.swing.JButton();
+        txtProduto = new javax.swing.JTextField();
+        btnPesquisarProduto = new javax.swing.JButton();
+        btnExcluirProduto = new javax.swing.JButton();
+        lblMensagemErroProduto = new javax.swing.JLabel();
         pnlClientes = new javax.swing.JPanel();
         pnlBuscaClientes = new javax.swing.JPanel();
         btnAtualizar = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
-        btnAdicionar = new javax.swing.JButton();
+        btnAdicionarCliente = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
+        btnPesquisarCliente = new javax.swing.JButton();
+        btnExcluirCliente = new javax.swing.JButton();
+        lblMensagemErroCliente = new javax.swing.JLabel();
         sPnlClientes = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
-        btnPesquisarCliente = new javax.swing.JButton();
-        btnPesquisarProduto = new javax.swing.JButton();
+        btnCliente = new javax.swing.JButton();
+        btnProduto = new javax.swing.JButton();
         lblIcone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -95,52 +99,54 @@ public class ManutencaoView extends javax.swing.JFrame {
 
         pnlBuscaProduto.setBackground(new java.awt.Color(102, 102, 102));
 
-        btnAtualizar1.setBackground(new java.awt.Color(51, 51, 51));
-        btnAtualizar1.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnAtualizar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAtualizar1.setText("Atualizar");
-        btnAtualizar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnAtualizar1.setContentAreaFilled(false);
-        btnAtualizar1.setOpaque(true);
-        btnAtualizar1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizarProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnAtualizarProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnAtualizarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtualizarProduto.setText("Atualizar");
+        btnAtualizarProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnAtualizarProduto.setContentAreaFilled(false);
+        btnAtualizarProduto.setOpaque(true);
+        btnAtualizarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizar1ActionPerformed(evt);
+                btnAtualizarProdutoActionPerformed(evt);
             }
         });
 
-        lblNome1.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        lblNome1.setText("Instrumento:");
+        lblNomeProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        lblNomeProduto.setText("Instrumento:");
 
-        btnAdicionar1.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdicionar1.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnAdicionar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdicionar1.setText("Adicionar");
-        btnAdicionar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnAdicionar1.setContentAreaFilled(false);
-        btnAdicionar1.setOpaque(true);
+        btnAdicionarProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdicionarProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnAdicionarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdicionarProduto.setText("Adicionar");
+        btnAdicionarProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnAdicionarProduto.setContentAreaFilled(false);
+        btnAdicionarProduto.setOpaque(true);
 
-        txtNome1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        txtProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        btnPesquisar1.setBackground(new java.awt.Color(51, 51, 51));
-        btnPesquisar1.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnPesquisar1.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisar1.setText("Pesquisar");
-        btnPesquisar1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnPesquisar1.setContentAreaFilled(false);
-        btnPesquisar1.setOpaque(true);
-        btnPesquisar1.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisarProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnPesquisarProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnPesquisarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisarProduto.setText("Pesquisar");
+        btnPesquisarProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnPesquisarProduto.setContentAreaFilled(false);
+        btnPesquisarProduto.setOpaque(true);
+        btnPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisar1ActionPerformed(evt);
+                btnPesquisarProdutoActionPerformed(evt);
             }
         });
 
-        btnExcluir1.setBackground(new java.awt.Color(51, 51, 51));
-        btnExcluir1.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnExcluir1.setForeground(new java.awt.Color(255, 255, 255));
-        btnExcluir1.setText("Excluir");
-        btnExcluir1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnExcluir1.setContentAreaFilled(false);
-        btnExcluir1.setOpaque(true);
+        btnExcluirProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnExcluirProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnExcluirProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnExcluirProduto.setText("Excluir");
+        btnExcluirProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnExcluirProduto.setContentAreaFilled(false);
+        btnExcluirProduto.setOpaque(true);
+
+        lblMensagemErroProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout pnlBuscaProdutoLayout = new javax.swing.GroupLayout(pnlBuscaProduto);
         pnlBuscaProduto.setLayout(pnlBuscaProdutoLayout);
@@ -148,38 +154,42 @@ public class ManutencaoView extends javax.swing.JFrame {
             pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
-                        .addComponent(btnAdicionar1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(btnAtualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExcluir1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
-                        .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPesquisar1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
+                            .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)
+                            .addComponent(btnAtualizarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
+                            .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblMensagemErroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         pnlBuscaProdutoLayout.setVerticalGroup(
             pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome1)
-                    .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                    .addComponent(lblNomeProduto)
+                    .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblMensagemErroProduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionar1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtualizar1)
-                    .addComponent(btnExcluir1))
+                    .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizarProduto)
+                    .addComponent(btnExcluirProduto))
                 .addContainerGap())
         );
 
-        pnlBuscaProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionar1, btnAtualizar1, btnExcluir1});
+        pnlBuscaProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarProduto, btnAtualizarProduto, btnExcluirProduto});
 
         javax.swing.GroupLayout pnlProdutosLayout = new javax.swing.GroupLayout(pnlProdutos);
         pnlProdutos.setLayout(pnlProdutosLayout);
@@ -221,31 +231,38 @@ public class ManutencaoView extends javax.swing.JFrame {
         lblNome.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblNome.setText("Nome:");
 
-        btnAdicionar.setBackground(new java.awt.Color(51, 51, 51));
-        btnAdicionar.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnAdicionar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdicionar.setText("Adicionar");
-        btnAdicionar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnAdicionar.setContentAreaFilled(false);
-        btnAdicionar.setOpaque(true);
+        btnAdicionarCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnAdicionarCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnAdicionarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdicionarCliente.setText("Adicionar");
+        btnAdicionarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnAdicionarCliente.setContentAreaFilled(false);
+        btnAdicionarCliente.setOpaque(true);
 
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        btnPesquisar.setBackground(new java.awt.Color(51, 51, 51));
-        btnPesquisar.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisar.setText("Pesquisar");
-        btnPesquisar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnPesquisar.setContentAreaFilled(false);
-        btnPesquisar.setOpaque(true);
+        btnPesquisarCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnPesquisarCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnPesquisarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisarCliente.setText("Pesquisar");
+        btnPesquisarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnPesquisarCliente.setContentAreaFilled(false);
+        btnPesquisarCliente.setOpaque(true);
+        btnPesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarClienteActionPerformed(evt);
+            }
+        });
 
-        btnExcluir.setBackground(new java.awt.Color(51, 51, 51));
-        btnExcluir.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        btnExcluir.setText("Excluir");
-        btnExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnExcluir.setContentAreaFilled(false);
-        btnExcluir.setOpaque(true);
+        btnExcluirCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnExcluirCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnExcluirCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnExcluirCliente.setText("Excluir");
+        btnExcluirCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnExcluirCliente.setContentAreaFilled(false);
+        btnExcluirCliente.setOpaque(true);
+
+        lblMensagemErroCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout pnlBuscaClientesLayout = new javax.swing.GroupLayout(pnlBuscaClientes);
         pnlBuscaClientes.setLayout(pnlBuscaClientesLayout);
@@ -255,16 +272,19 @@ public class ManutencaoView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMensagemErroCliente)
                     .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                        .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
+                                .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlBuscaClientesLayout.setVerticalGroup(
@@ -274,18 +294,20 @@ public class ManutencaoView extends javax.swing.JFrame {
                 .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar))
+                    .addComponent(btnPesquisarCliente))
+                .addGap(1, 1, 1)
+                .addComponent(lblMensagemErroCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAtualizar)
-                    .addComponent(btnExcluir))
+                    .addComponent(btnExcluirCliente))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPesquisar, txtNome});
+        pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPesquisarCliente, txtNome});
 
-        pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionar, btnAtualizar, btnExcluir});
+        pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarCliente, btnAtualizar, btnExcluirCliente});
 
         sPnlClientes.setBorder(null);
 
@@ -338,29 +360,29 @@ public class ManutencaoView extends javax.swing.JFrame {
 
         pnlTabelas.add(pnlClientes, "card4");
 
-        btnPesquisarCliente.setBackground(new java.awt.Color(51, 51, 51));
-        btnPesquisarCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnPesquisarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisarCliente.setText("Editar Clientes");
-        btnPesquisarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnPesquisarCliente.setContentAreaFilled(false);
-        btnPesquisarCliente.setOpaque(true);
-        btnPesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCliente.setText("Editar Clientes");
+        btnCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnCliente.setContentAreaFilled(false);
+        btnCliente.setOpaque(true);
+        btnCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarClienteActionPerformed(evt);
+                btnClienteActionPerformed(evt);
             }
         });
 
-        btnPesquisarProduto.setBackground(new java.awt.Color(51, 51, 51));
-        btnPesquisarProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnPesquisarProduto.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisarProduto.setText("Editar Produtos");
-        btnPesquisarProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnPesquisarProduto.setContentAreaFilled(false);
-        btnPesquisarProduto.setOpaque(true);
-        btnPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
+        btnProduto.setBackground(new java.awt.Color(51, 51, 51));
+        btnProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnProduto.setText("Editar Produtos");
+        btnProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnProduto.setContentAreaFilled(false);
+        btnProduto.setOpaque(true);
+        btnProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarProdutoActionPerformed(evt);
+                btnProdutoActionPerformed(evt);
             }
         });
 
@@ -371,19 +393,19 @@ public class ManutencaoView extends javax.swing.JFrame {
         pnlCRUDLayout.setHorizontalGroup(
             pnlCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCRUDLayout.createSequentialGroup()
-                .addComponent(pnlTabelas, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                .addComponent(pnlTabelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlCRUDLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPesquisarProduto)
+                .addComponent(btnProduto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblIcone)
                 .addGap(38, 38, 38))
         );
 
-        pnlCRUDLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnPesquisarCliente, btnPesquisarProduto});
+        pnlCRUDLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCliente, btnProduto});
 
         pnlCRUDLayout.setVerticalGroup(
             pnlCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,14 +414,14 @@ public class ManutencaoView extends javax.swing.JFrame {
                 .addGroup(pnlCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblIcone, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPesquisarCliente)))
+                        .addComponent(btnProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCliente)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(pnlTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        pnlCRUDLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPesquisarCliente, btnPesquisarProduto});
+        pnlCRUDLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCliente, btnProduto});
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
@@ -438,23 +460,30 @@ public class ManutencaoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void btnAtualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizar1ActionPerformed
+    private void btnAtualizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAtualizar1ActionPerformed
+    }//GEN-LAST:event_btnAtualizarProdutoActionPerformed
 
-    private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
+    private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         pnlClientes.setVisible(true);
         pnlProdutos.setVisible(false);
-    }//GEN-LAST:event_btnPesquisarClienteActionPerformed
+    }//GEN-LAST:event_btnClienteActionPerformed
 
-    private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
+    private void btnProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutoActionPerformed
         pnlClientes.setVisible(false);
         pnlProdutos.setVisible(true);
+    }//GEN-LAST:event_btnProdutoActionPerformed
+
+    private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
+        Validador objValidador = new Validador();
+        objValidador.CampoVazio(txtProduto, lblMensagemErroProduto);
+
     }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
 
-    private void btnPesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesquisar1ActionPerformed
+    private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
+         Validador objValidador = new Validador();
+        objValidador.CampoVazio(txtNome, lblMensagemErroCliente);
+    }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -495,19 +524,21 @@ public class ManutencaoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionar;
-    private javax.swing.JButton btnAdicionar1;
+    private javax.swing.JButton btnAdicionarCliente;
+    private javax.swing.JButton btnAdicionarProduto;
     private javax.swing.JButton btnAtualizar;
-    private javax.swing.JButton btnAtualizar1;
-    private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnExcluir1;
-    private javax.swing.JButton btnPesquisar;
-    private javax.swing.JButton btnPesquisar1;
+    private javax.swing.JButton btnAtualizarProduto;
+    private javax.swing.JButton btnCliente;
+    private javax.swing.JButton btnExcluirCliente;
+    private javax.swing.JButton btnExcluirProduto;
     private javax.swing.JButton btnPesquisarCliente;
     private javax.swing.JButton btnPesquisarProduto;
+    private javax.swing.JButton btnProduto;
     private javax.swing.JLabel lblIcone;
+    private javax.swing.JLabel lblMensagemErroCliente;
+    private javax.swing.JLabel lblMensagemErroProduto;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblNome1;
+    private javax.swing.JLabel lblNomeProduto;
     private javax.swing.JPanel pnlBuscaClientes;
     private javax.swing.JPanel pnlBuscaProduto;
     private javax.swing.JPanel pnlCRUD;
@@ -520,6 +551,6 @@ public class ManutencaoView extends javax.swing.JFrame {
     private javax.swing.JTable tblClientes;
     private javax.swing.JTable tblProdutos;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtNome1;
+    private javax.swing.JTextField txtProduto;
     // End of variables declaration//GEN-END:variables
 }

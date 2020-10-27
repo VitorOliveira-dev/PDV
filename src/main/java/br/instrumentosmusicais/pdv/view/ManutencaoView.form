@@ -83,14 +83,14 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="pnlTabelas" pref="535" max="32767" attributes="0"/>
+                      <Component id="pnlTabelas" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnPesquisarCliente" linkSize="8" min="-2" pref="140" max="-2" attributes="0"/>
+                      <Component id="btnCliente" linkSize="8" min="-2" pref="140" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnPesquisarProduto" linkSize="8" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnProduto" linkSize="8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblIcone" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -104,8 +104,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblIcone" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnPesquisarProduto" linkSize="7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="btnPesquisarCliente" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnProduto" linkSize="7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnCliente" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="11" max="32767" attributes="0"/>
@@ -202,23 +202,26 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblNome1" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Component id="lblNomeProduto" min="-2" pref="92" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnAdicionar1" min="-2" pref="121" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Component id="btnAtualizar1" min="-2" pref="121" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="btnExcluir1" min="-2" pref="121" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="btnAdicionarProduto" min="-2" pref="121" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                              <Component id="btnAtualizarProduto" min="-2" pref="121" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="btnExcluirProduto" min="-2" pref="121" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="txtProduto" min="-2" pref="318" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="btnPesquisarProduto" min="-2" pref="77" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="txtNome1" min="-2" pref="318" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnPesquisar1" min="-2" pref="77" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lblMensagemErroProduto" min="-2" pref="145" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                                  <EmptySpace pref="28" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -227,15 +230,17 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblNome1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNome1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="btnPesquisar1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="lblNomeProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtProduto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="btnPesquisarProduto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lblMensagemErroProduto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnAdicionar1" linkSize="6" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="btnAtualizar1" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnExcluir1" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnAdicionarProduto" linkSize="6" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="btnAtualizarProduto" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnExcluirProduto" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -243,7 +248,7 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="btnAtualizar1">
+                        <Component class="javax.swing.JButton" name="btnAtualizarProduto">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -264,10 +269,10 @@
                             <Property name="opaque" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizar1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarProdutoActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="lblNome1">
+                        <Component class="javax.swing.JLabel" name="lblNomeProduto">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Bookman Old Style" size="14" style="1"/>
@@ -275,7 +280,7 @@
                             <Property name="text" type="java.lang.String" value="Instrumento:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAdicionar1">
+                        <Component class="javax.swing.JButton" name="btnAdicionarProduto">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -296,7 +301,7 @@
                             <Property name="opaque" type="boolean" value="true"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtNome1">
+                        <Component class="javax.swing.JTextField" name="txtProduto">
                           <Properties>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -305,7 +310,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnPesquisar1">
+                        <Component class="javax.swing.JButton" name="btnPesquisarProduto">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -326,10 +331,10 @@
                             <Property name="opaque" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisar1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarProdutoActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnExcluir1">
+                        <Component class="javax.swing.JButton" name="btnExcluirProduto">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -348,6 +353,13 @@
                             </Property>
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="opaque" type="boolean" value="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblMensagemErroProduto">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Bookman Old Style" size="12" style="1"/>
+                            </Property>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -399,22 +411,27 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblNome" min="-2" pref="49" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnAdicionar" min="-2" pref="121" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblMensagemErroCliente" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="btnAdicionarCliente" min="-2" pref="121" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnAtualizar" min="-2" pref="121" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnExcluirCliente" min="-2" pref="121" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="txtNome" min="-2" pref="375" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnAtualizar" min="-2" pref="121" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnExcluir" min="-2" pref="121" max="-2" attributes="0"/>
+                                          <Component id="btnPesquisarCliente" min="-2" pref="77" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="txtNome" min="-2" pref="375" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnPesquisar" min="-2" pref="77" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -426,13 +443,15 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtNome" linkSize="1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="btnPesquisar" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnPesquisarCliente" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Component id="lblMensagemErroCliente" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnAdicionar" linkSize="3" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Component id="btnAdicionarCliente" linkSize="3" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                                       <Component id="btnAtualizar" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnExcluir" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnExcluirCliente" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -472,7 +491,7 @@
                             <Property name="text" type="java.lang.String" value="Nome:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnAdicionar">
+                        <Component class="javax.swing.JButton" name="btnAdicionarCliente">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -502,7 +521,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnPesquisar">
+                        <Component class="javax.swing.JButton" name="btnPesquisarCliente">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -522,8 +541,11 @@
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="opaque" type="boolean" value="true"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarClienteActionPerformed"/>
+                          </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnExcluir">
+                        <Component class="javax.swing.JButton" name="btnExcluirCliente">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -542,6 +564,13 @@
                             </Property>
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="opaque" type="boolean" value="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="lblMensagemErroCliente">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Bookman Old Style" size="12" style="1"/>
+                            </Property>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -590,7 +619,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnPesquisarCliente">
+            <Component class="javax.swing.JButton" name="btnCliente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -611,10 +640,10 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarClienteActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClienteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnPesquisarProduto">
+            <Component class="javax.swing.JButton" name="btnProduto">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -635,7 +664,7 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarProdutoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProdutoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblIcone">
