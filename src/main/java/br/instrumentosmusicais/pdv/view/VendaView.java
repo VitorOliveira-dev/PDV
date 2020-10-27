@@ -73,7 +73,7 @@ public class VendaView extends javax.swing.JFrame {
         lblVender.setText("Vender");
 
         lblNomeCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        lblNomeCliente.setText("Nome do Cliente");
+        lblNomeCliente.setText("Nome do Cliente*");
 
         txtNomeCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -86,7 +86,7 @@ public class VendaView extends javax.swing.JFrame {
         txtCPF.setToolTipText("");
 
         lblCodCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        lblCodCliente.setText("CPF");
+        lblCodCliente.setText("CPF*");
 
         btnPesquisarCliente.setBackground(new java.awt.Color(51, 51, 51));
         btnPesquisarCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
@@ -122,7 +122,7 @@ public class VendaView extends javax.swing.JFrame {
                     .addComponent(lblCodCliente)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMensagemErroCPF))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +134,7 @@ public class VendaView extends javax.swing.JFrame {
                     .addComponent(lblNomeCliente)
                     .addComponent(lblCodCliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
@@ -155,7 +155,7 @@ public class VendaView extends javax.swing.JFrame {
         spnQtd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         lblCodProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        lblCodProduto.setText("Código do Produto");
+        lblCodProduto.setText("Código do Produto*");
 
         btnAdicionarProduto.setBackground(new java.awt.Color(51, 51, 51));
         btnAdicionarProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
@@ -230,7 +230,7 @@ public class VendaView extends javax.swing.JFrame {
                                 .addComponent(txtCodProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblMensagemErroCodProduto)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProdutoLayout.createSequentialGroup()
                                 .addComponent(spnQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,7 +243,7 @@ public class VendaView extends javax.swing.JFrame {
                             .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNomeDoProduto)
                             .addComponent(txtNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 21, Short.MAX_VALUE))))
         );
         pnlProdutoLayout.setVerticalGroup(
             pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,13 +437,14 @@ public class VendaView extends javax.swing.JFrame {
             .addGroup(pnlVenderEsqLayout.createSequentialGroup()
                 .addGroup(pnlVenderEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlVenderEsqLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlVenderEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pnlProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(pnlProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlVenderEsqLayout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(lblicone)))
+                        .addGap(190, 190, 190)
+                        .addComponent(lblicone))
+                    .addGroup(pnlVenderEsqLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -451,11 +452,11 @@ public class VendaView extends javax.swing.JFrame {
         pnlVenderEsqLayout.setVerticalGroup(
             pnlVenderEsqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlVenderEsqLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(42, 42, 42)
                 .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblicone)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVenderEsqLayout.createSequentialGroup()
@@ -530,7 +531,16 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
-
+        Validador objValidar = new Validador();
+        if(txtCodProduto.getText().equals("   Ex: 1234")){
+        txtCodProduto.setText("");
+        objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+        }else{
+            txtCodProduto.setForeground(Color.BLACK);
+            txtCodProduto.setBackground(Color.WHITE);
+            objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+        }
+        
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 
     /**
