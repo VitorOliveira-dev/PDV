@@ -20,6 +20,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
      */
     public CadastroProdutoView() {
         initComponents();
+        lblCodigo.setVisible(false);
     }
 
     /**
@@ -33,7 +34,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
         pnlCadastroProduto = new javax.swing.JPanel();
         lblCodigo = new javax.swing.JLabel();
-        lblCodigoInstrumento = new javax.swing.JLabel();
         lblInstrumento = new javax.swing.JLabel();
         txtInstrumento = new javax.swing.JTextField();
         lblCor = new javax.swing.JLabel();
@@ -55,6 +55,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         jblMensagemFabricante = new javax.swing.JLabel();
         jblMensagemValor = new javax.swing.JLabel();
         lblIcone = new javax.swing.JLabel();
+        lblCodigoValor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,11 +65,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         lblCodigo.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText(" Código:");
-
-        lblCodigoInstrumento.setBackground(new java.awt.Color(255, 255, 255));
-        lblCodigoInstrumento.setText("  ");
-        lblCodigoInstrumento.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        lblCodigoInstrumento.setOpaque(true);
 
         lblInstrumento.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblInstrumento.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,6 +221,9 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
         lblIcone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/testeProduto2.png"))); // NOI18N
 
+        lblCodigoValor.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        lblCodigoValor.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout pnlCadastroProdutoLayout = new javax.swing.GroupLayout(pnlCadastroProduto);
         pnlCadastroProduto.setLayout(pnlCadastroProdutoLayout);
         pnlCadastroProdutoLayout.setHorizontalGroup(
@@ -235,14 +234,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                     .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
-                                .addComponent(lblInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jblMensagemInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCor, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                                    .addComponent(jblMensagemCor, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
                                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
@@ -265,10 +256,18 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                                     .addComponent(jblMensagemValor)
                                     .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(lblCodigo)
-                                .addGap(22, 22, 22)
-                                .addComponent(lblCodigoInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(lblCodigo)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCodigoValor)
+                                    .addComponent(txtInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jblMensagemInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCor, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                    .addComponent(jblMensagemCor, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
                         .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,11 +291,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCadastroProdutos)
                     .addComponent(lblIcone))
-                .addGap(30, 30, 30)
+                .addGap(35, 35, 35)
                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo)
-                    .addComponent(lblCodigoInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addComponent(lblCodigoValor))
+                .addGap(39, 39, 39)
                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblInstrumento)
                     .addComponent(txtInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -328,7 +327,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbbTipo, lblCodigoInstrumento, txtCor, txtFabricante, txtInstrumento, txtValor});
+        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbbTipo, txtCor, txtFabricante, txtInstrumento, txtValor});
 
         pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jblMensagemFabricante, jblMensagemValor});
 
@@ -336,7 +335,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCadastroProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+            .addComponent(pnlCadastroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 549, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,7 +454,7 @@ jblMensagemFabricante.setText("");
     private javax.swing.JLabel jblMensagemValor;
     private javax.swing.JLabel lblCadastroProdutos;
     private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblCodigoInstrumento;
+    private javax.swing.JLabel lblCodigoValor;
     private javax.swing.JLabel lblCor;
     private javax.swing.JLabel lblFabricante;
     private javax.swing.JLabel lblIcone;
