@@ -40,7 +40,24 @@ public class Validador {
             txt.setBackground(Color.red);
             jbl.setText("Campo Obrigatório");
         }
-    }    
+    } 
+    
+        public void CampoVazioFormatado( JFormattedTextField txt, JLabel jbl){
+        try{
+            
+            //Verifico se o campo está vazio
+            if(txt.getText().replace(".", "").replace("/", "").replace("-", "").trim().equals("")){
+                throw new IllegalArgumentException();
+                
+            }
+            txt.setBackground(Color.WHITE);
+            jbl.setText("");
+            }
+        catch(IllegalArgumentException e){
+            txt.setBackground(Color.red);
+            jbl.setText("Campo Obrigatório");
+        }
+    }
      public void ValidarFloat(JTextField txt, JLabel jbl){
      
          try{

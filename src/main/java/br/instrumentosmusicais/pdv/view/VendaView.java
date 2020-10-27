@@ -1,5 +1,6 @@
 package br.instrumentosmusicais.pdv.view;
 
+import br.instumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
@@ -35,6 +36,8 @@ public class VendaView extends javax.swing.JFrame {
         txtCPF = new javax.swing.JFormattedTextField();
         lblCodCliente = new javax.swing.JLabel();
         btnPesquisarCliente = new javax.swing.JButton();
+        lblMensagemErroNome = new javax.swing.JLabel();
+        lblMensagemErroCPF = new javax.swing.JLabel();
         pnlProduto = new javax.swing.JPanel();
         lblQtdProduto = new javax.swing.JLabel();
         spnQtd = new javax.swing.JSpinner();
@@ -43,6 +46,7 @@ public class VendaView extends javax.swing.JFrame {
         txtNomeDoProduto = new javax.swing.JTextField();
         lblNomeDoProduto = new javax.swing.JLabel();
         txtCodProduto = new javax.swing.JTextField();
+        lblMensagemErroCodProduto = new javax.swing.JLabel();
         pnlTabela = new javax.swing.JPanel();
         pnlValoresVender1 = new javax.swing.JPanel();
         lblDesconto1 = new javax.swing.JLabel();
@@ -91,6 +95,15 @@ public class VendaView extends javax.swing.JFrame {
         btnPesquisarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
         btnPesquisarCliente.setContentAreaFilled(false);
         btnPesquisarCliente.setOpaque(true);
+        btnPesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarClienteActionPerformed(evt);
+            }
+        });
+
+        lblMensagemErroNome.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+
+        lblMensagemErroCPF.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
         pnlCliente.setLayout(pnlClienteLayout);
@@ -100,21 +113,23 @@ public class VendaView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblVender)
-                    .addComponent(lblNomeCliente))
+                    .addComponent(lblNomeCliente)
+                    .addComponent(lblMensagemErroNome)
+                    .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCodCliente)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMensagemErroCPF))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblVender)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeCliente)
                     .addComponent(lblCodCliente))
@@ -122,9 +137,13 @@ public class VendaView extends javax.swing.JFrame {
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1, 1, 1)
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMensagemErroNome)
+                    .addComponent(lblMensagemErroCPF))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -145,6 +164,11 @@ public class VendaView extends javax.swing.JFrame {
         btnAdicionarProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
         btnAdicionarProduto.setContentAreaFilled(false);
         btnAdicionarProduto.setOpaque(true);
+        btnAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarProdutoActionPerformed(evt);
+            }
+        });
 
         txtNomeDoProduto.setBackground(new java.awt.Color(102, 102, 102));
         txtNomeDoProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
@@ -190,6 +214,8 @@ public class VendaView extends javax.swing.JFrame {
             }
         });
 
+        lblMensagemErroCodProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout pnlProdutoLayout = new javax.swing.GroupLayout(pnlProduto);
         pnlProduto.setLayout(pnlProdutoLayout);
         pnlProdutoLayout.setHorizontalGroup(
@@ -200,8 +226,11 @@ public class VendaView extends javax.swing.JFrame {
                     .addGroup(pnlProdutoLayout.createSequentialGroup()
                         .addGroup(pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCodProduto)
-                            .addComponent(txtCodProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnlProdutoLayout.createSequentialGroup()
+                                .addComponent(txtCodProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblMensagemErroCodProduto)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                         .addGroup(pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProdutoLayout.createSequentialGroup()
                                 .addComponent(spnQtd, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,13 +239,11 @@ public class VendaView extends javax.swing.JFrame {
                                 .addComponent(lblQtdProduto)
                                 .addGap(70, 70, 70))))
                     .addGroup(pnlProdutoLayout.createSequentialGroup()
-                        .addComponent(txtNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 11, Short.MAX_VALUE))
-                    .addGroup(pnlProdutoLayout.createSequentialGroup()
                         .addGroup(pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNomeDoProduto)
-                            .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(txtNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlProdutoLayout.setVerticalGroup(
             pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,14 +255,15 @@ public class VendaView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spnQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(spnQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMensagemErroCodProduto))
+                .addGap(15, 15, 15)
                 .addComponent(lblNomeDoProduto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNomeDoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pnlProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {spnQtd, txtCodProduto});
@@ -414,7 +442,7 @@ public class VendaView extends javax.swing.JFrame {
                             .addComponent(pnlProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnlVenderEsqLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addGap(195, 195, 195)
                         .addComponent(lblicone)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -425,9 +453,9 @@ public class VendaView extends javax.swing.JFrame {
             .addGroup(pnlVenderEsqLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblicone)
-                .addGap(21, 21, 21)
+                .addGap(31, 31, 31)
                 .addComponent(pnlProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVenderEsqLayout.createSequentialGroup()
@@ -494,6 +522,17 @@ public class VendaView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtNomeDoProdutoActionPerformed
 
+    private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
+       Validador objValidar = new Validador();
+       objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
+       objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
+      
+    }//GEN-LAST:event_btnPesquisarClienteActionPerformed
+
+    private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
+
+    }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -539,6 +578,9 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JLabel lblDesconto1;
     private javax.swing.JLabel lblDescontoRS1;
     private javax.swing.JLabel lblDescontoValor1;
+    private javax.swing.JLabel lblMensagemErroCPF;
+    private javax.swing.JLabel lblMensagemErroCodProduto;
+    private javax.swing.JLabel lblMensagemErroNome;
     private javax.swing.JLabel lblNomeCliente;
     private javax.swing.JLabel lblNomeDoProduto;
     private javax.swing.JLabel lblQtdProduto;
