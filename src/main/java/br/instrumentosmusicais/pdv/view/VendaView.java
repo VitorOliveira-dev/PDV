@@ -1,9 +1,11 @@
 package br.instrumentosmusicais.pdv.view;
 
+import br.instumentosmusicais.pdv.controller.PDVController;
 import br.instumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.table.DefaultTableModel;
 
 public class VendaView extends javax.swing.JFrame {
 
@@ -364,27 +366,15 @@ public class VendaView extends javax.swing.JFrame {
         tbTabelaProdutosVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         tbTabelaProdutosVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Descrição", "Preço", "Qtd", "Total"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -524,23 +514,66 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeDoProdutoActionPerformed
 
     private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
-       Validador objValidar = new Validador();
-       objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
-       objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
-      
+
+        String nome = txtNomeCliente.getText().trim();
+        String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
+
+        String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
+
+        if (infoCliente == null) {
+            JOptionPane.showMessageDialog(this, "ID não encontrado");
+            Validador objValidar = new Validador();
+            objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
+            objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
+            return;
+        } else {
+            txtNomeCliente.setText(infoCliente[0]);
+            txtCPF.setText(infoCliente[1]);
+            Validador objValidar = new Validador();
+            objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
+            objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
+
+        }
+
+
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
         Validador objValidar = new Validador();
-        if(txtCodProduto.getText().equals("   Ex: 1234")){
-        txtCodProduto.setText("");
-        objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
-        }else{
+        if (txtCodProduto.getText().equals("   Ex: 1234")) {
+            txtCodProduto.setText("");
+            objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+        } else {
             txtCodProduto.setForeground(Color.BLACK);
             txtCodProduto.setBackground(Color.WHITE);
             objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         }
+        int linha = 0;
+
+        int codigo = Integer.parseInt(txtCodProduto.getText());
+        String instrumento = txtNomeDoProduto.getText();
+
+        String[] addProduto = PDVController.vendaBuscarProduto(codigo, instrumento);
+        float valor = Float.parseFloat(addProduto[2]);
+        int quantidade = Integer.parseInt(spnQtd.getValue().toString());
         
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
+        
+       if(addProduto == null){
+       JOptionPane.showMessageDialog(this, "ID não encontrado");
+       return;
+       }else{
+       txtCodProduto.setText(addProduto[0]);
+       txtNomeDoProduto.setText(addProduto[1]);
+       modelo.addRow(addProduto);
+       modelo.setValueAt(spnQtd.getValue(), modelo.getRowCount()-1, 3);
+       modelo.setValueAt(valor*quantidade, modelo.getRowCount()-1, 4);
+       linha++;
+       txtCodProduto.setText("");
+       txtNomeDoProduto.setText("");
+       }
+
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 
     /**
