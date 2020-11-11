@@ -13,7 +13,7 @@ public class Validador {
     public ArrayList<String> mensagensErro = new ArrayList<>();
     
 
-        public void ValidarNumero(JTextField txt){
+    public void ValidarNumero(JTextField txt){
     
         try{
             
@@ -42,7 +42,7 @@ public class Validador {
         }
     } 
     
-        public void CampoVazioFormatado( JFormattedTextField txt, JLabel jbl){
+     public void CampoVazioFormatado( JFormattedTextField txt, JLabel jbl){
         try{
             
             //Verifico se o campo está vazio
