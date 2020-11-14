@@ -5,7 +5,11 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
+import br.instumentosmusicais.pdv.controller.PDVController;
 import br.instumentosmusicais.pdv.utils.Validador;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -74,14 +78,10 @@ public class ManutencaoView extends javax.swing.JFrame {
         tblProdutos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         tblProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Cod Produto", "Instrumento", "Cor", "Tipo", "Fabricante", "Quantidade"
+                "Código", "Instrumento", "Cor", "Tipo", "Fabricante", "Quantidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -122,6 +122,11 @@ public class ManutencaoView extends javax.swing.JFrame {
         btnAdicionarProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnAdicionarProduto.setContentAreaFilled(false);
         btnAdicionarProduto.setOpaque(true);
+        btnAdicionarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarProdutoActionPerformed(evt);
+            }
+        });
 
         txtProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -145,6 +150,11 @@ public class ManutencaoView extends javax.swing.JFrame {
         btnExcluirProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnExcluirProduto.setContentAreaFilled(false);
         btnExcluirProduto.setOpaque(true);
+        btnExcluirProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirProdutoActionPerformed(evt);
+            }
+        });
 
         lblMensagemErroProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
@@ -238,6 +248,11 @@ public class ManutencaoView extends javax.swing.JFrame {
         btnAdicionarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnAdicionarCliente.setContentAreaFilled(false);
         btnAdicionarCliente.setOpaque(true);
+        btnAdicionarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarClienteActionPerformed(evt);
+            }
+        });
 
         txtNome.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
@@ -261,6 +276,11 @@ public class ManutencaoView extends javax.swing.JFrame {
         btnExcluirCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnExcluirCliente.setContentAreaFilled(false);
         btnExcluirCliente.setOpaque(true);
+        btnExcluirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirClienteActionPerformed(evt);
+            }
+        });
 
         lblMensagemErroCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
@@ -315,11 +335,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         tblClientes.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         tblClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nome", "CPF", "Telefone"
@@ -457,11 +473,13 @@ public class ManutencaoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
+        CadastroClienteView telaAtualizarCliente = new CadastroClienteView();
+        telaAtualizarCliente.setVisible(true);
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnAtualizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarProdutoActionPerformed
-        // TODO add your handling code here:
+        CadastroProdutoView telaAtualizar = new CadastroProdutoView();
+        telaAtualizar.setVisible(true);
     }//GEN-LAST:event_btnAtualizarProdutoActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
@@ -478,12 +496,127 @@ public class ManutencaoView extends javax.swing.JFrame {
         Validador objValidador = new Validador();
         objValidador.CampoVazio(txtProduto, lblMensagemErroProduto);
 
+        String instrumento = txtProduto.getText();
+
+        if (instrumento.equals("//")) {
+            ArrayList<String[]> listaProdutos = PDVController.manutencaoPesquisarTodosProdutos();
+
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo = (DefaultTableModel) tblProdutos.getModel();
+
+            modelo.setRowCount(0);
+
+            for (String[] dados : listaProdutos) {
+                modelo.addRow(dados);
+            }
+        } else {
+
+            String[] listaProduto = PDVController.manutencaoPesquisarProduto(instrumento);
+
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo = (DefaultTableModel) tblProdutos.getModel();
+
+            modelo.setRowCount(0);
+
+            if (listaProduto == null) {
+                JOptionPane.showMessageDialog(this, "Produto não encontrado");
+                return;
+            } else {
+                modelo.addRow(listaProduto);
+            }
+        }
+
     }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
 
     private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
-         Validador objValidador = new Validador();
+        Validador objValidador = new Validador();
         objValidador.CampoVazio(txtNome, lblMensagemErroCliente);
+
+        String nomeCliente = txtNome.getText();
+
+        if (nomeCliente.equals("//")) {
+            ArrayList<String[]> listaClientes = PDVController.manutencaoPesquisarTodosClientes();
+
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo = (DefaultTableModel) tblClientes.getModel();
+
+            modelo.setRowCount(0);
+
+            for (String[] dados : listaClientes) {
+                modelo.addRow(dados);
+            }
+        } else {
+
+            String[] listaCliente = PDVController.manutencaoPesquisarCliente(nomeCliente);
+
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo = (DefaultTableModel) tblClientes.getModel();
+
+            modelo.setRowCount(0);
+
+            if (listaCliente == null) {
+                JOptionPane.showMessageDialog(this, "Cliente não encontrado");
+                return;
+            } else {
+                modelo.addRow(listaCliente);
+            }
+        }
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
+
+    private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
+        CadastroProdutoView telaAdicionarProduto = new CadastroProdutoView();
+        telaAdicionarProduto.setVisible(true);
+    }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
+
+    private void btnAdicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarClienteActionPerformed
+        CadastroClienteView telaAdicionarCliente = new CadastroClienteView();
+        telaAdicionarCliente.setVisible(true);
+    }//GEN-LAST:event_btnAdicionarClienteActionPerformed
+
+    private void btnExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirClienteActionPerformed
+        int linhaSelecionada = tblClientes.getSelectedRow();
+
+        if (linhaSelecionada < 0) {
+            JOptionPane.showMessageDialog(this, "Para excluir, por favor selecione na tabela o registro a ser excluído");
+            return;
+        }
+        int codCliente = Integer.parseInt(tblClientes.getValueAt(linhaSelecionada, 0).toString());
+
+        int confirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir ?");
+
+        if (confirmacao == 0) {
+            if (PDVController.excluirCliente(codCliente)) {
+                JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Exclusão cancelada");
+        }
+
+    }//GEN-LAST:event_btnExcluirClienteActionPerformed
+
+    private void btnExcluirProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirProdutoActionPerformed
+        int linhaSelecionada = tblProdutos.getSelectedRow();
+
+        if (linhaSelecionada < 0) {
+            JOptionPane.showMessageDialog(this, "Para excluir, por favor selecione na tabela o registro a ser excluído");
+            return;
+        }
+        int codInstrumento = Integer.parseInt(tblProdutos.getValueAt(linhaSelecionada, 0).toString());
+
+        int confirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir ?");
+
+        if (confirmacao == 0) {
+            if (PDVController.excluirProduto(codInstrumento)) {
+                JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
+            } else {
+                JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Exclusão cancelada");
+        }
+    }//GEN-LAST:event_btnExcluirProdutoActionPerformed
 
     /**
      * @param args the command line arguments
