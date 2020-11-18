@@ -8,29 +8,28 @@ import br.instumentosmusicais.pdv.model.Venda;
 import java.util.ArrayList;
 
 public class PDVController {
-    
-    public static boolean vendaVender(float total, int codCliente, ArrayList<String[]> pItensVenda){
+
+    public static boolean vendaVender(float total, int codCliente, ArrayList<String[]> pItensVenda) {
         Venda vender = new Venda();
         vender.setTotalVenda(total);
         vender.setCodCliente(codCliente);
-        
+
         ArrayList<ItensVenda> listaItensVenda = new ArrayList<ItensVenda>();
         // teste String[] itens = pItensVenda.get(0);
-        
-        for(String[] item: pItensVenda){
-        ItensVenda adicionar = new ItensVenda();
-        adicionar.setCodProduto(Integer.parseInt(item[0]));
-        adicionar.setCodCliente(codCliente);
-        adicionar.setQtd_vendida(Integer.parseInt(item[3]));
-        adicionar.setValorUnitario(Float.parseFloat(item[2]));
-        
-        listaItensVenda.add(adicionar);
+
+        for (String[] item : pItensVenda) {
+            ItensVenda adicionar = new ItensVenda();
+            adicionar.setCodProduto(Integer.parseInt(item[0]));
+            adicionar.setCodCliente(codCliente);
+            adicionar.setQtd_vendida(Integer.parseInt(item[3]));
+            adicionar.setValorUnitario(Float.parseFloat(item[2]));
+
+            listaItensVenda.add(adicionar);
         }
-        
+
         vender.setListaItens(listaItensVenda);
-        
-        
-    return PDVDAO.vendaVender(vender);
+
+        return PDVDAO.vendaVender(vender);
     }
 
     public static String[] vendaBuscarCliente(String nome, String CPF) {
@@ -108,7 +107,7 @@ public class PDVController {
         return retorno;
 
     }
-    
+
     public static ArrayList<String[]> manutencaoPesquisarProduto(String pInstrumento) {
         ArrayList<Produto> listaProdutos = PDVDAO.manutencaoPesquisarProduto(pInstrumento);
         ArrayList<String[]> retorno = new ArrayList<>();
@@ -133,6 +132,56 @@ public class PDVController {
 
     public static boolean manutencaoExcluirProduto(int pCodProduto) {
         return PDVDAO.manutencaoExcluirProduto(pCodProduto);
+    }
+
+    public static boolean salvarProduto(String instrumento, String cor, String tipo, String fabricante, int quantidade, float valor) {
+
+        boolean retorno = false;
+
+        Produto objProduto = new Produto();
+        objProduto.setInstrumento(instrumento);
+        objProduto.setCor(cor);
+        objProduto.setTipo(tipo);
+        objProduto.setFabricante(fabricante);
+        objProduto.setQuantidade(quantidade);
+        objProduto.setValor(valor);
+        return PDVDAO.salvarProduto(objProduto);
+
+    }
+
+    public static boolean atualizarProduto(int idProduto, String instrumento, String cor, String tipo, String fabricante, int quantidade, float valor) {
+        Produto objProduto = new Produto();
+
+        objProduto.setCodProduto(idProduto);
+        objProduto.setInstrumento(instrumento);
+        objProduto.setCor(cor);
+        objProduto.setTipo(tipo);
+        objProduto.setFabricante(fabricante);
+        objProduto.setQuantidade(quantidade);
+        objProduto.setValor(valor);
+        return PDVDAO.atualizarProduto(objProduto);
+
+    }
+    
+    public static String[] consultarPorID(int idProduto) {
+    
+        Produto objInstrumento = PDVDAO.consultarPorID(idProduto);
+        
+        String[] instrumentoRetorno  = null;
+        
+        if(objInstrumento!=null){
+            instrumentoRetorno = new String[]{ String.valueOf(objInstrumento.getCodProduto())
+                                                ,String.valueOf(objInstrumento.getInstrumento())
+                                                ,String.valueOf(objInstrumento.getCor()) 
+                                                ,String.valueOf(objInstrumento.getTipo())
+                                                ,String.valueOf(objInstrumento.getFabricante())
+                                                ,String.valueOf(objInstrumento.getQuantidade())
+                                                ,String.valueOf(objInstrumento.getValor())
+            };
+            
+        }
+        
+        return instrumentoRetorno;
     }
 
 }

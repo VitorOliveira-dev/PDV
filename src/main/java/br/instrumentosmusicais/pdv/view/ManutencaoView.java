@@ -81,11 +81,11 @@ public class ManutencaoView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Instrumento", "Cor", "Tipo", "Fabricante", "Quantidade"
+                "Código", "Instrumento", "Cor", "Tipo", "Fabricante", "Quantidade", "Valor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -480,8 +480,23 @@ public class ManutencaoView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnAtualizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarProdutoActionPerformed
-        CadastroProdutoView telaAtualizar = new CadastroProdutoView();
-        telaAtualizar.setVisible(true);
+       int linhaSelecionada = tblProdutos.getSelectedRow();
+        int idSelecionado = 0;
+        
+        if(linhaSelecionada>=0){
+            idSelecionado = Integer.parseInt(tblProdutos.getValueAt(linhaSelecionada, 0).toString());
+        }else{
+            JOptionPane.showMessageDialog(this, "Escolha uma linha para atualizar!");
+            return;
+        }
+        
+        if(idSelecionado>0){
+            CadastroProdutoView telaProdutoAlterar = new CadastroProdutoView(idSelecionado);
+            telaProdutoAlterar.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Escolha uma linha para atualizar!");
+        }
+        
     }//GEN-LAST:event_btnAtualizarProdutoActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed

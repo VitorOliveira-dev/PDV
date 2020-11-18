@@ -5,9 +5,11 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
+import br.instumentosmusicais.pdv.controller.PDVController;
 import br.instumentosmusicais.pdv.utils.Validador;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,12 +17,22 @@ import java.awt.event.KeyEvent;
  */
 public class CadastroProdutoView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastroProduto
-     */
+    int idProduto = 0;
+    String modoTela = "Criar";
+
     public CadastroProdutoView() {
         initComponents();
-        lblCodigo.setVisible(false);
+        setLocationRelativeTo(null);
+    }
+
+    public CadastroProdutoView(int idProduto) {
+        initComponents();
+        setLocationRelativeTo(null);
+
+        this.idProduto = idProduto;
+        preencherFormulario(idProduto);
+        modoTela = "Alterar";
+
     }
 
     /**
@@ -350,11 +362,47 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtInstrumentoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       Validador objValidar = new Validador();
-        objValidar.CampoVazio(txtInstrumento,jblMensagemInstrumento);
-        objValidar.CampoVazio(txtCor,jblMensagemCor);
-        objValidar.CampoVazio(txtFabricante,jblMensagemFabricante);
-        objValidar.CampoVazio(txtValor,jblMensagemValor);
+        Validador objValidar = new Validador();
+        objValidar.CampoVazio(txtInstrumento, jblMensagemInstrumento);
+        objValidar.CampoVazio(txtCor, jblMensagemCor);
+        objValidar.CampoVazio(txtFabricante, jblMensagemFabricante);
+        objValidar.CampoVazio(txtValor, jblMensagemValor);
+
+        String instrumento = "";
+        String cor = "";
+        String tipo = "";
+        String fabricante = "";
+        int quantidade = 0;
+        float valor = 0;
+        try {
+            instrumento = txtInstrumento.getText();
+            cor = txtCor.getText();
+            tipo = cbbTipo.getSelectedItem().toString();
+            fabricante = txtFabricante.getText();
+            quantidade = Integer.parseInt(spnQuantidade.getValue().toString());
+            valor = Float.parseFloat(txtValor.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um erro ao converter os valores!");
+        }
+
+        if (modoTela == "Criar") {
+            if (PDVController.salvarProduto(instrumento, cor, tipo, fabricante, quantidade, valor)) {
+                JOptionPane.showMessageDialog(this, "Produto cadastrado com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro ao cadastrar produto!");
+            }
+
+        } else {
+
+            if (PDVController.atualizarProduto(idProduto, instrumento, cor, tipo, fabricante, quantidade, valor)) {
+                JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso");
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Erro ao atualizar produto!");
+            }
+
+        }
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -366,22 +414,22 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     }//GEN-LAST:event_cbbTipoActionPerformed
 
     private void txtInstrumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInstrumentoKeyTyped
-        if(txtInstrumento.getText().length()>=30)
-{
-    evt.consume();
-    jblMensagemInstrumento.setText("Máximo de 30 caracteres atingido!");
-}else      
-jblMensagemInstrumento.setText("");        
+        if (txtInstrumento.getText().length() >= 30) {
+            evt.consume();
+            jblMensagemInstrumento.setText("Máximo de 30 caracteres atingido!");
+        } else {
+            jblMensagemInstrumento.setText("");
+        }
     }//GEN-LAST:event_txtInstrumentoKeyTyped
 
     private void txtCorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorKeyTyped
-               if(txtCor.getText().length()>=30)
-{
-    evt.consume();
-    jblMensagemCor.setText("Máximo de 30 caracteres atingido!");
-}else      
-jblMensagemCor.setText("");        
-    
+        if (txtCor.getText().length() >= 30) {
+            evt.consume();
+            jblMensagemCor.setText("Máximo de 30 caracteres atingido!");
+        } else {
+            jblMensagemCor.setText("");
+        }
+
     }//GEN-LAST:event_txtCorKeyTyped
 
     private void txtFabricanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFabricanteActionPerformed
@@ -389,13 +437,13 @@ jblMensagemCor.setText("");
     }//GEN-LAST:event_txtFabricanteActionPerformed
 
     private void txtFabricanteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFabricanteKeyTyped
-               if(txtFabricante.getText().length()>=30)
-{
-    evt.consume();
-    jblMensagemFabricante.setText("Máximo de 30 caracteres atingido!");
-}else      
-jblMensagemFabricante.setText("");        
-     
+        if (txtFabricante.getText().length() >= 30) {
+            evt.consume();
+            jblMensagemFabricante.setText("Máximo de 30 caracteres atingido!");
+        } else {
+            jblMensagemFabricante.setText("");
+        }
+
     }//GEN-LAST:event_txtFabricanteKeyTyped
 
     private void txtValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorActionPerformed
@@ -403,9 +451,9 @@ jblMensagemFabricante.setText("");
     }//GEN-LAST:event_txtValorActionPerformed
 
     private void txtValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyReleased
-       Validador objValidador = new Validador();
-       objValidador.ValidarFloat(txtValor,jblMensagemValor);
-       
+        Validador objValidador = new Validador();
+        objValidador.ValidarFloat(txtValor, jblMensagemValor);
+
     }//GEN-LAST:event_txtValorKeyReleased
 
     /**
@@ -470,4 +518,18 @@ jblMensagemFabricante.setText("");
     private javax.swing.JTextField txtInstrumento;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
+
+    private void preencherFormulario(int idProduto) {
+
+        String[] retorno = PDVController.consultarPorID(idProduto);
+        lblCodigoValor.setText(retorno[0]);
+        txtInstrumento.setText(retorno[1]);
+        txtCor.setText(retorno[2]);
+        cbbTipo.setSelectedItem(retorno[3]);
+        txtFabricante.setText(retorno[4]);
+        spnQuantidade.setValue(Integer.parseInt(retorno[5]));
+        txtValor.setText(retorno[6]);
+
+    }
+
 }
