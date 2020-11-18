@@ -1,4 +1,4 @@
-package br.instumentosmusicais.pdv.model;
+package br.instrumentosmusicais.pdv.model;
 
 public class ItensVenda {
     

@@ -1,10 +1,10 @@
-package br.instumentosmusicais.pdv.DAO;
+package br.instrumentosmusicais.pdv.DAO;
 
-import br.instumentosmusicais.pdv.model.Cliente;
-import br.instumentosmusicais.pdv.model.ItensVenda;
-import br.instumentosmusicais.pdv.model.Produto;
-import br.instumentosmusicais.pdv.model.Venda;
-import br.instumentosmusicais.pdv.utils.GerenciadorConexao;
+import br.instrumentosmusicais.pdv.model.Cliente;
+import br.instrumentosmusicais.pdv.model.ItensVenda;
+import br.instrumentosmusicais.pdv.model.Produto;
+import br.instrumentosmusicais.pdv.model.Venda;
+import br.instrumentosmusicais.pdv.utils.GerenciadorConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

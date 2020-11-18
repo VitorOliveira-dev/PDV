@@ -1,4 +1,4 @@
-package br.instumentosmusicais.pdv.utils;
+package br.instrumentosmusicais.pdv.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

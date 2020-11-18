@@ -5,8 +5,8 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
-import br.instumentosmusicais.pdv.controller.PDVController;
-import br.instumentosmusicais.pdv.utils.Validador;
+import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.utils.Validador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

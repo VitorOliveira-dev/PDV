@@ -1,10 +1,10 @@
-package br.instumentosmusicais.pdv.controller;
+package br.instrumentosmusicais.pdv.controller;
 
-import br.instumentosmusicais.pdv.DAO.PDVDAO;
-import br.instumentosmusicais.pdv.model.Cliente;
-import br.instumentosmusicais.pdv.model.ItensVenda;
-import br.instumentosmusicais.pdv.model.Produto;
-import br.instumentosmusicais.pdv.model.Venda;
+import br.instrumentosmusicais.pdv.DAO.PDVDAO;
+import br.instrumentosmusicais.pdv.model.Cliente;
+import br.instrumentosmusicais.pdv.model.ItensVenda;
+import br.instrumentosmusicais.pdv.model.Produto;
+import br.instrumentosmusicais.pdv.model.Venda;
 import java.util.ArrayList;
 
 public class PDVController {

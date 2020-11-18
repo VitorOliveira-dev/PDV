@@ -1,4 +1,4 @@
-package br.instumentosmusicais.pdv.model;
+package br.instrumentosmusicais.pdv.model;
 import java.util.Date;
 import java.util.ArrayList;
 
