@@ -179,7 +179,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblMensagemErroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBuscaProdutoLayout.setVerticalGroup(
             pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,40 +289,42 @@ public class ManutencaoView extends javax.swing.JFrame {
         pnlBuscaClientesLayout.setHorizontalGroup(
             pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMensagemErroCliente)
-                    .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                        .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                                .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
+                        .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(14, 14, 14)
+                .addComponent(lblMensagemErroCliente)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlBuscaClientesLayout.setVerticalGroup(
             pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(lblMensagemErroCliente)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNome)
+                    .addComponent(btnPesquisarCliente)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisarCliente))
-                .addGap(1, 1, 1)
-                .addComponent(lblMensagemErroCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAtualizar)
+                    .addComponent(lblNome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAtualizar)
+                        .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnExcluirCliente))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPesquisarCliente, txtNome});
@@ -359,19 +361,19 @@ public class ManutencaoView extends javax.swing.JFrame {
         pnlClientes.setLayout(pnlClientesLayout);
         pnlClientesLayout.setHorizontalGroup(
             pnlClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBuscaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlClientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlBuscaClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sPnlClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         pnlClientesLayout.setVerticalGroup(
             pnlClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClientesLayout.createSequentialGroup()
                 .addComponent(pnlBuscaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sPnlClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
         );
 
         pnlTabelas.add(pnlClientes, "card4");
@@ -409,14 +411,14 @@ public class ManutencaoView extends javax.swing.JFrame {
         pnlCRUDLayout.setHorizontalGroup(
             pnlCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCRUDLayout.createSequentialGroup()
-                .addComponent(pnlTabelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlCRUDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnProduto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(lblIcone)
                 .addGap(38, 38, 38))
         );
@@ -432,7 +434,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                     .addGroup(pnlCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnCliente)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
                 .addComponent(pnlTabelas, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -460,7 +462,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,19 +512,20 @@ public class ManutencaoView extends javax.swing.JFrame {
                 modelo.addRow(dados);
             }
         } else {
-
-            String[] listaProduto = PDVController.manutencaoPesquisarProduto(instrumento);
-
+            ArrayList<String[]> listaProdutos = PDVController.manutencaoPesquisarProduto(instrumento);
+            
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblProdutos.getModel();
-
+            
             modelo.setRowCount(0);
-
-            if (listaProduto == null) {
-                JOptionPane.showMessageDialog(this, "Produto não encontrado");
-                return;
-            } else {
-                modelo.addRow(listaProduto);
+            
+            if(listaProdutos.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Produto não encontrado");
+            return;
+            }else{
+            for(String[] dados : listaProdutos){
+            modelo.addRow(dados);
+            }
             }
         }
 
@@ -546,20 +549,20 @@ public class ManutencaoView extends javax.swing.JFrame {
                 modelo.addRow(dados);
             }
         } else {
-
-            String[] listaCliente = PDVController.manutencaoPesquisarCliente(nomeCliente);
+            ArrayList<String[]> listaClientes = PDVController.manutencaoPesquisarCliente(nomeCliente);
 
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblClientes.getModel();
 
             modelo.setRowCount(0);
-
-            if (listaCliente == null) {
+            if (listaClientes.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Cliente não encontrado");
                 return;
-            } else {
-                modelo.addRow(listaCliente);
             }
+            for (String[] dados : listaClientes) {
+                modelo.addRow(dados);
+            }
+
         }
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
@@ -585,7 +588,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         int confirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir ?");
 
         if (confirmacao == 0) {
-            if (PDVController.excluirCliente(codCliente)) {
+            if (PDVController.manutencaoExcluirCliente(codCliente)) {
                 JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
             } else {
                 JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");
@@ -608,7 +611,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         int confirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir ?");
 
         if (confirmacao == 0) {
-            if (PDVController.excluirProduto(codInstrumento)) {
+            if (PDVController.manutencaoExcluirProduto(codInstrumento)) {
                 JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
             } else {
                 JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");

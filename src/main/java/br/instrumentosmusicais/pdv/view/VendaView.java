@@ -1,10 +1,12 @@
 package br.instrumentosmusicais.pdv.view;
 
 import br.instumentosmusicais.pdv.controller.PDVController;
+import br.instumentosmusicais.pdv.model.Cliente;
 import br.instumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class VendaView extends javax.swing.JFrame {
@@ -40,6 +42,7 @@ public class VendaView extends javax.swing.JFrame {
         btnPesquisarCliente = new javax.swing.JButton();
         lblMensagemErroNome = new javax.swing.JLabel();
         lblMensagemErroCPF = new javax.swing.JLabel();
+        lblCodClienteValor = new javax.swing.JLabel();
         pnlProduto = new javax.swing.JPanel();
         lblQtdProduto = new javax.swing.JLabel();
         spnQtd = new javax.swing.JSpinner();
@@ -51,15 +54,15 @@ public class VendaView extends javax.swing.JFrame {
         lblMensagemErroCodProduto = new javax.swing.JLabel();
         pnlTabela = new javax.swing.JPanel();
         pnlValoresVender1 = new javax.swing.JPanel();
-        lblDesconto1 = new javax.swing.JLabel();
-        lblSubtotal1 = new javax.swing.JLabel();
-        lblTotal1 = new javax.swing.JLabel();
-        lblSubtotalValor1 = new javax.swing.JLabel();
-        lblDescontoValor1 = new javax.swing.JLabel();
-        lblSubtotalRS1 = new javax.swing.JLabel();
-        lblDescontoRS1 = new javax.swing.JLabel();
-        lblTotalValor1 = new javax.swing.JLabel();
-        lblTotalRS1 = new javax.swing.JLabel();
+        lblDesconto = new javax.swing.JLabel();
+        lblSubtotal = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        lblSubtotalValor = new javax.swing.JLabel();
+        lblDescontoValor = new javax.swing.JLabel();
+        lblSubtotalRS = new javax.swing.JLabel();
+        lblDescontoRS = new javax.swing.JLabel();
+        lblTotalValor = new javax.swing.JLabel();
+        lblTotalRS = new javax.swing.JLabel();
         pnlTabelaVender = new javax.swing.JScrollPane();
         tbTabelaProdutosVenda = new javax.swing.JTable();
         btnFinalizarVenda = new javax.swing.JButton();
@@ -107,6 +110,8 @@ public class VendaView extends javax.swing.JFrame {
 
         lblMensagemErroCPF.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
+        lblCodClienteValor.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
         pnlCliente.setLayout(pnlClienteLayout);
         pnlClienteLayout.setHorizontalGroup(
@@ -114,17 +119,23 @@ public class VendaView extends javax.swing.JFrame {
             .addGroup(pnlClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblVender)
-                    .addComponent(lblNomeCliente)
-                    .addComponent(lblMensagemErroNome)
-                    .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCodCliente)
-                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMensagemErroCPF))
-                .addContainerGap(91, Short.MAX_VALUE))
+                    .addGroup(pnlClienteLayout.createSequentialGroup()
+                        .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblVender)
+                            .addComponent(lblNomeCliente)
+                            .addComponent(lblMensagemErroNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCodCliente)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMensagemErroCPF))
+                        .addContainerGap(91, Short.MAX_VALUE))
+                    .addGroup(pnlClienteLayout.createSequentialGroup()
+                        .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCodClienteValor)
+                        .addContainerGap())))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +155,9 @@ public class VendaView extends javax.swing.JFrame {
                     .addComponent(lblMensagemErroNome)
                     .addComponent(lblMensagemErroCPF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodClienteValor))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -274,41 +287,41 @@ public class VendaView extends javax.swing.JFrame {
 
         pnlValoresVender1.setBackground(new java.awt.Color(51, 51, 51));
 
-        lblDesconto1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        lblDesconto1.setForeground(new java.awt.Color(255, 255, 255));
-        lblDesconto1.setText("Desconto");
+        lblDesconto.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        lblDesconto.setForeground(new java.awt.Color(255, 255, 255));
+        lblDesconto.setText("Desconto");
 
-        lblSubtotal1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lblSubtotal1.setForeground(new java.awt.Color(255, 255, 255));
-        lblSubtotal1.setText("Subtotal");
+        lblSubtotal.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblSubtotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblSubtotal.setText("Subtotal");
 
-        lblTotal1.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        lblTotal1.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotal1.setText("Total");
+        lblTotal.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotal.setText("Total");
 
-        lblSubtotalValor1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lblSubtotalValor1.setForeground(new java.awt.Color(255, 255, 255));
-        lblSubtotalValor1.setText("0,00");
+        lblSubtotalValor.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblSubtotalValor.setForeground(new java.awt.Color(255, 255, 255));
+        lblSubtotalValor.setText("0,00");
 
-        lblDescontoValor1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lblDescontoValor1.setForeground(new java.awt.Color(255, 255, 255));
-        lblDescontoValor1.setText("0,00");
+        lblDescontoValor.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblDescontoValor.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescontoValor.setText("0,00");
 
-        lblSubtotalRS1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lblSubtotalRS1.setForeground(new java.awt.Color(255, 255, 255));
-        lblSubtotalRS1.setText("R$");
+        lblSubtotalRS.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblSubtotalRS.setForeground(new java.awt.Color(255, 255, 255));
+        lblSubtotalRS.setText("R$");
 
-        lblDescontoRS1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lblDescontoRS1.setForeground(new java.awt.Color(255, 255, 255));
-        lblDescontoRS1.setText("R$");
+        lblDescontoRS.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblDescontoRS.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescontoRS.setText("R$");
 
-        lblTotalValor1.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        lblTotalValor1.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalValor1.setText("0,00");
+        lblTotalValor.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        lblTotalValor.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalValor.setText("0,00");
 
-        lblTotalRS1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lblTotalRS1.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalRS1.setText("R$");
+        lblTotalRS.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblTotalRS.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotalRS.setText("R$");
 
         javax.swing.GroupLayout pnlValoresVender1Layout = new javax.swing.GroupLayout(pnlValoresVender1);
         pnlValoresVender1.setLayout(pnlValoresVender1Layout);
@@ -319,45 +332,45 @@ public class VendaView extends javax.swing.JFrame {
                 .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlValoresVender1Layout.createSequentialGroup()
                         .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDesconto1)
-                            .addComponent(lblSubtotal1))
+                            .addComponent(lblDesconto)
+                            .addComponent(lblSubtotal))
                         .addGap(34, 34, 34)
                         .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDescontoValor1)
-                            .addComponent(lblSubtotalValor1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(lblDescontoValor)
+                            .addComponent(lblSubtotalValor, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSubtotalRS1)
-                            .addComponent(lblDescontoRS1)
+                            .addComponent(lblSubtotalRS)
+                            .addComponent(lblDescontoRS)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlValoresVender1Layout.createSequentialGroup()
-                                .addGap(0, 107, Short.MAX_VALUE)
-                                .addComponent(lblTotalValor1)
+                                .addGap(0, 121, Short.MAX_VALUE)
+                                .addComponent(lblTotalValor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblTotalRS1))))
+                                .addComponent(lblTotalRS))))
                     .addGroup(pnlValoresVender1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblTotal1)))
+                        .addComponent(lblTotal)))
                 .addGap(19, 19, 19))
         );
         pnlValoresVender1Layout.setVerticalGroup(
             pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlValoresVender1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTotal1)
+                .addComponent(lblTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotalValor1)
-                    .addComponent(lblTotalRS1))
+                    .addComponent(lblTotalValor)
+                    .addComponent(lblTotalRS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSubtotal1)
-                    .addComponent(lblSubtotalValor1)
-                    .addComponent(lblSubtotalRS1))
+                    .addComponent(lblSubtotal)
+                    .addComponent(lblSubtotalValor)
+                    .addComponent(lblSubtotalRS))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlValoresVender1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDesconto1)
-                    .addComponent(lblDescontoValor1)
-                    .addComponent(lblDescontoRS1))
+                    .addComponent(lblDesconto)
+                    .addComponent(lblDescontoValor)
+                    .addComponent(lblDescontoRS))
                 .addGap(26, 26, 26))
         );
 
@@ -393,18 +406,24 @@ public class VendaView extends javax.swing.JFrame {
         btnFinalizarVenda.setText("<html>\nFinalizar\n<br>&nbsp;&nbsp;&nbsp;&nbsp;Venda\n</html>");
         btnFinalizarVenda.setContentAreaFilled(false);
         btnFinalizarVenda.setOpaque(true);
+        btnFinalizarVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarVendaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTabelaLayout = new javax.swing.GroupLayout(pnlTabela);
         pnlTabela.setLayout(pnlTabelaLayout);
         pnlTabelaLayout.setHorizontalGroup(
             pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabelaLayout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
-                .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlValoresVender1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlTabelaVender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap()
+                .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(pnlValoresVender1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         pnlTabelaLayout.setVerticalGroup(
             pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,9 +432,9 @@ public class VendaView extends javax.swing.JFrame {
                 .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(pnlValoresVender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
 
         lblicone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/MoedaTeste2.png"))); // NOI18N
@@ -527,8 +546,9 @@ public class VendaView extends javax.swing.JFrame {
             objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
             return;
         } else {
-            txtNomeCliente.setText(infoCliente[0]);
-            txtCPF.setText(infoCliente[1]);
+            lblCodClienteValor.setText(infoCliente[0]);
+            txtNomeCliente.setText(infoCliente[1]);
+            txtCPF.setText(infoCliente[2]);
             Validador objValidar = new Validador();
             objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
             objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
@@ -537,9 +557,11 @@ public class VendaView extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
-
+    float valorTotalVenda = 0;
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
         Validador objValidar = new Validador();
+        objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
+        objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
         if (txtCodProduto.getText().equals("   Ex: 1234")) {
             txtCodProduto.setText("");
             objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
@@ -556,25 +578,64 @@ public class VendaView extends javax.swing.JFrame {
         String[] addProduto = PDVController.vendaBuscarProduto(codigo, instrumento);
         float valor = Float.parseFloat(addProduto[2]);
         int quantidade = Integer.parseInt(spnQtd.getValue().toString());
-        
+        float valorTotalProduto = valor * quantidade;
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
-        
-       if(addProduto == null){
-       JOptionPane.showMessageDialog(this, "ID não encontrado");
-       return;
-       }else{
-       txtCodProduto.setText(addProduto[0]);
-       txtNomeDoProduto.setText(addProduto[1]);
-       modelo.addRow(addProduto);
-       modelo.setValueAt(spnQtd.getValue(), modelo.getRowCount()-1, 3);
-       modelo.setValueAt(valor*quantidade, modelo.getRowCount()-1, 4);
-       linha++;
-       txtCodProduto.setText("");
-       txtNomeDoProduto.setText("");
-       }
 
+        if (addProduto == null) {
+            JOptionPane.showMessageDialog(this, "ID não encontrado");
+            return;
+        } else {
+
+            txtCodProduto.setText(addProduto[0]);
+            txtNomeDoProduto.setText(addProduto[1]);
+
+            modelo.addRow(addProduto);
+            modelo.setValueAt(spnQtd.getValue(), modelo.getRowCount() - 1, 3);
+            modelo.setValueAt(valorTotalProduto, modelo.getRowCount() - 1, 4);
+            linha++;
+
+            txtCodProduto.setText("");
+            txtNomeDoProduto.setText("");
+            if (txtNomeDoProduto.getText().equals("")) {
+                txtNomeDoProduto.setText("Exemplo de produto");
+            }
+            if (txtCodProduto.getText().equals("")) {
+                txtCodProduto.setText("   Ex: 1234");
+                txtCodProduto.setForeground(new java.awt.Color(204, 204, 204));
+            }
+
+        }
+        valorTotalVenda = valorTotalProduto + valorTotalVenda;
+        lblTotalValor.setText(String.valueOf(valorTotalVenda));
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
+
+    private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
+        // TODO Chamar a CONTROLLER e finalizar esta tela.
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
+
+        int codCliente = Integer.parseInt(lblCodClienteValor.getText());
+
+        ArrayList<String[]> itens = new ArrayList<String[]>();
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            itens.add(new String[]{
+                String.valueOf(modelo.getValueAt(i, 0)), //codigo
+                String.valueOf(modelo.getValueAt(i, 1)), //instrumento
+                String.valueOf(modelo.getValueAt(i, 2)), //valor
+                String.valueOf(modelo.getValueAt(i, 3))}); //quantidade
+        }
+        boolean retorno = PDVController.vendaVender(valorTotalVenda, codCliente, itens);
+        
+        if(retorno){
+        JOptionPane.showMessageDialog(this, "SUCESSO");
+        }else{
+        JOptionPane.showMessageDialog(this, "DEU ERRO");
+        }
+
+
+    }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -617,22 +678,23 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JButton btnFinalizarVenda;
     private javax.swing.JButton btnPesquisarCliente;
     private javax.swing.JLabel lblCodCliente;
+    private javax.swing.JLabel lblCodClienteValor;
     private javax.swing.JLabel lblCodProduto;
-    private javax.swing.JLabel lblDesconto1;
-    private javax.swing.JLabel lblDescontoRS1;
-    private javax.swing.JLabel lblDescontoValor1;
+    private javax.swing.JLabel lblDesconto;
+    private javax.swing.JLabel lblDescontoRS;
+    private javax.swing.JLabel lblDescontoValor;
     private javax.swing.JLabel lblMensagemErroCPF;
     private javax.swing.JLabel lblMensagemErroCodProduto;
     private javax.swing.JLabel lblMensagemErroNome;
     private javax.swing.JLabel lblNomeCliente;
     private javax.swing.JLabel lblNomeDoProduto;
     private javax.swing.JLabel lblQtdProduto;
-    private javax.swing.JLabel lblSubtotal1;
-    private javax.swing.JLabel lblSubtotalRS1;
-    private javax.swing.JLabel lblSubtotalValor1;
-    private javax.swing.JLabel lblTotal1;
-    private javax.swing.JLabel lblTotalRS1;
-    private javax.swing.JLabel lblTotalValor1;
+    private javax.swing.JLabel lblSubtotal;
+    private javax.swing.JLabel lblSubtotalRS;
+    private javax.swing.JLabel lblSubtotalValor;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblTotalRS;
+    private javax.swing.JLabel lblTotalValor;
     private javax.swing.JLabel lblVender;
     private javax.swing.JLabel lblicone;
     private javax.swing.JPanel pnlCliente;

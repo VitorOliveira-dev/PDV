@@ -2,10 +2,36 @@ package br.instumentosmusicais.pdv.controller;
 
 import br.instumentosmusicais.pdv.DAO.PDVDAO;
 import br.instumentosmusicais.pdv.model.Cliente;
+import br.instumentosmusicais.pdv.model.ItensVenda;
 import br.instumentosmusicais.pdv.model.Produto;
+import br.instumentosmusicais.pdv.model.Venda;
 import java.util.ArrayList;
 
 public class PDVController {
+    
+    public static boolean vendaVender(float total, int codCliente, ArrayList<String[]> pItensVenda){
+        Venda vender = new Venda();
+        vender.setTotalVenda(total);
+        vender.setCodCliente(codCliente);
+        
+        ArrayList<ItensVenda> listaItensVenda = new ArrayList<ItensVenda>();
+        // teste String[] itens = pItensVenda.get(0);
+        
+        for(String[] item: pItensVenda){
+        ItensVenda adicionar = new ItensVenda();
+        adicionar.setCodProduto(Integer.parseInt(item[0]));
+        adicionar.setCodCliente(codCliente);
+        adicionar.setQtd_vendida(Integer.parseInt(item[3]));
+        adicionar.setValorUnitario(Float.parseFloat(item[2]));
+        
+        listaItensVenda.add(adicionar);
+        }
+        
+        vender.setListaItens(listaItensVenda);
+        
+        
+    return PDVDAO.vendaVender(vender);
+    }
 
     public static String[] vendaBuscarCliente(String nome, String CPF) {
         Cliente obj = PDVDAO.vendaBuscarCliente(nome, CPF);
@@ -13,6 +39,7 @@ public class PDVController {
 
         if (obj != null) {
             retorno = new String[]{
+                String.valueOf(obj.getCodCliente()),
                 String.valueOf(obj.getNomeCliente()),
                 String.valueOf(obj.getCPF())};
         }
@@ -48,18 +75,20 @@ public class PDVController {
 
     }
 
-    public static String[] manutencaoPesquisarCliente(String pNome) {
+    public static ArrayList<String[]> manutencaoPesquisarCliente(String pNome) {
+        ArrayList<Cliente> listaClientes = PDVDAO.manutencaoPesquisarCliente(pNome);
+        ArrayList<String[]> retorno = new ArrayList<>();
 
-        Cliente obj = PDVDAO.manutencaoPesquisarCliente(pNome);
-        String[] retorno = null;
-
-        if (obj != null) {
-            retorno = new String[]{String.valueOf(obj.getCodCliente()),
+        for (Cliente obj : listaClientes) {
+            retorno.add(new String[]{
+                String.valueOf(obj.getCodCliente()),
                 String.valueOf(obj.getNomeCliente()),
                 String.valueOf(obj.getCPF()),
-                String.valueOf(obj.getTelefone())};
+                String.valueOf(obj.getTelefone())});
+
         }
         return retorno;
+
     }
 
     public static ArrayList<String[]> manutencaoPesquisarTodosProdutos() {
@@ -79,30 +108,31 @@ public class PDVController {
         return retorno;
 
     }
+    
+    public static ArrayList<String[]> manutencaoPesquisarProduto(String pInstrumento) {
+        ArrayList<Produto> listaProdutos = PDVDAO.manutencaoPesquisarProduto(pInstrumento);
+        ArrayList<String[]> retorno = new ArrayList<>();
 
-    public static String[] manutencaoPesquisarProduto(String pInstrumento) {
-
-        Produto obj = PDVDAO.manutencaoPesquisarProduto(pInstrumento);
-        String[] retorno = null;
-
-        if (obj != null) {
-            retorno = new String[]{
+        for (Produto obj : listaProdutos) {
+            retorno.add(new String[]{
                 String.valueOf(obj.getCodProduto()),
                 String.valueOf(obj.getInstrumento()),
                 String.valueOf(obj.getCor()),
                 String.valueOf(obj.getTipo()),
                 String.valueOf(obj.getFabricante()),
-                String.valueOf(obj.getQuantidade())};
+                String.valueOf(obj.getQuantidade())});
+
         }
         return retorno;
+
     }
 
-    public static boolean excluirCliente(int pCodCliente) {
-        return PDVDAO.excluirCliente(pCodCliente);
+    public static boolean manutencaoExcluirCliente(int pCodCliente) {
+        return PDVDAO.manutencaoExcluirCliente(pCodCliente);
     }
-    
-    public static boolean excluirProduto(int pCodProduto) {
-        return PDVDAO.excluirProduto(pCodProduto);
+
+    public static boolean manutencaoExcluirProduto(int pCodProduto) {
+        return PDVDAO.manutencaoExcluirProduto(pCodProduto);
     }
 
 }
