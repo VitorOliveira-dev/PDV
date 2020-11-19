@@ -231,31 +231,36 @@ public class PDVDAO {
 
     }
 
-    public static Cliente vendaBuscarCliente(String pNome, String pCPF) {
+    public static ArrayList<Cliente> vendaBuscarCliente(String pNome, String pCPF) {
 
-        Cliente retorno = null;
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
         Connection conexao = null;
         PreparedStatement comandoSQL = null;
         ResultSet rs = null;
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente WHERE nome=? OR CPF=?");
-            comandoSQL.setString(1, pNome);
-            comandoSQL.setString(2, pCPF);
+            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE CPF LIKE ? OR nome LIKE ?");
+            comandoSQL.setString(1, pCPF);
+            comandoSQL.setString(2, pNome);
 
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                retorno = new Cliente();
-                retorno.setCodCliente(rs.getInt("cod_cliente"));
-                retorno.setNomeCliente(rs.getString("Nome"));
-                retorno.setCPF(rs.getString("CPF"));
+                Cliente obj = new Cliente();
+
+                obj.setCodCliente(rs.getInt("cod_cliente"));
+                obj.setNomeCliente(rs.getString("nome"));
+                obj.setCPF(rs.getString("CPF"));
+
+                listaClientes.add(obj);
             }
 
         } catch (Exception e) {
-            retorno = null;
+            listaClientes = null;
         } finally {
+
+            //Libero os recursos da memória
             try {
                 if (comandoSQL != null) {
                     comandoSQL.close();
@@ -266,10 +271,12 @@ public class PDVDAO {
             } catch (SQLException ex) {
             }
         }
-        return retorno;
+
+        return listaClientes;
+
     }
 
-    public static Produto vendaBuscarProduto(int pCodigo, String pInstrumento) {
+    public static Produto vendaBuscarProduto(String pCodigo, String pInstrumento) {
 
         Produto retorno = null;
         Connection conexao = null;
@@ -279,7 +286,7 @@ public class PDVDAO {
         try {
             conexao = GerenciadorConexao.abrirConexao();
             comandoSQL = conexao.prepareStatement("SELECT * FROM Produto WHERE cod_produto=? OR instrumento=?");
-            comandoSQL.setInt(1, pCodigo);
+            comandoSQL.setString(1, pCodigo);
             comandoSQL.setString(2, pInstrumento);
 
             rs = comandoSQL.executeQuery();
@@ -580,36 +587,34 @@ public class PDVDAO {
 
         return retorno;
     }
-    
-    /*TESTETETETETE*/
-    
-        public static ArrayList<Cliente> TmanutencaoPesquisarCliente(String pNome, String pCPF) {
 
-        ArrayList<Cliente> listaClientes = new ArrayList<>();
+    /*TESTETETETETE*/
+    public static ArrayList<Produto> TvendaBuscarProduto(String pCodigo, String pInstrumento) {
+
+        ArrayList<Produto> listaProdutos = new ArrayList<>();
         Connection conexao = null;
         PreparedStatement comandoSQL = null;
         ResultSet rs = null;
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ? OR CPF LIKE ?");
-            comandoSQL.setString(1, pNome);
-            comandoSQL.setString(2, pCPF);
+            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
+            comandoSQL.setString(1, pCodigo);
+            comandoSQL.setString(2, pInstrumento);
 
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                Cliente obj = new Cliente();
+                Produto obj = new Produto();
+                obj.setCodProduto(rs.getInt("cod_produto"));
+                obj.setInstrumento(rs.getString("instrumento"));
+                obj.setValor(rs.getFloat("valor"));
 
-                obj.setCodCliente(rs.getInt("cod_cliente"));
-                obj.setNomeCliente(rs.getString("nome"));
-                obj.setCPF(rs.getString("CPF"));
-
-                listaClientes.add(obj);
+                listaProdutos.add(obj);
             }
 
         } catch (Exception e) {
-            listaClientes = null;
+            listaProdutos = null;
         } finally {
 
             //Libero os recursos da memória
@@ -621,10 +626,11 @@ public class PDVDAO {
                 GerenciadorConexao.fecharConexao();
 
             } catch (SQLException ex) {
+                System.out.println("ERROR " + ex);
             }
         }
 
-        return listaClientes;
+        return listaProdutos;
 
     }
 

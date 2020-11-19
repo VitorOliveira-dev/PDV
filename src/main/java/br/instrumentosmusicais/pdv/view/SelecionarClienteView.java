@@ -1,26 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.instrumentosmusicais.pdv.view;
 
+import br.instrumentosmusicais.pdv.model.Cliente;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author PICHAU
- */
 public class SelecionarClienteView extends javax.swing.JFrame {
 
     /**
      * Creates new form SelecionarClienteView
      */
-    public SelecionarClienteView() {
+    
+        public SelecionarClienteView() {
         initComponents();
+        setLocationRelativeTo(null);
 
     }
 
@@ -33,6 +28,7 @@ public class SelecionarClienteView extends javax.swing.JFrame {
         }
 
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +45,7 @@ public class SelecionarClienteView extends javax.swing.JFrame {
         tblClientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Selecione o Cliente");
         setBackground(new java.awt.Color(51, 51, 51));
 
         pnlSelecionarClientes.setBackground(new java.awt.Color(51, 51, 51));
@@ -122,9 +119,6 @@ public class SelecionarClienteView extends javax.swing.JFrame {
 
     private void btnSelecionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarClienteActionPerformed
         DefaultTableModel modelo = new DefaultTableModel();
-        VendaView telaVendas = new VendaView();
-        SelecionarClienteView tela = new SelecionarClienteView();
-
         modelo = (DefaultTableModel) tblClientes.getModel();
 
         int linhaSelecionada = tblClientes.getSelectedRow();
@@ -137,9 +131,10 @@ public class SelecionarClienteView extends javax.swing.JFrame {
                 String.valueOf(modelo.getValueAt(linhaSelecionada, 1)),
                 String.valueOf(modelo.getValueAt(linhaSelecionada, 2))};
 
-            telaVendas.preencherCliente(cliente);
-            tela.dispose();
-
+            VendaView telaVendas = new VendaView(cliente[0], cliente[1], cliente[2]);
+            dispose();
+            telaVendas.setVisible(true);
+            
         }
     }//GEN-LAST:event_btnSelecionarClienteActionPerformed
 

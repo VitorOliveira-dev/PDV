@@ -23,6 +23,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     public CadastroProdutoView() {
         initComponents();
         setLocationRelativeTo(null);
+        lblCodigo.setVisible(false);
     }
 
     public CadastroProdutoView(int idProduto) {

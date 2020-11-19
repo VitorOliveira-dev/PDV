@@ -23,10 +23,18 @@ public class VendaView extends javax.swing.JFrame {
         tbTabelaProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
     }
 
-    public void preencherCliente(String[] cliente) {
-        lblCodClienteValor.setText("1");
-        txtNomeCliente.setText("1");
-        txtCPF.setText("1");
+    public VendaView(String codCliente, String nomeCliente, String CPF) {
+        initComponents();
+        tbTabelaProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);
+        tbTabelaProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tbTabelaProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(30);
+        tbTabelaProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(15);
+        tbTabelaProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
+        
+        lblCodClienteValor.setText(codCliente);
+        txtNomeCliente.setText(nomeCliente);
+        txtCPF.setText(CPF);
+
     }
 
     /**
@@ -75,6 +83,7 @@ public class VendaView extends javax.swing.JFrame {
         lblicone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Venda");
 
         pnlVenderEsq.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -544,9 +553,9 @@ public class VendaView extends javax.swing.JFrame {
         String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
 
         //String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
-        ArrayList<String[]> infoClientes = PDVController.TmanutencaoPesquisarCliente(nome, CPF);
+        ArrayList<String[]> infoClientes = PDVController.vendaBuscarCliente(nome, CPF);
 
-        if (infoClientes == null) {
+        if (infoClientes.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Cliente não encontrado");
             Validador objValidar = new Validador();
             objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
@@ -555,8 +564,9 @@ public class VendaView extends javax.swing.JFrame {
         }
         if (infoClientes.size() > 1) {
             SelecionarClienteView selecao = new SelecionarClienteView();
-            selecao.setVisible(true);
             selecao.preencherTabela(infoClientes);
+            selecao.setVisible(true);
+            dispose();
 
         } else {
             String[] info = infoClientes.get(0);
@@ -579,30 +589,32 @@ public class VendaView extends javax.swing.JFrame {
         objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
         if (txtCodProduto.getText().equals("   Ex: 1234")) {
             txtCodProduto.setText("");
-            objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+           // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         } else {
             txtCodProduto.setForeground(Color.BLACK);
             txtCodProduto.setBackground(Color.WHITE);
-            objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+           // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         }
         int linha = 0;
+        String codigo = null;
+        String instrumento = null;
 
-        int codigo = Integer.parseInt(txtCodProduto.getText());
-        String instrumento = txtNomeDoProduto.getText();
+        codigo = txtCodProduto.getText();
+        instrumento = txtNomeDoProduto.getText();
 
         String[] addProduto = PDVController.vendaBuscarProduto(codigo, instrumento);
-        float valor = Float.parseFloat(addProduto[2]);
+        
         int quantidade = Integer.parseInt(spnQtd.getValue().toString());
+        float valor = Float.parseFloat(addProduto[2]);
         float valorTotalProduto = valor * quantidade;
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
 
         if (addProduto == null) {
-            JOptionPane.showMessageDialog(this, "ID não encontrado");
+            JOptionPane.showMessageDialog(this, "Produto não encontrado");
             return;
-        } else {
-
+        }else {
             txtCodProduto.setText(addProduto[0]);
             txtNomeDoProduto.setText(addProduto[1]);
 
