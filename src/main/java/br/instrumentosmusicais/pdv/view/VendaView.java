@@ -23,6 +23,12 @@ public class VendaView extends javax.swing.JFrame {
         tbTabelaProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
     }
 
+    public void preencherCliente(String[] cliente) {
+        lblCodClienteValor.setText("1");
+        txtNomeCliente.setText("1");
+        txtCPF.setText("1");
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -537,18 +543,27 @@ public class VendaView extends javax.swing.JFrame {
         String nome = txtNomeCliente.getText().trim();
         String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
 
-        String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
+        //String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
+        ArrayList<String[]> infoClientes = PDVController.TmanutencaoPesquisarCliente(nome, CPF);
 
-        if (infoCliente == null) {
-            JOptionPane.showMessageDialog(this, "ID não encontrado");
+        if (infoClientes == null) {
+            JOptionPane.showMessageDialog(this, "Cliente não encontrado");
             Validador objValidar = new Validador();
             objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
             objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
             return;
+        }
+        if (infoClientes.size() > 1) {
+            SelecionarClienteView selecao = new SelecionarClienteView();
+            selecao.setVisible(true);
+            selecao.preencherTabela(infoClientes);
+
         } else {
-            lblCodClienteValor.setText(infoCliente[0]);
-            txtNomeCliente.setText(infoCliente[1]);
-            txtCPF.setText(infoCliente[2]);
+            String[] info = infoClientes.get(0);
+
+            lblCodClienteValor.setText(info[0]);
+            txtNomeCliente.setText(info[1]);
+            txtCPF.setText(info[2]);
             Validador objValidar = new Validador();
             objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
             objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
@@ -612,7 +627,7 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
-        // TODO Chamar a CONTROLLER e finalizar esta tela.
+
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
 
@@ -627,11 +642,11 @@ public class VendaView extends javax.swing.JFrame {
                 String.valueOf(modelo.getValueAt(i, 3))}); //quantidade
         }
         boolean retorno = PDVController.vendaVender(valorTotalVenda, codCliente, itens);
-        
-        if(retorno){
-        JOptionPane.showMessageDialog(this, "SUCESSO");
-        }else{
-        JOptionPane.showMessageDialog(this, "DEU ERRO");
+
+        if (retorno) {
+            JOptionPane.showMessageDialog(this, "SUCESSO");
+        } else {
+            JOptionPane.showMessageDialog(this, "DEU ERRO");
         }
 
 

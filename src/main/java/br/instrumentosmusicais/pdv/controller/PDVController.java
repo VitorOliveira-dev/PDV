@@ -162,26 +162,43 @@ public class PDVController {
         return PDVDAO.atualizarProduto(objProduto);
 
     }
-    
+
     public static String[] consultarPorID(int idProduto) {
-    
+
         Produto objInstrumento = PDVDAO.consultarPorID(idProduto);
-        
-        String[] instrumentoRetorno  = null;
-        
-        if(objInstrumento!=null){
-            instrumentoRetorno = new String[]{ String.valueOf(objInstrumento.getCodProduto())
-                                                ,String.valueOf(objInstrumento.getInstrumento())
-                                                ,String.valueOf(objInstrumento.getCor()) 
-                                                ,String.valueOf(objInstrumento.getTipo())
-                                                ,String.valueOf(objInstrumento.getFabricante())
-                                                ,String.valueOf(objInstrumento.getQuantidade())
-                                                ,String.valueOf(objInstrumento.getValor())
+
+        String[] instrumentoRetorno = null;
+
+        if (objInstrumento != null) {
+            instrumentoRetorno = new String[]{String.valueOf(objInstrumento.getCodProduto()),
+                 String.valueOf(objInstrumento.getInstrumento()),
+                 String.valueOf(objInstrumento.getCor()),
+                 String.valueOf(objInstrumento.getTipo()),
+                 String.valueOf(objInstrumento.getFabricante()),
+                 String.valueOf(objInstrumento.getQuantidade()),
+                 String.valueOf(objInstrumento.getValor())
             };
-            
+
         }
-        
+
         return instrumentoRetorno;
+    }
+
+    /*testeteteteet*/
+    public static ArrayList<String[]> TmanutencaoPesquisarCliente(String pNome, String pCPF) {
+
+        ArrayList<Cliente> listaClientes = PDVDAO.manutencaoPesquisarCliente(pNome);
+        ArrayList<String[]> retorno = new ArrayList<>();
+
+        for (Cliente obj : listaClientes) {
+            retorno.add(new String[]{
+                String.valueOf(obj.getCodCliente()),
+                String.valueOf(obj.getNomeCliente()),
+                String.valueOf(obj.getCPF())});
+
+        }
+        return retorno;
+
     }
 
 }

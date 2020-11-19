@@ -580,5 +580,52 @@ public class PDVDAO {
 
         return retorno;
     }
+    
+    /*TESTETETETETE*/
+    
+        public static ArrayList<Cliente> TmanutencaoPesquisarCliente(String pNome, String pCPF) {
+
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
+        Connection conexao = null;
+        PreparedStatement comandoSQL = null;
+        ResultSet rs = null;
+
+        try {
+            conexao = GerenciadorConexao.abrirConexao();
+            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ? OR CPF LIKE ?");
+            comandoSQL.setString(1, pNome);
+            comandoSQL.setString(2, pCPF);
+
+            rs = comandoSQL.executeQuery();
+
+            while (rs.next()) {
+                Cliente obj = new Cliente();
+
+                obj.setCodCliente(rs.getInt("cod_cliente"));
+                obj.setNomeCliente(rs.getString("nome"));
+                obj.setCPF(rs.getString("CPF"));
+
+                listaClientes.add(obj);
+            }
+
+        } catch (Exception e) {
+            listaClientes = null;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (comandoSQL != null) {
+                    comandoSQL.close();
+                }
+
+                GerenciadorConexao.fecharConexao();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return listaClientes;
+
+    }
 
 }
