@@ -67,7 +67,7 @@ public class Validador {
                 throw new IllegalArgumentException();
             }
             
-            float valorConvertido = Float.parseFloat(txt.getText());
+            float valorConvertido = Float.parseFloat(txt.getText().replace(",", "."));
             txt.setBackground(Color.WHITE);
             jbl.setText("");
             

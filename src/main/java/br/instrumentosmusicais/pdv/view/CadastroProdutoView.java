@@ -364,31 +364,36 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         Validador objValidar = new Validador();
+        String instrumento;
+        String cor;
+        String tipo;
+        String fabricante;
+        int quantidade;
+        float valor;
+        try {
         objValidar.CampoVazio(txtInstrumento, jblMensagemInstrumento);
         objValidar.CampoVazio(txtCor, jblMensagemCor);
         objValidar.CampoVazio(txtFabricante, jblMensagemFabricante);
         objValidar.CampoVazio(txtValor, jblMensagemValor);
-
-        String instrumento = "";
-        String cor = "";
-        String tipo = "";
-        String fabricante = "";
-        int quantidade = 0;
-        float valor = 0;
-        try {
             instrumento = txtInstrumento.getText();
             cor = txtCor.getText();
             tipo = cbbTipo.getSelectedItem().toString();
             fabricante = txtFabricante.getText();
             quantidade = Integer.parseInt(spnQuantidade.getValue().toString());
-            valor = Float.parseFloat(txtValor.getText());
+            valor = Float.parseFloat(txtValor.getText().replace(",", "."));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocorreu um erro ao converter os valores!");
+            return;
         }
 
         if (modoTela == "Criar") {
             if (PDVController.salvarProduto(instrumento, cor, tipo, fabricante, quantidade, valor)) {
                 JOptionPane.showMessageDialog(this, "Produto cadastrado com sucesso!");
+                txtInstrumento.setText("");
+                txtCor.setText("");
+                txtFabricante.setText("");
+                spnQuantidade.setValue(0);
+                txtValor.setText(null);
             } else {
                 JOptionPane.showMessageDialog(this, "Erro ao cadastrar produto!");
             }
