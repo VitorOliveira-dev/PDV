@@ -5,7 +5,9 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
+import br.instrumentosmusicais.pdv.controller.PDVController;
 import br.instrumentosmusicais.pdv.utils.Validador;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +22,10 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
      */
     public RelatorioSinteticoView() {
         initComponents();
+        tblTabelaProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(50);
+        tblTabelaProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(15);
+        tblTabelaProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(50);
+        tblTabelaProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(30);
     }
 
     /**
@@ -49,6 +55,9 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         pnlTabelaVender = new javax.swing.JScrollPane();
         tblTabelaProdutosVenda = new javax.swing.JTable();
         btnPesquisaAnalitica = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblTotal = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -218,29 +227,18 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
 
         tblTabelaProdutosVenda.setBackground(new java.awt.Color(153, 153, 153));
         tblTabelaProdutosVenda.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
-        tblTabelaProdutosVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        tblTabelaProdutosVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 10)); // NOI18N
         tblTabelaProdutosVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Data", "Nº Ped", "Cliente", "Valor Ped", "+ INFO"
+                "Data", "Nº Compra", "Cliente", "Total"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -266,22 +264,47 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
             }
         });
 
+        lblTotal.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+        lblTotal.setText("Total:");
+
+        txtTotal.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addComponent(txtTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout pnlRelatorioLayout = new javax.swing.GroupLayout(pnlRelatorio);
         pnlRelatorio.setLayout(pnlRelatorioLayout);
         pnlRelatorioLayout.setHorizontalGroup(
             pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRelatorioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisaAnalitica, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlTabelaVender, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisaAnalitica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlRelatorioLayout.setVerticalGroup(
             pnlRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRelatorioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPesquisaAnalitica, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -341,12 +364,22 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisaAnaliticaActionPerformed
 
     private void btnPesquisaMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaMesActionPerformed
-               if(jcbNomeMeses.getSelectedIndex()==0){
+        if(jcbNomeMeses.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(this, "Selecione um mês!!!","Aviso", JOptionPane.WARNING_MESSAGE);
         }
         else{            
             //Chamar função
-            String mes = jcbNomeMeses.getSelectedItem().toString();
+            int mes = jcbNomeMeses.getSelectedIndex();
+            ArrayList<String[]> listaCompras = PDVController.pesquisaMes(mes);
+
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo = (DefaultTableModel) tblTabelaProdutosVenda.getModel();
+
+            modelo.setRowCount(0);
+
+            for (String[] dados : listaCompras) {
+                modelo.addRow(dados);
+            }            
         }
     }//GEN-LAST:event_btnPesquisaMesActionPerformed
 
@@ -404,6 +437,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisaAnalitica;
     private javax.swing.JButton btnPesquisaMes;
     private javax.swing.JButton btnPesquisaPersonalizada;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> jcbNomeMeses;
     private javax.swing.JLabel lblMensagemErroDataFinal;
     private javax.swing.JLabel lblMensagemErroDataInicio;
@@ -411,6 +445,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
     private javax.swing.JLabel lblNomeFinal;
     private javax.swing.JLabel lblNomeInicio;
     private javax.swing.JLabel lblTituloRelatorio;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel pnlFiltro;
     private javax.swing.JPanel pnlFundo;
     private javax.swing.JPanel pnlPesquisa;
@@ -419,5 +454,6 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
     private javax.swing.JTable tblTabelaProdutosVenda;
     private javax.swing.JFormattedTextField txtDataFinal;
     private javax.swing.JFormattedTextField txtDataInicio;
+    private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
 }
