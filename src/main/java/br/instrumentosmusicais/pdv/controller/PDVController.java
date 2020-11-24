@@ -7,7 +7,6 @@ import br.instrumentosmusicais.pdv.model.Produto;
 import br.instrumentosmusicais.pdv.model.RelatorioSintetico;
 import br.instrumentosmusicais.pdv.model.Venda;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class PDVController {
 
