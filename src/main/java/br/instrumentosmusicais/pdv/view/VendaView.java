@@ -1,12 +1,12 @@
 package br.instrumentosmusicais.pdv.view;
 
 import br.instrumentosmusicais.pdv.controller.PDVController;
-import br.instrumentosmusicais.pdv.model.Cliente;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
 public class VendaView extends javax.swing.JFrame {
@@ -16,21 +16,21 @@ public class VendaView extends javax.swing.JFrame {
      */
     public VendaView() {
         initComponents();
-        tbTabelaProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(100);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(30);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(15);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
+        tbProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);
+        tbProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tbProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(30);
+        tbProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(15);
+        tbProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
     }
 
     public VendaView(String codCliente, String nomeCliente, String CPF) {
         initComponents();
-        tbTabelaProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(100);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(30);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(15);
-        tbTabelaProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
-        
+        tbProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);
+        tbProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tbProdutosVenda.getColumnModel().getColumn(2).setPreferredWidth(30);
+        tbProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(15);
+        tbProdutosVenda.getColumnModel().getColumn(4).setPreferredWidth(30);
+
         lblCodClienteValor.setText(codCliente);
         txtNomeCliente.setText(nomeCliente);
         txtCPF.setText(CPF);
@@ -78,8 +78,10 @@ public class VendaView extends javax.swing.JFrame {
         lblTotalValor = new javax.swing.JLabel();
         lblTotalRS = new javax.swing.JLabel();
         pnlTabelaVender = new javax.swing.JScrollPane();
-        tbTabelaProdutosVenda = new javax.swing.JTable();
+        tbProdutosVenda = new javax.swing.JTable();
         btnFinalizarVenda = new javax.swing.JButton();
+        btnLimpar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         lblicone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -389,15 +391,15 @@ public class VendaView extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
-        tbTabelaProdutosVenda.setBackground(new java.awt.Color(153, 153, 153));
-        tbTabelaProdutosVenda.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
-        tbTabelaProdutosVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
-        tbTabelaProdutosVenda.setModel(new javax.swing.table.DefaultTableModel(
+        tbProdutosVenda.setBackground(new java.awt.Color(153, 153, 153));
+        tbProdutosVenda.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 51), 1, true));
+        tbProdutosVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
+        tbProdutosVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Descrição", "Preço", "Qtd", "Total"
+                "Código", "Instrumento", "Preço", "Quantidade", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -408,22 +410,49 @@ public class VendaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbTabelaProdutosVenda.setCellSelectionEnabled(true);
-        tbTabelaProdutosVenda.setGridColor(new java.awt.Color(51, 51, 51));
-        tbTabelaProdutosVenda.setRowHeight(20);
-        tbTabelaProdutosVenda.setRowMargin(3);
-        tbTabelaProdutosVenda.setSelectionBackground(new java.awt.Color(51, 51, 51));
-        pnlTabelaVender.setViewportView(tbTabelaProdutosVenda);
+        tbProdutosVenda.setCellSelectionEnabled(true);
+        tbProdutosVenda.setGridColor(new java.awt.Color(51, 51, 51));
+        tbProdutosVenda.setRowHeight(20);
+        tbProdutosVenda.setRowMargin(3);
+        tbProdutosVenda.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        pnlTabelaVender.setViewportView(tbProdutosVenda);
 
         btnFinalizarVenda.setBackground(new java.awt.Color(51, 51, 51));
         btnFinalizarVenda.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         btnFinalizarVenda.setForeground(new java.awt.Color(255, 255, 255));
         btnFinalizarVenda.setText("<html>\nFinalizar\n<br>&nbsp;&nbsp;&nbsp;&nbsp;Venda\n</html>");
+        btnFinalizarVenda.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         btnFinalizarVenda.setContentAreaFilled(false);
         btnFinalizarVenda.setOpaque(true);
         btnFinalizarVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarVendaActionPerformed(evt);
+            }
+        });
+
+        btnLimpar.setBackground(new java.awt.Color(51, 51, 51));
+        btnLimpar.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnLimpar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpar.setText("Limpar");
+        btnLimpar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnLimpar.setContentAreaFilled(false);
+        btnLimpar.setOpaque(true);
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
+
+        btnExcluir.setBackground(new java.awt.Color(51, 51, 51));
+        btnExcluir.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btnExcluir.setText("Excluir ");
+        btnExcluir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnExcluir.setContentAreaFilled(false);
+        btnExcluir.setOpaque(true);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
             }
         });
 
@@ -433,24 +462,36 @@ public class VendaView extends javax.swing.JFrame {
             pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabelaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(pnlValoresVender1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(pnlTabelaVender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pnlValoresVender1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlTabelaLayout.createSequentialGroup()
+                        .addComponent(btnLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        pnlTabelaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnExcluir, btnLimpar});
+
         pnlTabelaLayout.setVerticalGroup(
             pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTabelaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlTabelaVender, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlValoresVender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnFinalizarVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        pnlTabelaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnExcluir, btnLimpar});
 
         lblicone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/MoedaTeste2.png"))); // NOI18N
 
@@ -585,16 +626,18 @@ public class VendaView extends javax.swing.JFrame {
     float valorTotalVenda = 0;
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
         Validador objValidar = new Validador();
+
         objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
         objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
         if (txtCodProduto.getText().equals("   Ex: 1234")) {
             txtCodProduto.setText("");
-           // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+            // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         } else {
             txtCodProduto.setForeground(Color.BLACK);
             txtCodProduto.setBackground(Color.WHITE);
-           // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
+            // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         }
+        float valorTotalProduto = 0;
         int linha = 0;
         String codigo = null;
         String instrumento = null;
@@ -602,27 +645,22 @@ public class VendaView extends javax.swing.JFrame {
         codigo = txtCodProduto.getText();
         instrumento = txtNomeDoProduto.getText();
 
-        String[] addProduto = PDVController.vendaBuscarProduto(codigo, instrumento);
-        
-        int quantidade = Integer.parseInt(spnQtd.getValue().toString());
-        float valor = Float.parseFloat(addProduto[2]);
-        float valorTotalProduto = valor * quantidade;
-
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
+        modelo = (DefaultTableModel) tbProdutosVenda.getModel();
 
-        if (addProduto == null) {
+        ArrayList<String[]> produtos = PDVController.vendaBuscarProduto(codigo, instrumento);
+
+        String[] addProduto;
+
+        if (produtos.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Produto não encontrado");
             return;
-        }else {
-            txtCodProduto.setText(addProduto[0]);
-            txtNomeDoProduto.setText(addProduto[1]);
-
-            modelo.addRow(addProduto);
-            modelo.setValueAt(spnQtd.getValue(), modelo.getRowCount() - 1, 3);
-            modelo.setValueAt(valorTotalProduto, modelo.getRowCount() - 1, 4);
-            linha++;
-
+        } else if (produtos.size() > 1) {
+            String produtosRepetidos = "\n";
+            for (int i = 0; i < produtos.size(); i++) {
+                produtosRepetidos = Arrays.toString(produtos.get(i)).replace("[", "").replace("]", "") + "\n" + produtosRepetidos;
+            }
+            JOptionPane.showMessageDialog(this, "Foram encontrados " + produtos.size() + " produtos\n\n" + produtosRepetidos + "Verifique o código do produto que deseja adicionar á venda e insira-o no campo Código do Produto");
             txtCodProduto.setText("");
             txtNomeDoProduto.setText("");
             if (txtNomeDoProduto.getText().equals("")) {
@@ -632,16 +670,41 @@ public class VendaView extends javax.swing.JFrame {
                 txtCodProduto.setText("   Ex: 1234");
                 txtCodProduto.setForeground(new java.awt.Color(204, 204, 204));
             }
+            return;
+        } else {
+            addProduto = produtos.get(0);
 
+            int quantidade = Integer.parseInt(spnQtd.getValue().toString());
+            float valor = Float.parseFloat(addProduto[2]);
+            valorTotalProduto = valor * quantidade;
+
+            txtCodProduto.setText(addProduto[0]);
+            txtNomeDoProduto.setText(addProduto[1]);
+
+            modelo.addRow(addProduto);
+            modelo.setValueAt(spnQtd.getValue(), modelo.getRowCount() - 1, 3);
+            modelo.setValueAt(valorTotalProduto, modelo.getRowCount() - 1, 4);
+            linha++;
         }
+        txtCodProduto.setText("");
+        txtNomeDoProduto.setText("");
+        if (txtNomeDoProduto.getText().equals("")) {
+            txtNomeDoProduto.setText("Exemplo de produto");
+        }
+        if (txtCodProduto.getText().equals("")) {
+            txtCodProduto.setText("   Ex: 1234");
+            txtCodProduto.setForeground(new java.awt.Color(204, 204, 204));
+        }
+
         valorTotalVenda = valorTotalProduto + valorTotalVenda;
+
         lblTotalValor.setText(String.valueOf(valorTotalVenda));
     }//GEN-LAST:event_btnAdicionarProdutoActionPerformed
 
     private void btnFinalizarVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarVendaActionPerformed
 
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo = (DefaultTableModel) tbTabelaProdutosVenda.getModel();
+        modelo = (DefaultTableModel) tbProdutosVenda.getModel();
 
         int codCliente = Integer.parseInt(lblCodClienteValor.getText());
 
@@ -664,6 +727,28 @@ public class VendaView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnFinalizarVendaActionPerformed
 
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo = (DefaultTableModel) tbProdutosVenda.getModel();
+        modelo.setRowCount(0);
+        valorTotalVenda = 0;
+        lblTotalValor.setText(String.valueOf(valorTotalVenda));
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo = (DefaultTableModel) tbProdutosVenda.getModel();
+        int linhaSelecionada = tbProdutosVenda.getSelectedRow();
+        if (linhaSelecionada < 0) {
+            JOptionPane.showMessageDialog(null, "Para excluir o produto da lista, selecione a linha");
+            return;
+        } else {
+            valorTotalVenda = valorTotalVenda - Float.parseFloat(modelo.getValueAt(linhaSelecionada, 4).toString());
+            modelo.removeRow(linhaSelecionada);
+            lblTotalValor.setText(String.valueOf(valorTotalVenda));
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -678,16 +763,24 @@ public class VendaView extends javax.swing.JFrame {
                 if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendaView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendaView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendaView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VendaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VendaView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -702,7 +795,9 @@ public class VendaView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarProduto;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnFinalizarVenda;
+    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnPesquisarCliente;
     private javax.swing.JLabel lblCodCliente;
     private javax.swing.JLabel lblCodClienteValor;
@@ -731,7 +826,7 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlValoresVender1;
     private javax.swing.JPanel pnlVenderEsq;
     private javax.swing.JSpinner spnQtd;
-    private javax.swing.JTable tbTabelaProdutosVenda;
+    private javax.swing.JTable tbProdutosVenda;
     private javax.swing.JFormattedTextField txtCPF;
     private javax.swing.JTextField txtCodProduto;
     private javax.swing.JTextField txtNomeCliente;

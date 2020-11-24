@@ -1,6 +1,5 @@
-
-
 package br.instrumentosmusicais.pdv.utils;
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
@@ -8,171 +7,77 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-
 public class Validador {
-    
-    public ArrayList<String> mensagensErro = new ArrayList<>();
-    
 
-    public void ValidarNumero(JTextField txt){
-    
-        try{
-            
+    public ArrayList<String> mensagensErro = new ArrayList<>();
+
+    public void ValidarNumero(JTextField txt) {
+
+        try {
+
             int valorConvertido = Integer.parseInt(txt.getText());
             txt.setBackground(Color.WHITE);
-            
-        }catch(NumberFormatException e){
+
+        } catch (NumberFormatException e) {
             txt.setBackground(Color.red);
         }
-    
+
     }
-    public void CampoVazio( JTextField txt, JLabel jbl){
-        try{
-            
+
+    public void CampoVazio(JTextField txt, JLabel jbl) {
+        try {
+
             //Verifico se o campo está vazio
-            if(txt.getText().trim().equals("")){
+            if (txt.getText().trim().equals("")) {
                 throw new IllegalArgumentException();
-                
+
             }
             txt.setBackground(Color.WHITE);
             jbl.setText("");
-            }
-        catch(IllegalArgumentException e){
-            txt.setBackground(Color.red);
-            jbl.setText("Campo Obrigatório");
-        }
-    } 
-    
-     public void CampoVazioFormatado( JFormattedTextField txt, JLabel jbl){
-        try{
-            
-            //Verifico se o campo está vazio
-            if(txt.getText().replace(".", "").replace("/", "").replace("-", "").replace("(", "").replace(")", "").trim().equals("")){
-                throw new IllegalArgumentException();
-                
-            }
-            txt.setBackground(Color.WHITE);
-            jbl.setText("");
-            }
-        catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             txt.setBackground(Color.red);
             jbl.setText("Campo Obrigatório");
         }
     }
-     public void ValidarFloat(JTextField txt, JLabel jbl){
-     
-         try{
-            
+
+    public void CampoVazioFormatado(JFormattedTextField txt, JLabel jbl) {
+        try {
+
             //Verifico se o campo está vazio
-            if(txt.getText().trim().equals("")){
+            if (txt.getText().replace(".", "").replace("/", "").replace("-", "").replace("(", "").replace(")", "").trim().equals("")) {
+                throw new IllegalArgumentException();
+
+            }
+            txt.setBackground(Color.WHITE);
+            jbl.setText("");
+        } catch (IllegalArgumentException e) {
+            txt.setBackground(Color.red);
+            jbl.setText("Campo Obrigatório");
+        }
+    }
+
+    public void ValidarFloat(JTextField txt, JLabel jbl) {
+
+        try {
+
+            //Verifico se o campo está vazio
+            if (txt.getText().trim().equals("")) {
                 throw new IllegalArgumentException();
             }
-            
+
             float valorConvertido = Float.parseFloat(txt.getText().replace(",", "."));
             txt.setBackground(Color.WHITE);
             jbl.setText("");
-            
-        }catch(NumberFormatException e){
+
+        } catch (NumberFormatException e) {
             txt.setBackground(Color.red);
             jbl.setText("Somente números");
         }
-     
-     }
-     
-     public void limparMensagens(){
-     
-         this.mensagensErro.clear();
-     }
-=======
 
-package br.instrumentosmusicais.pdv.utils;
-import java.awt.Color;
-import java.util.ArrayList;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
-
-public class Validador {
-    
-    public ArrayList<String> mensagensErro = new ArrayList<>();
-    
-
-    public void ValidarNumero(JTextField txt){
-    
-        try{
-            
-            int valorConvertido = Integer.parseInt(txt.getText());
-            txt.setBackground(Color.WHITE);
-            
-        }catch(NumberFormatException e){
-            txt.setBackground(Color.red);
-        }
-    
     }
-    public void CampoVazio( JTextField txt, JLabel jbl){
-        try{
-            
-            //Verifico se o campo está vazio
-            if(txt.getText().trim().equals("")){
-                throw new IllegalArgumentException();
-                
-            }
-            txt.setBackground(Color.WHITE);
-            jbl.setText("");
-            }
-        catch(IllegalArgumentException e){
-            txt.setBackground(Color.red);
-            jbl.setText("Campo Obrigatório");
-        }
-    } 
-    
-     public void CampoVazioFormatado( JFormattedTextField txt, JLabel jbl){
-        try{
-            
-            //Verifico se o campo está vazio
-            if(txt.getText().replace(".", "").replace("/", "").replace("-", "").replace("(", "").replace(")", "").trim().equals("")){
-                throw new IllegalArgumentException();
-                
-            }
-            txt.setBackground(Color.WHITE);
-            jbl.setText("");
-            }
-        catch(IllegalArgumentException e){
-            txt.setBackground(Color.red);
-            jbl.setText("Campo Obrigatório");
-        }
+
+    public void limparMensagens() {
+
+        this.mensagensErro.clear();
     }
-     public void ValidarFloat(JTextField txt, JLabel jbl){
-     
-         try{
-            
-            //Verifico se o campo está vazio
-            if(txt.getText().trim().equals("")){
-                throw new IllegalArgumentException();
-            }
-            
-            float valorConvertido = Float.parseFloat(txt.getText());
-            txt.setBackground(Color.WHITE);
-            jbl.setText("");
-            
-        }catch(NumberFormatException e){
-            txt.setBackground(Color.red);
-            jbl.setText("Somente números");
-        }
-     
-     }
-    public boolean CampoIgual(JComboBox campo){
-        if(campo.getSelectedIndex()==0){
-            return true;
-        }else{
-            return false;
-        }
-    }
-     public void limparMensagens(){
-     
-         this.mensagensErro.clear();
-     }
 }

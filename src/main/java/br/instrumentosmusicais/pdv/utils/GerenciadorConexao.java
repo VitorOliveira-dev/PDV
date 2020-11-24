@@ -13,7 +13,7 @@ public class GerenciadorConexao {
     public static String DATABASE = "instrumusic";        //nome do seu banco de dados
 
     public static String LOGIN = "root";                     //nome de um usuário de seu BD      
-    public static String SENHA = "root";                         //sua senha de acesso
+    public static String SENHA = "";                         //sua senha de acesso
 
     public static String URL = "";
 
