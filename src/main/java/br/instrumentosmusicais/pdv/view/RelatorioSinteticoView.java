@@ -5,7 +5,7 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.RelatorioSinteticoController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -370,7 +370,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         else{            
             //Chamar função
             int mes = jcbNomeMeses.getSelectedIndex();
-            ArrayList<String[]> listaCompras = PDVController.pesquisaMes(mes);
+            ArrayList<String[]> listaCompras = RelatorioSinteticoController.pesquisaMes(mes);
 
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblTabelaProdutosVenda.getModel();

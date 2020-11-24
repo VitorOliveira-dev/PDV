@@ -1,6 +1,6 @@
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.VendaController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import java.awt.*;
@@ -594,7 +594,7 @@ public class VendaView extends javax.swing.JFrame {
         String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
 
         //String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
-        ArrayList<String[]> infoClientes = PDVController.vendaBuscarCliente(nome, CPF);
+        ArrayList<String[]> infoClientes = VendaController.vendaBuscarCliente(nome, CPF);
 
         if (infoClientes.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Cliente não encontrado");
@@ -648,7 +648,7 @@ public class VendaView extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tbProdutosVenda.getModel();
 
-        ArrayList<String[]> produtos = PDVController.vendaBuscarProduto(codigo, instrumento);
+        ArrayList<String[]> produtos = VendaController.vendaBuscarProduto(codigo, instrumento);
 
         String[] addProduto;
 
@@ -716,7 +716,7 @@ public class VendaView extends javax.swing.JFrame {
                 String.valueOf(modelo.getValueAt(i, 2)), //valor
                 String.valueOf(modelo.getValueAt(i, 3))}); //quantidade
         }
-        boolean retorno = PDVController.vendaVender(valorTotalVenda, codCliente, itens);
+        boolean retorno = VendaController.vendaVender(valorTotalVenda, codCliente, itens);
 
         if (retorno) {
             JOptionPane.showMessageDialog(this, "SUCESSO");

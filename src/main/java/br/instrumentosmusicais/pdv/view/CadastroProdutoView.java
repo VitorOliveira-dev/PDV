@@ -5,6 +5,7 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
+import br.instrumentosmusicais.pdv.controller.CadastroProdutoController;
 import br.instrumentosmusicais.pdv.controller.PDVController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import java.awt.Color;
@@ -371,10 +372,10 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         int quantidade;
         float valor;
         try {
-        objValidar.CampoVazio(txtInstrumento, jblMensagemInstrumento);
-        objValidar.CampoVazio(txtCor, jblMensagemCor);
-        objValidar.CampoVazio(txtFabricante, jblMensagemFabricante);
-        objValidar.CampoVazio(txtValor, jblMensagemValor);
+            objValidar.CampoVazio(txtInstrumento, jblMensagemInstrumento);
+            objValidar.CampoVazio(txtCor, jblMensagemCor);
+            objValidar.CampoVazio(txtFabricante, jblMensagemFabricante);
+            objValidar.CampoVazio(txtValor, jblMensagemValor);
             instrumento = txtInstrumento.getText();
             cor = txtCor.getText();
             tipo = cbbTipo.getSelectedItem().toString();
@@ -387,7 +388,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         }
 
         if (modoTela == "Criar") {
-            if (PDVController.salvarProduto(instrumento, cor, tipo, fabricante, quantidade, valor)) {
+            if (CadastroProdutoController.salvarProduto(instrumento, cor, tipo, fabricante, quantidade, valor)) {
                 JOptionPane.showMessageDialog(this, "Produto cadastrado com sucesso!");
                 txtInstrumento.setText("");
                 txtCor.setText("");
@@ -400,7 +401,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
         } else {
 
-            if (PDVController.atualizarProduto(idProduto, instrumento, cor, tipo, fabricante, quantidade, valor)) {
+            if (CadastroProdutoController.atualizarProduto(idProduto, instrumento, cor, tipo, fabricante, quantidade, valor)) {
                 JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso");
                 this.dispose();
             } else {
