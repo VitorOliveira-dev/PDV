@@ -2,6 +2,7 @@
 package br.instrumentosmusicais.pdv.utils;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -77,7 +78,13 @@ public class Validador {
         }
      
      }
-     
+    public boolean CampoIgual(JComboBox campo){
+        if(campo.getSelectedIndex()==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
      public void limparMensagens(){
      
          this.mensagensErro.clear();
