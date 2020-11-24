@@ -257,8 +257,9 @@ public class PDVDAO {
                 listaClientes.add(obj);
             }
 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             listaClientes = null;
+            System.out.println("ERROR " + e);
         } finally {
 
             //Libero os recursos da memória
@@ -270,6 +271,7 @@ public class PDVDAO {
                 GerenciadorConexao.fecharConexao();
 
             } catch (SQLException ex) {
+                System.out.println("ERROR " + ex);
             }
         }
 
@@ -277,31 +279,35 @@ public class PDVDAO {
 
     }
 
-    public static Produto vendaBuscarProduto(String pCodigo, String pInstrumento) {
+    public static ArrayList<Produto> vendaBuscarProduto(String pCodigo, String pInstrumento) {
 
-        Produto retorno = null;
+        ArrayList<Produto> listaProdutos = new ArrayList<>();
         Connection conexao = null;
         PreparedStatement comandoSQL = null;
         ResultSet rs = null;
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM Produto WHERE cod_produto=? OR instrumento=?");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
             comandoSQL.setString(1, pCodigo);
             comandoSQL.setString(2, pInstrumento);
 
             rs = comandoSQL.executeQuery();
 
             while (rs.next()) {
-                retorno = new Produto();
-                retorno.setCodProduto(rs.getInt("cod_produto"));
-                retorno.setInstrumento(rs.getString("instrumento"));
-                retorno.setValor(rs.getFloat("valor"));
+                Produto obj = new Produto();
+                obj.setCodProduto(rs.getInt("cod_produto"));
+                obj.setInstrumento(rs.getString("instrumento"));
+                obj.setValor(rs.getFloat("valor"));
+
+                listaProdutos.add(obj);
             }
 
         } catch (Exception e) {
-            retorno = null;
+            listaProdutos = null;
         } finally {
+
+            //Libero os recursos da memória
             try {
                 if (comandoSQL != null) {
                     comandoSQL.close();
@@ -310,9 +316,11 @@ public class PDVDAO {
                 GerenciadorConexao.fecharConexao();
 
             } catch (SQLException ex) {
+                System.out.println("ERROR " + ex);
             }
         }
-        return retorno;
+
+        return listaProdutos;
 
     }
 
@@ -588,6 +596,7 @@ public class PDVDAO {
 
         return retorno;
     }
+
     public static ArrayList<RelatorioSintetico> pesquisaMes(int mes) {
 
         ArrayList<RelatorioSintetico> listaVendas = new ArrayList<>();
@@ -609,10 +618,10 @@ public class PDVDAO {
                 obj.setCodVenda(rs.getInt("cod_venda"));
                 obj.setNome(rs.getString("nome"));
                 obj.setTotalVenda(rs.getFloat("valor_total"));
-                
+
                 listaVendas.add(obj);
             }
-            
+
         } catch (Exception e) {
             listaVendas = null;
         } finally {
@@ -628,54 +637,8 @@ public class PDVDAO {
             } catch (SQLException ex) {
             }
         }
-        
+
         return listaVendas;
-
-    }
-
-    /*TESTETETETETE*/
-    public static ArrayList<Produto> TvendaBuscarProduto(String pCodigo, String pInstrumento) {
-
-        ArrayList<Produto> listaProdutos = new ArrayList<>();
-        Connection conexao = null;
-        PreparedStatement comandoSQL = null;
-        ResultSet rs = null;
-
-        try {
-            conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
-            comandoSQL.setString(1, pCodigo);
-            comandoSQL.setString(2, pInstrumento);
-
-            rs = comandoSQL.executeQuery();
-
-            while (rs.next()) {
-                Produto obj = new Produto();
-                obj.setCodProduto(rs.getInt("cod_produto"));
-                obj.setInstrumento(rs.getString("instrumento"));
-                obj.setValor(rs.getFloat("valor"));
-
-                listaProdutos.add(obj);
-            }
-
-        } catch (Exception e) {
-            listaProdutos = null;
-        } finally {
-
-            //Libero os recursos da memória
-            try {
-                if (comandoSQL != null) {
-                    comandoSQL.close();
-                }
-
-                GerenciadorConexao.fecharConexao();
-
-            } catch (SQLException ex) {
-                System.out.println("ERROR " + ex);
-            }
-        }
-
-        return listaProdutos;
 
     }
 

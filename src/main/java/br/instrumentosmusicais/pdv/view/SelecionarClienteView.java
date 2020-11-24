@@ -48,9 +48,15 @@ public class SelecionarClienteView extends javax.swing.JFrame {
         setTitle("Selecione o Cliente");
         setBackground(new java.awt.Color(51, 51, 51));
 
-        pnlSelecionarClientes.setBackground(new java.awt.Color(51, 51, 51));
+        pnlSelecionarClientes.setBackground(new java.awt.Color(102, 102, 102));
 
+        btnSelecionarCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnSelecionarCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnSelecionarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnSelecionarCliente.setText("Selecionar Cliente");
+        btnSelecionarCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnSelecionarCliente.setContentAreaFilled(false);
+        btnSelecionarCliente.setOpaque(true);
         btnSelecionarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelecionarClienteActionPerformed(evt);
@@ -88,19 +94,21 @@ public class SelecionarClienteView extends javax.swing.JFrame {
             pnlSelecionarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSelecionarClientesLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlSelecionarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSelecionarCliente, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(sPnlClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnSelecionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(pnlSelecionarClientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlSelecionarClientesLayout.setVerticalGroup(
             pnlSelecionarClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSelecionarClientesLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSelecionarCliente)
-                .addContainerGap())
+                .addComponent(btnSelecionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
