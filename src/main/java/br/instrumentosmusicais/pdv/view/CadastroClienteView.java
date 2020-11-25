@@ -5,7 +5,7 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.CadastroClienteController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -23,7 +23,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         initComponents();
         lblCodigo.setVisible(false);
         setLocationRelativeTo(null);
-        
+
     }
 
     public CadastroClienteView(int codCliente) {
@@ -31,7 +31,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         this.codCliente = codCliente;
-         preencherCliente(codCliente);
+        preencherCliente(codCliente);
         modoTela = "Alterar";
 
     }
@@ -492,24 +492,22 @@ public class CadastroClienteView extends javax.swing.JFrame {
             return;
 
         }
-        if (modoTela == "Criar") {  
+        if (modoTela == "Criar") {
             txtNome.setText("");
             txtCpf.setText("");
             txtEndereco.setText("");
             txtCidade.setText("");
             txtTelefone.setText("");
             txtEmail.setText("");
-            
-            
+
             // Gravar no banco
-            if (PDVController.salvarCliente(nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
+            if (CadastroClienteController.salvarCliente(nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
                 JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso");
             } else {
                 JOptionPane.showMessageDialog(this, "Falha ao incluir cliente");
             }
-        }
-        else 
-        {    if (PDVController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
+        } else {
+            if (CadastroClienteController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
                 JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso");
                 this.dispose();
             } else {
@@ -667,18 +665,4 @@ public class CadastroClienteView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 String genero;
 
- private void preencherCliente(int CodCliente) {
-
-        String[] retorno = PDVController.consultarCliente(CodCliente);
-        lblVlrCodigo.setText(retorno[0]);
-        txtNome.setText(retorno[1]);
-        txtCpf.setText(retorno[2]);
-        txtEndereco.setText(retorno[3]);
-        txtCidade.setText(retorno[4]);
-        txtTelefone.setText(retorno[5]);
-      jData.setDateFormatString(retorno[6]);
-      txtEmail.setText(retorno[7]);
-      
-
-    }
 }

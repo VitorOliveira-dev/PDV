@@ -9,7 +9,7 @@ public class Cliente {
     private String telefone;
     private String nasc;
     private String email;
-    private char sexo;
+    private String sexo;
     
     public Cliente(){
     }
@@ -78,11 +78,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
     
