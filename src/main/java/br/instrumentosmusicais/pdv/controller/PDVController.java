@@ -7,6 +7,7 @@ import br.instrumentosmusicais.pdv.model.Produto;
 import br.instrumentosmusicais.pdv.model.RelatorioSintetico;
 import br.instrumentosmusicais.pdv.model.Venda;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class PDVController {
@@ -144,6 +145,39 @@ public class PDVController {
         return PDVDAO.manutencaoExcluirProduto(pCodProduto);
     }
 
+        public static boolean salvarCliente(String nomeCliente, String CPF, String endereco, String cidade, String telefone, Date nasc, String email, String sexo) {
+        Cliente objCliente = new Cliente();
+        
+        objCliente.setNomeCliente(nomeCliente);
+        objCliente.setCPF(CPF);
+        objCliente.setEndereco(endereco);
+        objCliente.setCidade(cidade);
+        objCliente.setTelefone(telefone);
+        objCliente.setNasc(nasc);
+        objCliente.setEmail(email);
+        objCliente.setSexo(sexo);
+        
+        return PDVDAO.salvarCliente(objCliente);
+        }
+
+        
+        
+        public static boolean atualizarCliente(int codCliente, String nomeCliente, String CPF, String endereco, String cidade, String telefone, Date nasc, String email, String sexo)
+        {Cliente objCliente = new Cliente();
+        objCliente.setCodCliente(codCliente);
+        objCliente.setNomeCliente(nomeCliente);
+        objCliente.setCPF(CPF);
+        objCliente.setEndereco(endereco);
+        objCliente.setCidade(cidade);
+        objCliente.setTelefone(telefone);
+        objCliente.setNasc(nasc);
+        objCliente.setEmail(email);
+        objCliente.setSexo(sexo);
+        
+            
+        return PDVDAO.atualizarCliente(objCliente);
+        }
+    
     public static boolean salvarProduto(String instrumento, String cor, String tipo, String fabricante, int quantidade, float valor) {
 
         boolean retorno = false;
@@ -193,6 +227,32 @@ public class PDVController {
 
         return instrumentoRetorno;
     }
+    
+    
+      public static String[] consultarCliente(int CodCliente) {
+
+       Cliente objCliente = PDVDAO.consultarCliente(CodCliente);
+
+        String[] ClienteRetorno = null;
+
+        if (objCliente!= null) {
+           ClienteRetorno = new String[]{String.valueOf(objCliente.getCodCliente()),
+                String.valueOf(objCliente.getNomeCliente()),
+                String.valueOf(objCliente.getCPF()),
+                String.valueOf(objCliente.getEndereco()),
+                String.valueOf(objCliente.getCidade()),
+                String.valueOf(objCliente.getTelefone()),
+                String.valueOf(objCliente.getNasc()),
+                 String.valueOf(objCliente.getEmail()),
+                  String.valueOf(objCliente.getSexo()),
+            };
+
+        }
+
+        return ClienteRetorno  ;
+    }
+    
+    
 
     public static ArrayList<String[]> pesquisaMes(int mes) {
         ArrayList<RelatorioSintetico> listaCompras = PDVDAO.pesquisaMes(mes);

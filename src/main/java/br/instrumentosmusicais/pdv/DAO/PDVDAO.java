@@ -42,7 +42,7 @@ public class PDVDAO {
 
                     for (ItensVenda item : pVenda.getListaItens()) {
 
-                        PreparedStatement comandoSQLItens = conexao.prepareStatement("INSERT INTO pedido (fk_cod_produto, fk_cod_cliente,fk_cod_venda, qtd_vend, valor_un) VALUES (?,?,?,?,?)",
+                        PreparedStatement comandoSQLItens = conexao.prepareStatement("INSERT INTO Pedido (fk_cod_produto, fk_cod_cliente,fk_cod_venda, qtd_vend, valor_un) VALUES (?,?,?,?,?)",
                                 Statement.RETURN_GENERATED_KEYS);
 
                         comandoSQLItens.setInt(1, item.getCodProduto());
@@ -78,6 +78,112 @@ public class PDVDAO {
         }
 
         return retorno;
+    }
+
+    public static boolean salvarCliente(Cliente cad) {
+
+        boolean retorno = false;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        try {
+
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("INSERT INTO Cliente (nome, CPF, endereco, cidade, telefone, data_nasc, email, sexo) VALUES(?,?,?,?,?,?,?,?)");
+
+            instrucaoSQL.setString(1, cad.getNomeCliente());
+            instrucaoSQL.setString(2, cad.getCPF());
+            instrucaoSQL.setString(3, cad.getEndereco());
+            instrucaoSQL.setString(4, cad.getCidade());
+            instrucaoSQL.setString(5, cad.getTelefone());
+            instrucaoSQL.setDate(6, new java.sql.Date(cad.getNasc().getTime()));
+            instrucaoSQL.setString(7, cad.getEmail());
+            instrucaoSQL.setString(8, cad.getSexo());
+
+            int linhasAfetadas = instrucaoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+
+            } else {
+                retorno = false;
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("ERRO"+ex.getMessage());
+            retorno = false;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                if (conexao != null) {
+                    GerenciadorConexao.fecharConexao();
+                }
+
+            } catch (SQLException ex) {
+                
+            }
+        }
+
+        return retorno;
+
+    }
+
+    public static boolean atualizarCliente(Cliente cad) {
+
+        boolean retorno = false;
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+
+        try {
+
+            conexao = GerenciadorConexao.abrirConexao();
+            instrucaoSQL = conexao.prepareStatement("UPDATE Cliente SET  nome = ?, CPF = ?, endereco = ?, cidade = ?, telefone = ?, data_nasc = ?, email = ? , sexo = ? WHERE cod_cliente = ?");
+             
+            instrucaoSQL.setString(1, cad.getNomeCliente());
+            instrucaoSQL.setString(2, cad.getCPF());
+            instrucaoSQL.setString(3, cad.getEndereco());
+            instrucaoSQL.setString(4, cad.getCidade());
+            instrucaoSQL.setString(5, cad.getTelefone());
+            instrucaoSQL.setDate(6, new java.sql.Date(cad.getNasc().getTime()));
+            instrucaoSQL.setString(7, cad.getEmail());
+            instrucaoSQL.setString(8, cad.getSexo());
+            instrucaoSQL.setInt(9, cad.getCodCliente());
+
+            int linhasAfetadas = instrucaoSQL.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                retorno = true;
+
+            } else {
+                retorno = false;
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println("ERRO"+ex.getMessage());
+            retorno = false;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                if (conexao != null) {
+                    GerenciadorConexao.fecharConexao();
+                }
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return retorno;
+
     }
 
     public static boolean salvarProduto(Produto obj) {
@@ -181,6 +287,58 @@ public class PDVDAO {
 
     }
 
+    public static Cliente consultarCliente(int codCliente) {
+
+        Connection conexao = null;
+        PreparedStatement instrucaoSQL = null;
+        Cliente consultar = null;
+        ResultSet rs = null;
+
+        try {
+
+            conexao = GerenciadorConexao.abrirConexao();
+
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM Cliente WHERE cod_Cliente = ?");
+            instrucaoSQL.setInt(1, codCliente);
+
+            rs = instrucaoSQL.executeQuery();
+
+            while (rs.next()) {
+                consultar = new Cliente();
+                consultar.setCodCliente(rs.getInt("cod_cliente"));
+                consultar.setNomeCliente(rs.getString("nome"));
+                consultar.setCPF(rs.getString("cpf"));
+                consultar.setEndereco(rs.getString("endereco"));
+                consultar.setCidade(rs.getString("cidade"));
+                consultar.setTelefone(rs.getString("telefone"));
+                consultar.setNasc(rs.getDate("data_nasc"));
+                consultar.setEmail(rs.getString("email"));
+                consultar.setSexo(rs.getString("sexo"));
+            }
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+            consultar = null;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (instrucaoSQL != null) {
+                    instrucaoSQL.close();
+                }
+
+                if (conexao != null) {
+                    GerenciadorConexao.fecharConexao();
+                }
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return consultar;
+
+    }
+
     public static Produto consultarPorID(int idProduto) {
 
         Connection conexao = null;
@@ -241,7 +399,7 @@ public class PDVDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE CPF LIKE ? OR nome LIKE ?");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente WHERE CPF LIKE ? OR nome LIKE ?");
             comandoSQL.setString(1, pCPF);
             comandoSQL.setString(2, pNome);
 
@@ -288,7 +446,7 @@ public class PDVDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM Produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
             comandoSQL.setString(1, pCodigo);
             comandoSQL.setString(2, pInstrumento);
 
@@ -333,7 +491,7 @@ public class PDVDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente");
 
             rs = comandoSQL.executeQuery();
 
@@ -377,7 +535,7 @@ public class PDVDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ?");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM Cliente WHERE nome LIKE ?");
             comandoSQL.setString(1, pNome);
 
             rs = comandoSQL.executeQuery();
@@ -422,7 +580,7 @@ public class PDVDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM Produto");
 
             rs = comandoSQL.executeQuery();
 
@@ -468,7 +626,7 @@ public class PDVDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE instrumento=?");
+            comandoSQL = conexao.prepareStatement("SELECT * FROM Produto WHERE instrumento=?");
             comandoSQL.setString(1, pInstrumento);
 
             rs = comandoSQL.executeQuery();
@@ -525,7 +683,7 @@ public class PDVDAO {
         try {
             conexao = GerenciadorConexao.abrirConexao();
 
-            comandoSQL = conexao.prepareStatement("DELETE FROM cliente WHERE cod_cliente = ?");
+            comandoSQL = conexao.prepareStatement("DELETE FROM Cliente WHERE cod_cliente = ?");
             comandoSQL.setInt(1, pCodCliente);
 
             int linhasAfetadas = comandoSQL.executeUpdate();
@@ -565,7 +723,7 @@ public class PDVDAO {
         try {
             conexao = GerenciadorConexao.abrirConexao();
 
-            comandoSQL = conexao.prepareStatement("DELETE FROM produto WHERE cod_produto = ?");
+            comandoSQL = conexao.prepareStatement("DELETE FROM Produto WHERE cod_produto = ?");
             comandoSQL.setInt(1, pCodProduto);
 
             int linhasAfetadas = comandoSQL.executeUpdate();
