@@ -1,6 +1,8 @@
 package br.instrumentosmusicais.pdv.DAO;
 
+import br.instrumentosmusicais.pdv.model.Cliente;
 import br.instrumentosmusicais.pdv.model.RelatorioSintetico;
+import br.instrumentosmusicais.pdv.model.Venda;
 import br.instrumentosmusicais.pdv.utils.GerenciadorConexao;
 import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
@@ -113,5 +115,107 @@ public class RelatorioSinteticoDAO {
     }
     
     
+    public static String[] pesquisarCliente(int cod) {
+        String[] dados = new String[9];
+        Connection conexao = null;
+        PreparedStatement comandoSQL = null;
+        ResultSet rs = null;
+
+        try {
+            conexao = GerenciadorConexao.abrirConexao();
+            comandoSQL = conexao.prepareStatement(
+                "Select cod_venda, data_venda, valor_total, nome, cpf, endereco, cidade, telefone, email " +
+                "From venda " +
+                "Inner join cliente " +
+                "on venda.fk_cod_cliente = cliente.cod_cliente " +
+                "where venda.cod_venda = ?;"
+            );
+            comandoSQL.setInt(1, cod);
+            rs = comandoSQL.executeQuery();  
+            while(rs.next()){
+                
+                dados[0]= String.valueOf(rs.getInt("cod_venda"));
+                dados[1]= String.valueOf(rs.getDate("data_venda"));
+                dados[2]= String.valueOf(rs.getFloat("valor_total"));
+                dados[3]= String.valueOf(rs.getString("nome"));
+                dados[4]= String.valueOf(rs.getString("cpf"));
+                dados[5]= String.valueOf(rs.getString("endereco"));
+                dados[6]= String.valueOf(rs.getString("cidade"));
+                dados[7]= String.valueOf(rs.getString("telefone"));
+                dados[8]= String.valueOf(rs.getString("email"));
+                
+            }
+            
+            
+
+        } catch (ClassNotFoundException | SQLException e) {            
+            System.out.println("ERRO "+e);
+            rs = null;
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (comandoSQL != null) {
+                    comandoSQL.close();
+                }
+
+                GerenciadorConexao.fecharConexao();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return dados;
+
+    }
     
+    
+    public static ArrayList<String[]> pesquisarProduto(int cod) {
+        ArrayList<String[]> dados = new ArrayList<>();
+        Connection conexao = null;
+        PreparedStatement comandoSQL = null;
+        ResultSet rs = null;
+
+        try {
+            conexao = GerenciadorConexao.abrirConexao();
+            comandoSQL = conexao.prepareStatement(
+                "Select cod_produto, instrumento,valor_un, qtd_vend,(valor_un*qtd_vend) as total From pedido " +
+                "Inner join produto " +
+                "on pedido.fk_cod_produto = produto.cod_produto " +
+                "where pedido.fk_cod_venda = ?"
+            );
+            comandoSQL.setInt(1, cod);
+            rs = comandoSQL.executeQuery();  
+            while(rs.next()){
+                dados.add(new String[]{
+                    String.valueOf(rs.getInt("cod_produto")),
+                    String.valueOf(rs.getString("instrumento")),
+                    String.valueOf(rs.getFloat("valor_un")),
+                    String.valueOf(rs.getInt("qtd_vend")),
+                    String.valueOf(rs.getFloat("total"))
+                });
+                
+            }
+            
+
+        } catch (ClassNotFoundException | SQLException e) {
+            rs = null;
+            System.out.println("ERRO "+e);
+        } finally {
+
+            //Libero os recursos da memória
+            try {
+                if (comandoSQL != null) {
+                    comandoSQL.close();
+                }
+
+                GerenciadorConexao.fecharConexao();
+
+            } catch (SQLException ex) {
+            }
+        }
+
+        return dados;
+
+    }
 }
