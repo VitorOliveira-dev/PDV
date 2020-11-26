@@ -23,8 +23,8 @@ public class ManutencaoController {
 
     }
 
-    public static ArrayList<String[]> manutencaoPesquisarCliente(String pNome) {
-        ArrayList<Cliente> listaClientes = ManutencaoDAO.manutencaoPesquisarCliente(pNome);
+    public static ArrayList<String[]> manutencaoPesquisarCliente(String pCPF,String pNome) {
+        ArrayList<Cliente> listaClientes = ManutencaoDAO.manutencaoPesquisarCliente(pCPF,pNome);
         ArrayList<String[]> retorno = new ArrayList<>();
 
         for (Cliente obj : listaClientes) {
@@ -58,8 +58,8 @@ public class ManutencaoController {
 
     }
 
-    public static ArrayList<String[]> manutencaoPesquisarProduto(String pInstrumento) {
-        ArrayList<Produto> listaProdutos = ManutencaoDAO.manutencaoPesquisarProduto(pInstrumento);
+    public static ArrayList<String[]> manutencaoPesquisarProduto(String pCodigo, String pInstrumento) {
+        ArrayList<Produto> listaProdutos = ManutencaoDAO.manutencaoPesquisarProduto(pCodigo, pInstrumento);
         ArrayList<String[]> retorno = new ArrayList<>();
 
         for (Produto obj : listaProdutos) {

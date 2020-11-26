@@ -334,7 +334,9 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
             linhaSelecionada = tblTabelaProdutosVenda.getSelectedRow();
             int cod = Integer.parseInt(tblTabelaProdutosVenda.getValueAt(linhaSelecionada, 1).toString());
             
-            RelatorioAnaliticoView telaAnalitico = new RelatorioAnaliticoView(cod);// falta id  
+            String[] cliente = RelatorioSinteticoController.analitico(cod);
+            ArrayList<String[]> produto = RelatorioSinteticoController.analiticoProduto(cod);
+            RelatorioAnaliticoView telaAnalitico = new RelatorioAnaliticoView(cliente, produto);
             telaAnalitico.setVisible(true);
             
         }

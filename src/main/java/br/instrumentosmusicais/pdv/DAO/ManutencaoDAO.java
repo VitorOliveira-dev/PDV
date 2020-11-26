@@ -35,8 +35,9 @@ public class ManutencaoDAO {
                 listaClientes.add(obj);
             }
 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             listaClientes = null;
+                        System.out.println("ERROR "+e);
         } finally {
 
             //Libero os recursos da memória
@@ -55,7 +56,7 @@ public class ManutencaoDAO {
 
     }
 
-    public static ArrayList<Cliente> manutencaoPesquisarCliente(String pNome) {
+    public static ArrayList<Cliente> manutencaoPesquisarCliente(String pCPF, String pNome) {
 
         ArrayList<Cliente> listaClientes = new ArrayList<>();
         Connection conexao = null;
@@ -64,8 +65,9 @@ public class ManutencaoDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ?");
-            comandoSQL.setString(1, pNome);
+            comandoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE CPF LIKE ? OR nome LIKE ?");
+            comandoSQL.setString(1, pCPF);
+            comandoSQL.setString(2, pNome);
 
             rs = comandoSQL.executeQuery();
 
@@ -80,8 +82,9 @@ public class ManutencaoDAO {
                 listaClientes.add(obj);
             }
 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             listaClientes = null;
+                        System.out.println("ERROR "+e);
         } finally {
 
             //Libero os recursos da memória
@@ -126,8 +129,9 @@ public class ManutencaoDAO {
                 listaProdutos.add(obj);
             }
 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             listaProdutos = null;
+                        System.out.println("ERROR "+e);
         } finally {
 
             //Libero os recursos da memória
@@ -146,7 +150,7 @@ public class ManutencaoDAO {
 
     }
 
-    public static ArrayList<Produto> manutencaoPesquisarProduto(String pInstrumento) {
+    public static ArrayList<Produto> manutencaoPesquisarProduto(String pCodigo, String pInstrumento) {
 
         ArrayList<Produto> listaProdutos = new ArrayList<>();
         Connection conexao = null;
@@ -155,8 +159,9 @@ public class ManutencaoDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE instrumento=?");
-            comandoSQL.setString(1, pInstrumento);
+            comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
+            comandoSQL.setString(1, pCodigo);
+             comandoSQL.setString(2, pInstrumento);
 
             rs = comandoSQL.executeQuery();
 
@@ -184,8 +189,10 @@ public class ManutencaoDAO {
 
             }
 
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             listaProdutos = null;
+            System.out.println("ERROR "+e);
+            
         } finally {
 
             //Libero os recursos da memória

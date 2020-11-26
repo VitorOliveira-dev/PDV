@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class Validador {
@@ -25,7 +24,7 @@ public class Validador {
 
     }
 
-    public void CampoVazio(JTextField txt, JLabel jbl) {
+    public boolean CampoVazio(JTextField txt, JLabel jbl) {
         try {
 
             //Verifico se o campo está vazio
@@ -38,10 +37,12 @@ public class Validador {
         } catch (IllegalArgumentException e) {
             txt.setBackground(Color.red);
             jbl.setText("Campo Obrigatório");
+            return true;
         }
+        return false;
     }
 
-    public void CampoVazioFormatado(JFormattedTextField txt, JLabel jbl) {
+    public boolean CampoVazioFormatado(JFormattedTextField txt, JLabel jbl) {
         try {
 
             //Verifico se o campo está vazio
@@ -54,13 +55,16 @@ public class Validador {
         } catch (IllegalArgumentException e) {
             txt.setBackground(Color.red);
             jbl.setText("Campo Obrigatório");
+            return true;
         }
+    return false;
     }
+
     public void CampoVazioFormatadoData(JDateChooser txt, JLabel jbl) {
         try {
 
             //Verifico se o campo está vazio
-            if ( txt.getDate().equals("") ) {
+            if (txt.getDate().equals("")) {
                 throw new IllegalArgumentException();
 
             }
@@ -89,7 +93,7 @@ public class Validador {
             txt.setBackground(Color.red);
             jbl.setText("Somente números");
         }
-
+        
     }
 
     public void limparMensagens() {
