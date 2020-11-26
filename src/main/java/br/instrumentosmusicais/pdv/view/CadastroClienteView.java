@@ -7,6 +7,11 @@ package br.instrumentosmusicais.pdv.view;
 
 import br.instrumentosmusicais.pdv.controller.CadastroClienteController;
 import br.instrumentosmusicais.pdv.utils.Validador;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -465,7 +470,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         objValidar.CampoVazio(txtEndereco, jblMensagemEndereco);
         objValidar.CampoVazio(txtCidade, jblMensagemCidade);
         objValidar.CampoVazioFormatado(txtTelefone, jblMensagemTelefone);
-        //  objValidar.CampoVazioFormatado(jData, jblMensagemData);
+
         objValidar.CampoVazio(txtEmail, jblMensagemEmail);
 
         // enviar dados para controller
@@ -474,7 +479,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         String endereco = "";
         String cidade = "";
         String telefone = "";
-        String nasc = "";
+        Date nasc;
         String email = "";
         String sexo = "";
         try {
@@ -483,7 +488,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
             endereco = txtEndereco.getText();
             cidade = txtCidade.getText();
             telefone = txtTelefone.getText().replace(")", "").replace("(", "").replace("-", "").trim();
-            nasc = ((JTextField) jData.getDateEditor().getUiComponent()).getText();
+            nasc = jData.getDate();
             email = txtEmail.getText();
             sexo = genero;
 
@@ -507,7 +512,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Falha ao incluir cliente");
             }
         } else {
-            if (CadastroClienteController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
+            if (PDVController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
                 JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso");
                 this.dispose();
             } else {
@@ -664,5 +669,27 @@ public class CadastroClienteView extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 String genero;
+
+    private void preencherCliente(int CodCliente) {
+
+        String[] retorno = PDVController.consultarCliente(CodCliente);
+        try {
+
+            Date data = new SimpleDateFormat("yyyy-MM-dd").parse(retorno[6]);
+
+            lblVlrCodigo.setText(retorno[0]);
+            txtNome.setText(retorno[1]);
+            txtCpf.setText(retorno[2]);
+            txtEndereco.setText(retorno[3]);
+            txtCidade.setText(retorno[4]);
+            txtTelefone.setText(retorno[5]);
+            jData.setDate(data);
+            txtEmail.setText(retorno[7]);
+        } catch (ParseException ex) {
+            Logger.getLogger(CadastroClienteView.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ERRO");
+        }
+
+    }
 
 }

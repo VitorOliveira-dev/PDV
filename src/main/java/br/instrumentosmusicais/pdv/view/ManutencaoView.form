@@ -424,7 +424,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="btnAdicionarCliente" min="-2" pref="121" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Component id="btnAtualizar" min="-2" pref="121" max="-2" attributes="0"/>
+                                          <Component id="btnAtualizaCliente" min="-2" pref="121" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                           <Component id="btnExcluirCliente" min="-2" pref="121" max="-2" attributes="0"/>
                                       </Group>
@@ -459,7 +459,7 @@
                                   <EmptySpace pref="17" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="btnAtualizar" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAtualizaCliente" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnAdicionarCliente" linkSize="3" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="btnExcluirCliente" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -470,7 +470,7 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JButton" name="btnAtualizar">
+                        <Component class="javax.swing.JButton" name="btnAtualizaCliente">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -491,7 +491,7 @@
                             <Property name="opaque" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizaClienteActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblNome">
@@ -622,7 +622,7 @@
                                 <Column editable="false" title="Telefone" type="java.lang.Object"/>
                               </Table>
                             </Property>
-                            <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+                            <Property name="columnSelectionAllowed" type="boolean" value="false"/>
                             <Property name="rowHeight" type="int" value="20"/>
                             <Property name="rowMargin" type="int" value="3"/>
                             <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

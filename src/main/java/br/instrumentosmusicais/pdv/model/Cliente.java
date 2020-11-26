@@ -1,5 +1,7 @@
 package br.instrumentosmusicais.pdv.model;
 
+import java.util.Date;
+
 public class Cliente {
     private int codCliente;
     private String nomeCliente;
@@ -7,7 +9,7 @@ public class Cliente {
     private String endereco;
     private String cidade;
     private String telefone;
-    private String nasc;
+    private Date nasc;
     private String email;
     private String sexo;
     
@@ -62,11 +64,11 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getNasc() {
+    public Date getNasc() {
         return nasc;
     }
 
-    public void setNasc(String nasc) {
+    public void setNasc(Date nasc) {
         this.nasc = nasc;
     }
 

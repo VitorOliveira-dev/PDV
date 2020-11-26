@@ -49,7 +49,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         lblMensagemErroProduto = new javax.swing.JLabel();
         pnlClientes = new javax.swing.JPanel();
         pnlBuscaClientes = new javax.swing.JPanel();
-        btnAtualizar = new javax.swing.JButton();
+        btnAtualizaCliente = new javax.swing.JButton();
         lblNome = new javax.swing.JLabel();
         btnAdicionarCliente = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
@@ -225,16 +225,16 @@ public class ManutencaoView extends javax.swing.JFrame {
 
         pnlBuscaClientes.setBackground(new java.awt.Color(102, 102, 102));
 
-        btnAtualizar.setBackground(new java.awt.Color(51, 51, 51));
-        btnAtualizar.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-        btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAtualizar.setText("Atualizar");
-        btnAtualizar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        btnAtualizar.setContentAreaFilled(false);
-        btnAtualizar.setOpaque(true);
-        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizaCliente.setBackground(new java.awt.Color(51, 51, 51));
+        btnAtualizaCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
+        btnAtualizaCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtualizaCliente.setText("Atualizar");
+        btnAtualizaCliente.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btnAtualizaCliente.setContentAreaFilled(false);
+        btnAtualizaCliente.setOpaque(true);
+        btnAtualizaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizarActionPerformed(evt);
+                btnAtualizaClienteActionPerformed(evt);
             }
         });
 
@@ -293,7 +293,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
                         .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
-                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAtualizaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19)
                         .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
@@ -321,7 +321,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAtualizar)
+                        .addComponent(btnAtualizaCliente)
                         .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnExcluirCliente))
                 .addContainerGap())
@@ -329,7 +329,7 @@ public class ManutencaoView extends javax.swing.JFrame {
 
         pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPesquisarCliente, txtNome});
 
-        pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarCliente, btnAtualizar, btnExcluirCliente});
+        pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAdicionarCliente, btnAtualizaCliente, btnExcluirCliente});
 
         sPnlClientes.setBorder(null);
 
@@ -351,7 +351,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblClientes.setCellSelectionEnabled(true);
+        tblClientes.setColumnSelectionAllowed(false);
         tblClientes.setRowHeight(20);
         tblClientes.setRowMargin(3);
         tblClientes.setSelectionBackground(new java.awt.Color(51, 51, 51));
@@ -474,10 +474,28 @@ public class ManutencaoView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+    private void btnAtualizaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaClienteActionPerformed
         CadastroClienteView telaAtualizarCliente = new CadastroClienteView();
-        telaAtualizarCliente.setVisible(true);
-    }//GEN-LAST:event_btnAtualizarActionPerformed
+       // telaAtualizarCliente.setVisible(true);
+        
+            int linhaSelecionada = tblClientes.getSelectedRow();
+        int idSelecionado = 0;
+        
+        if(linhaSelecionada>=0){
+            idSelecionado = Integer.parseInt(tblClientes.getValueAt(linhaSelecionada, 0).toString());
+        }else{
+            JOptionPane.showMessageDialog(this, "Escolha uma linha para atualizar!");
+            return;
+        }
+        
+        if(idSelecionado>0){
+            CadastroClienteView telaClienteAlterar = new CadastroClienteView(idSelecionado);
+            telaClienteAlterar.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Escolha uma linha para atualizar!");
+        }
+        
+    }//GEN-LAST:event_btnAtualizaClienteActionPerformed
 
     private void btnAtualizarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarProdutoActionPerformed
        int linhaSelecionada = tblProdutos.getSelectedRow();
@@ -677,7 +695,7 @@ public class ManutencaoView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarCliente;
     private javax.swing.JButton btnAdicionarProduto;
-    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnAtualizaCliente;
     private javax.swing.JButton btnAtualizarProduto;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnExcluirCliente;
