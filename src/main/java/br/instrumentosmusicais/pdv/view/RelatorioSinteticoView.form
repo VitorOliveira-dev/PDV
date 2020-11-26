@@ -55,12 +55,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="pnlPesquisa" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="pnlPesquisa" alignment="0" max="32767" attributes="0"/>
                       <Component id="pnlRelatorio" alignment="1" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -116,7 +113,7 @@
                       <Component id="pnlFiltro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnPesquisaPersonalizada" min="-2" pref="65" max="-2" attributes="0"/>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -217,60 +214,63 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="268" max="32767" attributes="0"/>
+                          <Component id="lblNomeFinal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
-                                          <Component id="lblNomeFinal" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="txtDataInicio" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="lblNomeAte" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="txtDataInicio" min="-2" pref="150" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                                  <Component id="lblNomeAte" pref="42" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="lblNomeInicio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblMensagemErroDataFinal" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtDataFinal" min="-2" pref="150" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="lblNomeInicio" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblMensagemErroDataInicio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="59" max="32767" attributes="0"/>
+                                  <Component id="lblMensagemErroDataInicio" min="-2" pref="129" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblMensagemErroDataFinal" min="-2" pref="129" max="-2" attributes="0"/>
+                              <Component id="txtDataFinal" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblNomeInicio" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="lblNomeFinal" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNomeAte" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtDataInicio" linkSize="2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtDataFinal" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblMensagemErroDataFinal" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblMensagemErroDataInicio" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblNomeAte" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDataInicio" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="txtDataFinal" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblMensagemErroDataInicio" min="-2" pref="19" max="-2" attributes="0"/>
+                              <Component id="lblMensagemErroDataFinal" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -283,18 +283,6 @@
                       <Font name="Bookman Old Style" size="12" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Final"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JFormattedTextField" name="txtDataFinal">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder roundedCorners="true"/>
-                      </Border>
-                    </Property>
-                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                      <Format format="##" subtype="-1" type="5"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeInicio">
@@ -314,21 +302,6 @@
                     <Property name="text" type="java.lang.String" value="At&#xe9;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="txtDataInicio">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                        <LineBorder roundedCorners="true"/>
-                      </Border>
-                    </Property>
-                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                      <Format format="##" subtype="-1" type="5"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataInicioActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JLabel" name="lblMensagemErroDataFinal">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -342,6 +315,10 @@
                       <Font name="Bookman Old Style" size="12" style="1"/>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="txtDataInicio">
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="txtDataFinal">
                 </Component>
               </SubComponents>
             </Container>
@@ -416,7 +393,7 @@
                         <Column editable="false" title="Total" type="java.lang.Object"/>
                       </Table>
                     </Property>
-                    <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+                    <Property name="columnSelectionAllowed" type="boolean" value="false"/>
                     <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>

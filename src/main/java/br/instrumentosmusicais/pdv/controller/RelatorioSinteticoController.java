@@ -1,13 +1,15 @@
 package br.instrumentosmusicais.pdv.controller;
 
-import br.instrumentosmusicais.pdv.DAO.PDVDAO;
+import br.instrumentosmusicais.pdv.DAO.RelatorioSinteticoDAO;
 import br.instrumentosmusicais.pdv.model.RelatorioSintetico;
+import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RelatorioSinteticoController {
  
-        public static ArrayList<String[]> pesquisaMes(int mes) {
-        ArrayList<RelatorioSintetico> listaCompras = PDVDAO.pesquisaMes(mes);
+    public static ArrayList<String[]> pesquisaMes(int mes) {
+        ArrayList<RelatorioSintetico> listaCompras = RelatorioSinteticoDAO.pesquisaMes(mes);
         ArrayList<String[]> retorno = new ArrayList<>();
 
         for (RelatorioSintetico obj : listaCompras) {
@@ -22,4 +24,22 @@ public class RelatorioSinteticoController {
         return retorno;
 
     }
+    
+    public static ArrayList<String[]> pesquisaPersonalizada(Date dataInicio, Date dataFinal) {
+        ArrayList<RelatorioSintetico> listaCompras = RelatorioSinteticoDAO.pesquisaPersonalizada(dataInicio, dataFinal);
+        ArrayList<String[]> retorno = new ArrayList<>();
+
+        for (RelatorioSintetico obj : listaCompras) {
+            retorno.add(new String[]{
+                String.valueOf(obj.getDataVenda()),
+                String.valueOf(obj.getCodVenda()),
+                String.valueOf(obj.getNome()),
+                String.valueOf(obj.getTotalVenda())
+            });
+
+        }
+        return retorno;
+
+    }
+    
 }

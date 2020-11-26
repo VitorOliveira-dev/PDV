@@ -1,5 +1,6 @@
 package br.instrumentosmusicais.pdv.utils;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
@@ -45,6 +46,21 @@ public class Validador {
 
             //Verifico se o campo está vazio
             if (txt.getText().replace(".", "").replace("/", "").replace("-", "").replace("(", "").replace(")", "").trim().equals("")) {
+                throw new IllegalArgumentException();
+
+            }
+            txt.setBackground(Color.WHITE);
+            jbl.setText("");
+        } catch (IllegalArgumentException e) {
+            txt.setBackground(Color.red);
+            jbl.setText("Campo Obrigatório");
+        }
+    }
+    public void CampoVazioFormatadoData(JDateChooser txt, JLabel jbl) {
+        try {
+
+            //Verifico se o campo está vazio
+            if ( txt.getDate().equals("") ) {
                 throw new IllegalArgumentException();
 
             }
