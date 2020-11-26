@@ -14,20 +14,6 @@ import java.util.ArrayList;
  * @author Computador
  */
 public class RelatorioSinteticoAnaliticoController {
-    public static ArrayList<String[]> pesquisaCliente(int cod) {
-        ResultSet cliente = RelatorioSinteticoAnaliticoDAO.pesquisarCliente(cod);
-        ArrayList<String[]> retorno = new ArrayList<>();
-
-        for (RelatorioSinteticoAnalitico obj : cliente) {
-            retorno.add(new String[]{
-                String.valueOf(obj.getDataVenda()),
-                String.valueOf(obj.getCodVenda()),
-                String.valueOf(obj.getNome()),
-                String.valueOf(obj.getTotalVenda())
-            });
-
-        }
-        return retorno;
-
-    }
+    
+    
 }
