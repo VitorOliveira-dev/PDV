@@ -298,6 +298,7 @@ public class PDVDAO {
                 obj.setCodProduto(rs.getInt("cod_produto"));
                 obj.setInstrumento(rs.getString("instrumento"));
                 obj.setValor(rs.getFloat("valor"));
+                obj.setQuantidade(rs.getInt("qtd"));
 
                 listaProdutos.add(obj);
             }
