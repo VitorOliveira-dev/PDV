@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class PDVDAO {
 
@@ -457,6 +456,7 @@ public class PDVDAO {
                 obj.setCodProduto(rs.getInt("cod_produto"));
                 obj.setInstrumento(rs.getString("instrumento"));
                 obj.setValor(rs.getFloat("valor"));
+                obj.setQuantidade(rs.getInt("qtd"));
 
                 listaProdutos.add(obj);
             }

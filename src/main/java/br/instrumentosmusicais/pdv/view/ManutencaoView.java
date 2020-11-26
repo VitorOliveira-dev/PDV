@@ -5,7 +5,7 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.ManutencaoController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -534,7 +534,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         String instrumento = txtProduto.getText();
 
         if (instrumento.equals("//")) {
-            ArrayList<String[]> listaProdutos = PDVController.manutencaoPesquisarTodosProdutos();
+            ArrayList<String[]> listaProdutos = ManutencaoController.manutencaoPesquisarTodosProdutos();
 
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblProdutos.getModel();
@@ -545,7 +545,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                 modelo.addRow(dados);
             }
         } else {
-            ArrayList<String[]> listaProdutos = PDVController.manutencaoPesquisarProduto(instrumento);
+            ArrayList<String[]> listaProdutos = ManutencaoController.manutencaoPesquisarProduto(instrumento);
             
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblProdutos.getModel();
@@ -571,7 +571,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         String nomeCliente = txtNome.getText();
 
         if (nomeCliente.equals("//")) {
-            ArrayList<String[]> listaClientes = PDVController.manutencaoPesquisarTodosClientes();
+            ArrayList<String[]> listaClientes = ManutencaoController.manutencaoPesquisarTodosClientes();
 
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblClientes.getModel();
@@ -582,7 +582,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                 modelo.addRow(dados);
             }
         } else {
-            ArrayList<String[]> listaClientes = PDVController.manutencaoPesquisarCliente(nomeCliente);
+            ArrayList<String[]> listaClientes = ManutencaoController.manutencaoPesquisarCliente(nomeCliente);
 
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblClientes.getModel();
@@ -621,7 +621,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         int confirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir ?");
 
         if (confirmacao == 0) {
-            if (PDVController.manutencaoExcluirCliente(codCliente)) {
+            if (ManutencaoController.manutencaoExcluirCliente(codCliente)) {
                 JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
             } else {
                 JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");
@@ -644,7 +644,7 @@ public class ManutencaoView extends javax.swing.JFrame {
         int confirmacao = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir ?");
 
         if (confirmacao == 0) {
-            if (PDVController.manutencaoExcluirProduto(codInstrumento)) {
+            if (ManutencaoController.manutencaoExcluirProduto(codInstrumento)) {
                 JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
             } else {
                 JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");

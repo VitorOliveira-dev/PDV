@@ -5,7 +5,7 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.CadastroClienteController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -506,7 +506,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
             txtEmail.setText("");
 
             // Gravar no banco
-            if (PDVController.salvarCliente(nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
+            if (CadastroClienteController.salvarCliente(nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
                 JOptionPane.showMessageDialog(this, "Cliente cadastrado com sucesso");
             } else {
                 JOptionPane.showMessageDialog(this, "Falha ao incluir cliente");
@@ -691,4 +691,5 @@ String genero;
         }
 
     }
+
 }

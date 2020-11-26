@@ -1,6 +1,6 @@
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.VendaController;
 import br.instrumentosmusicais.pdv.utils.Validador;
 import javax.swing.JOptionPane;
 import java.awt.*;
@@ -594,7 +594,7 @@ public class VendaView extends javax.swing.JFrame {
         String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
 
         //String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
-        ArrayList<String[]> infoClientes = PDVController.vendaBuscarCliente(nome, CPF);
+        ArrayList<String[]> infoClientes = VendaController.vendaBuscarCliente(nome, CPF);
 
         if (infoClientes.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Cliente não encontrado");
@@ -648,7 +648,7 @@ public class VendaView extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tbProdutosVenda.getModel();
 
-        ArrayList<String[]> produtos = PDVController.vendaBuscarProduto(codigo, instrumento);
+        ArrayList<String[]> produtos = VendaController.vendaBuscarProduto(codigo, instrumento);
 
         String[] addProduto;
 
@@ -673,7 +673,7 @@ public class VendaView extends javax.swing.JFrame {
             return;
         } else {
             addProduto = produtos.get(0);
-
+            int quantidadeEstoque = Integer.parseInt(addProduto[3]);
             int quantidade = Integer.parseInt(spnQtd.getValue().toString());
             float valor = Float.parseFloat(addProduto[2]);
             valorTotalProduto = valor * quantidade;
@@ -681,11 +681,25 @@ public class VendaView extends javax.swing.JFrame {
             txtCodProduto.setText(addProduto[0]);
             txtNomeDoProduto.setText(addProduto[1]);
 
+            if (quantidade > quantidadeEstoque) {
+                JOptionPane.showMessageDialog(this, "Quantidade em estoque insuficiente\nQuantidade em estoque: " + (quantidadeEstoque));
+                return;
+            }
+            
+            for(int i =0; i<modelo.getRowCount(); i++){
+                
+            if(addProduto[0].equals(modelo.getValueAt(i, 0).toString())){
+            JOptionPane.showMessageDialog(this,"Produto já adicionado\n, caso deseja aumentar a quantidade vendida, exclua o produto da lista\n e adicione-o novamente com a quantidade desejada.");
+            return;
+            }
+            }
+
             modelo.addRow(addProduto);
             modelo.setValueAt(spnQtd.getValue(), modelo.getRowCount() - 1, 3);
             modelo.setValueAt(valorTotalProduto, modelo.getRowCount() - 1, 4);
             linha++;
         }
+        spnQtd.setValue(1);
         txtCodProduto.setText("");
         txtNomeDoProduto.setText("");
         if (txtNomeDoProduto.getText().equals("")) {
@@ -716,7 +730,7 @@ public class VendaView extends javax.swing.JFrame {
                 String.valueOf(modelo.getValueAt(i, 2)), //valor
                 String.valueOf(modelo.getValueAt(i, 3))}); //quantidade
         }
-        boolean retorno = PDVController.vendaVender(valorTotalVenda, codCliente, itens);
+        boolean retorno = VendaController.vendaVender(valorTotalVenda, codCliente, itens);
 
         if (retorno) {
             JOptionPane.showMessageDialog(this, "SUCESSO");

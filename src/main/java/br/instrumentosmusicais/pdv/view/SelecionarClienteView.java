@@ -1,9 +1,7 @@
 
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.model.Cliente;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

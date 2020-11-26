@@ -60,7 +60,8 @@ public class PDVController {
             retorno.add(new String[]{
                 String.valueOf(obj.getCodProduto()),
                 String.valueOf(obj.getInstrumento()),
-                String.valueOf(obj.getValor())});
+                String.valueOf(obj.getValor()),
+                String.valueOf(obj.getQuantidade())});
 
         }
         return retorno;

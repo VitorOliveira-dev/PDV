@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.instrumentosmusicais.pdv.view;
 
-import br.instrumentosmusicais.pdv.controller.PDVController;
+import br.instrumentosmusicais.pdv.controller.RelatorioSinteticoController;
 import br.instrumentosmusicais.pdv.utils.Validador;
+import com.toedter.calendar.JDateChooser;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Computador
- */
 public class RelatorioSinteticoView extends javax.swing.JFrame {
 
     /**
@@ -45,12 +39,12 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         btnPesquisaPersonalizada = new javax.swing.JButton();
         pnlFiltro = new javax.swing.JPanel();
         lblNomeFinal = new javax.swing.JLabel();
-        txtDataFinal = new javax.swing.JFormattedTextField();
         lblNomeInicio = new javax.swing.JLabel();
         lblNomeAte = new javax.swing.JLabel();
-        txtDataInicio = new javax.swing.JFormattedTextField();
         lblMensagemErroDataFinal = new javax.swing.JLabel();
         lblMensagemErroDataInicio = new javax.swing.JLabel();
+        txtDataInicio = new com.toedter.calendar.JDateChooser();
+        txtDataFinal = new com.toedter.calendar.JDateChooser();
         pnlRelatorio = new javax.swing.JPanel();
         pnlTabelaVender = new javax.swing.JScrollPane();
         tblTabelaProdutosVenda = new javax.swing.JTable();
@@ -107,31 +101,12 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         lblNomeFinal.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeFinal.setText("Final");
 
-        txtDataFinal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        try {
-            txtDataFinal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         lblNomeInicio.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeInicio.setText("Início");
 
         lblNomeAte.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeAte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNomeAte.setText("Até");
-
-        txtDataInicio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        try {
-            txtDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtDataInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataInicioActionPerformed(evt);
-            }
-        });
 
         lblMensagemErroDataFinal.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
@@ -141,30 +116,28 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         pnlFiltro.setLayout(pnlFiltroLayout);
         pnlFiltroLayout.setHorizontalGroup(
             pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFiltroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNomeFinal)
+                .addGap(124, 124, 124))
             .addGroup(pnlFiltroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFiltroLayout.createSequentialGroup()
                         .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFiltroLayout.createSequentialGroup()
-                                .addGap(210, 210, 210)
-                                .addComponent(lblNomeFinal)
-                                .addGap(114, 114, 114))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFiltroLayout.createSequentialGroup()
-                                .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlFiltroLayout.createSequentialGroup()
-                                        .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(lblNomeAte, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
-                                    .addComponent(lblNomeInicio))
-                                .addGap(37, 37, 37)
-                                .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMensagemErroDataFinal)
-                                    .addComponent(txtDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
+                            .addGroup(pnlFiltroLayout.createSequentialGroup()
+                                .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(lblNomeAte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblNomeInicio))
+                        .addGap(37, 37, 37))
                     .addGroup(pnlFiltroLayout.createSequentialGroup()
-                        .addComponent(lblMensagemErroDataInicio)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblMensagemErroDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127)))
+                .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMensagemErroDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         pnlFiltroLayout.setVerticalGroup(
             pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,18 +146,20 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
                 .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNomeInicio, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblNomeFinal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomeAte, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMensagemErroDataFinal)
-                    .addComponent(lblMensagemErroDataInicio)))
+                    .addGroup(pnlFiltroLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblNomeAte, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnlFiltroLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(txtDataFinal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlFiltroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMensagemErroDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMensagemErroDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-
-        pnlFiltroLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtDataFinal, txtDataInicio});
 
         javax.swing.GroupLayout pnlPesquisaLayout = new javax.swing.GroupLayout(pnlPesquisa);
         pnlPesquisa.setLayout(pnlPesquisaLayout);
@@ -219,7 +194,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
                 .addComponent(pnlFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btnPesquisaPersonalizada, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pnlRelatorio.setBackground(new java.awt.Color(102, 102, 102));
@@ -244,7 +219,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblTabelaProdutosVenda.setCellSelectionEnabled(true);
+        tblTabelaProdutosVenda.setColumnSelectionAllowed(false);
         tblTabelaProdutosVenda.setGridColor(new java.awt.Color(51, 51, 51));
         tblTabelaProdutosVenda.setRowHeight(20);
         tblTabelaProdutosVenda.setRowMargin(3);
@@ -326,9 +301,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
             .addGroup(pnlFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFundoLayout.createSequentialGroup()
-                        .addComponent(pnlPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(pnlPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlRelatorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -351,15 +324,19 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbNomeMesesActionPerformed
 
     private void btnPesquisaAnaliticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaAnaliticaActionPerformed
-        RelatorioAnaliticoView telaAnalitico = new RelatorioAnaliticoView();
-        
+              
         DefaultTableModel listaSintetica = (DefaultTableModel) tblTabelaProdutosVenda.getModel();
         int linhaSelecionada = tblTabelaProdutosVenda.getSelectedRow();
         
         if(linhaSelecionada == -1){
-        JOptionPane.showMessageDialog(this, "Selecione um registro na tabela!!!","Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Selecione um registro na tabela!!!","Aviso", JOptionPane.WARNING_MESSAGE);
         }else{
-        telaAnalitico.setVisible(true);
+            linhaSelecionada = tblTabelaProdutosVenda.getSelectedRow();
+            int cod = Integer.parseInt(tblTabelaProdutosVenda.getValueAt(linhaSelecionada, 1).toString());
+            
+            RelatorioAnaliticoView telaAnalitico = new RelatorioAnaliticoView(cod);// falta id  
+            telaAnalitico.setVisible(true);
+            
         }
     }//GEN-LAST:event_btnPesquisaAnaliticaActionPerformed
 
@@ -370,7 +347,8 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         else{            
             //Chamar função
             int mes = jcbNomeMeses.getSelectedIndex();
-            ArrayList<String[]> listaCompras = PDVController.pesquisaMes(mes);
+            float total=0;
+            ArrayList<String[]> listaCompras = RelatorioSinteticoController.pesquisaMes(mes);
 
             DefaultTableModel modelo = new DefaultTableModel();
             modelo = (DefaultTableModel) tblTabelaProdutosVenda.getModel();
@@ -379,23 +357,47 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
 
             for (String[] dados : listaCompras) {
                 modelo.addRow(dados);
-            }            
+                total = total+Float.parseFloat(dados[3]);
+            }    
+            txtTotal.setText("R$ "+String.valueOf(total));
         }
     }//GEN-LAST:event_btnPesquisaMesActionPerformed
 
     private void btnPesquisaPersonalizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaPersonalizadaActionPerformed
         Validador objValidador = new Validador();
-        if(jcbNomeMeses.getSelectedIndex()==0){
-            JOptionPane.showMessageDialog(this, "Selecione um mês!!!","Aviso", JOptionPane.WARNING_MESSAGE);
+        if(txtDataInicio.getDate().equals("") || txtDataFinal.getDate().equals("")){
+            JOptionPane.showMessageDialog(this, "Favor preencher data início e final!!!","Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
         }
-        objValidador.CampoVazioFormatado(txtDataInicio, lblMensagemErroDataInicio );
-        objValidador.CampoVazioFormatado(txtDataFinal, lblMensagemErroDataFinal);
+        //objValidador.CampoVazioFormatadoData(txtDataInicio, lblMensagemErroDataInicio );
+        //objValidador.CampoVazioFormatadoData(txtDataFinal, lblMensagemErroDataFinal);
+        
+        Date dataInicio = txtDataInicio.getDate();
+        Date dataFinal = txtDataFinal.getDate();
+        
+        
+        float total=0;
+        ArrayList<String[]> listaCompras = RelatorioSinteticoController.pesquisaPersonalizada(dataInicio,dataFinal);
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo = (DefaultTableModel) tblTabelaProdutosVenda.getModel();
+
+        modelo.setRowCount(0);
+
+        for (String[] dados : listaCompras) {
+            modelo.addRow(dados);
+            total = total+Float.parseFloat(dados[3]);
+        }    
+        txtTotal.setText("R$ "+String.valueOf(total));
+        
+        
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_btnPesquisaPersonalizadaActionPerformed
-
-    private void txtDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataInicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,8 +454,8 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlRelatorio;
     private javax.swing.JScrollPane pnlTabelaVender;
     private javax.swing.JTable tblTabelaProdutosVenda;
-    private javax.swing.JFormattedTextField txtDataFinal;
-    private javax.swing.JFormattedTextField txtDataInicio;
+    private com.toedter.calendar.JDateChooser txtDataFinal;
+    private com.toedter.calendar.JDateChooser txtDataInicio;
     private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
 }
