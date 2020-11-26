@@ -512,7 +512,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Falha ao incluir cliente");
             }
         } else {
-            if (PDVController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
+            if (CadastroClienteController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
                 JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso");
                 this.dispose();
             } else {
@@ -672,7 +672,7 @@ String genero;
 
     private void preencherCliente(int CodCliente) {
 
-        String[] retorno = PDVController.consultarCliente(CodCliente);
+        String[] retorno = CadastroClienteController.consultarCliente(CodCliente);
         try {
 
             Date data = new SimpleDateFormat("yyyy-MM-dd").parse(retorno[6]);

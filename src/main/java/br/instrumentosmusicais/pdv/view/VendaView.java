@@ -631,11 +631,9 @@ public class VendaView extends javax.swing.JFrame {
         objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
         if (txtCodProduto.getText().equals("   Ex: 1234")) {
             txtCodProduto.setText("");
-            // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         } else {
             txtCodProduto.setForeground(Color.BLACK);
             txtCodProduto.setBackground(Color.WHITE);
-            // objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto);
         }
         float valorTotalProduto = 0;
         int linha = 0;
