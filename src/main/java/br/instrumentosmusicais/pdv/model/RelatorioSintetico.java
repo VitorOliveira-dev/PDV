@@ -1,7 +1,9 @@
 package br.instrumentosmusicais.pdv.model;
 
+import java.util.Date;
+
 public class RelatorioSintetico {
-    private String dataVenda;
+    private Date dataVenda;
     private int codVenda;
     private String nome;
     private float totalVenda;
@@ -9,7 +11,7 @@ public class RelatorioSintetico {
     public RelatorioSintetico() {
     }
 
-    public String getDataVenda() {
+    public Date getDataVenda() {
         return dataVenda;
     }
 
@@ -25,7 +27,7 @@ public class RelatorioSintetico {
         return totalVenda;
     }
 
-    public void setDataVenda(String dataVenda) {
+    public void setDataVenda(Date dataVenda) {
         this.dataVenda = dataVenda;
     }
 
