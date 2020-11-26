@@ -5,6 +5,7 @@
  */
 package br.instrumentosmusicais.pdv.view;
 
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,8 +18,11 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
     /**
      * Creates new form TelaRelatorioAnalitico
      */
-    public RelatorioAnaliticoView() {
-        int cod = 1;
+    public RelatorioAnaliticoView() {        
+        initComponents();
+    }
+    public RelatorioAnaliticoView(String[] cliente, ArrayList<String[]> produto) {
+        
         initComponents();
         tblTabelaProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(20);
         tblTabelaProdutosVenda.getColumnModel().getColumn(1).setPreferredWidth(100);
@@ -26,31 +30,31 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         tblTabelaProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(30);
         tblTabelaProdutosVenda.getColumnModel().getColumn(3).setPreferredWidth(30);
         
-        //ArrayList<String[]> listaCompras = RelatorioSinteticoAnalitico.pesquisaCliente(id);
-        //txtNomeCliente.setText(Cliente);
-        //txtNomeCPF.setText(CPF);
-        //txtNomeNCompra.setText(NCompra);
-        //txtNomeEndereco.setText(Endereco);
-        //txtNomeCidade.setText(Cidade);
-        //txtNomeTelefone.setText(Telefone);
-        //txtNomeEmail.setText(Email);
+        
+        txtNomeCliente.setText(cliente[3]);
+        txtNomeCPF.setText(cliente[4]);
+        txtNomeNCompra.setText(cliente[0]);
+        txtNomeEndereco.setText(cliente[5]);
+        txtNomeCidade.setText(cliente[6]);
+        txtNomeTelefone.setText(cliente[7]);
+        txtNomeEmail.setText(cliente[8]);  
+        txtNomeData.setText(cliente[1]);
         
         
-        float total=0;
-        //ArrayList<String[]> listaCompras = RelatorioSinteticoAnalitico.pesquisaMes(id);
 
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tblTabelaProdutosVenda.getModel();
+        
 
-        modelo.setRowCount(0);
-
-        //for (String[] dados : listaCompras) {
-           // modelo.addRow(dados);
-           // total = total+Float.parseFloat(dados[3]);
-        //}    
-        txtNomeTotal.setText("R$ "+String.valueOf(total));
+        for (String[] produtos : produto) {
+            modelo.addRow(produtos);
+            
+        }    
+        
+        txtNomeTotal.setText("R$ "+String.valueOf(cliente[2]));
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,7 +73,7 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         txtNomeCPF = new javax.swing.JLabel();
         lblNomeCPF = new javax.swing.JLabel();
         lblNomeNCompra = new javax.swing.JLabel();
-        txtNomeNPedido = new javax.swing.JLabel();
+        txtNomeNCompra = new javax.swing.JLabel();
         Direito = new javax.swing.JPanel();
         lblNomeEndereco = new javax.swing.JLabel();
         txtNomeEndereco = new javax.swing.JLabel();
@@ -78,7 +82,7 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         lblNomeCidade = new javax.swing.JLabel();
         txtNomeCidade = new javax.swing.JLabel();
         lblNomeEmail = new javax.swing.JLabel();
-        txtNomeCidade1 = new javax.swing.JLabel();
+        txtNomeEmail = new javax.swing.JLabel();
         tblProduto = new javax.swing.JScrollPane();
         tblTabelaProdutosVenda = new javax.swing.JTable();
         resumoGeral = new javax.swing.JPanel();
@@ -97,10 +101,8 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         lblNomeCliente.setText("Cliente:");
 
         txtNomeCliente.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeCliente.setText("Carlos Fernandes da Silva");
 
         txtNomeCPF.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeCPF.setText("222.555.999-00");
 
         lblNomeCPF.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeCPF.setText("CPF:");
@@ -108,8 +110,7 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         lblNomeNCompra.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeNCompra.setText("Nº Compra:");
 
-        txtNomeNPedido.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeNPedido.setText("10.539");
+        txtNomeNCompra.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout EsquerdoLayout = new javax.swing.GroupLayout(Esquerdo);
         Esquerdo.setLayout(EsquerdoLayout);
@@ -123,10 +124,10 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
                     .addComponent(lblNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EsquerdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNomeNPedido, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeNCompra, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeCPF, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNomeCliente, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         EsquerdoLayout.setVerticalGroup(
             EsquerdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +143,7 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(EsquerdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeNCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeNPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNomeNCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -150,25 +151,21 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         lblNomeEndereco.setText("Endereço:");
 
         txtNomeEndereco.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeEndereco.setText("Rua Carlos Ipiranga");
 
         lblNomeTelefone.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeTelefone.setText("Telefone:");
 
         txtNomeTelefone.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeTelefone.setText("Ipiranga");
 
         lblNomeCidade.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeCidade.setText("Cidade:");
 
         txtNomeCidade.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeCidade.setText("São Paulo-SP");
 
         lblNomeEmail.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
         lblNomeEmail.setText("E-mail:");
 
-        txtNomeCidade1.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeCidade1.setText("email@email.com");
+        txtNomeEmail.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout DireitoLayout = new javax.swing.GroupLayout(Direito);
         Direito.setLayout(DireitoLayout);
@@ -182,13 +179,7 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
                             .addComponent(lblNomeCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNomeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
-                        .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DireitoLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblNomeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNomeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNomeCidade1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(txtNomeEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(DireitoLayout.createSequentialGroup()
                         .addComponent(lblNomeEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,7 +187,10 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
                             .addComponent(txtNomeEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(DireitoLayout.createSequentialGroup()
                                 .addComponent(txtNomeCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNomeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNomeTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))))
         );
         DireitoLayout.setVerticalGroup(
             DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,17 +199,21 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
                 .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNomeEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNomeCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNomeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNomeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNomeCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DireitoLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNomeCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DireitoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNomeTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeTelefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(DireitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNomeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -225,9 +223,9 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
             txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(txtDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Esquerdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Direito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Esquerdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Direito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         txtDadosLayout.setVerticalGroup(
             txtDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,13 +266,11 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         lblNomeData.setText("DATA DA VENDA");
 
         txtNomeData.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeData.setText("10/10/2020");
 
         lblNomeTotal.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
         lblNomeTotal.setText("TOTAL DA VENDA:");
 
         txtNomeTotal.setFont(new java.awt.Font("Bookman Old Style", 0, 11)); // NOI18N
-        txtNomeTotal.setText("R$ 11.499,99");
 
         javax.swing.GroupLayout resumoGeralLayout = new javax.swing.GroupLayout(resumoGeral);
         resumoGeral.setLayout(resumoGeralLayout);
@@ -393,11 +389,11 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
     private javax.swing.JPanel txtDados;
     private javax.swing.JLabel txtNomeCPF;
     private javax.swing.JLabel txtNomeCidade;
-    private javax.swing.JLabel txtNomeCidade1;
     private javax.swing.JLabel txtNomeCliente;
     private javax.swing.JLabel txtNomeData;
+    private javax.swing.JLabel txtNomeEmail;
     private javax.swing.JLabel txtNomeEndereco;
-    private javax.swing.JLabel txtNomeNPedido;
+    private javax.swing.JLabel txtNomeNCompra;
     private javax.swing.JLabel txtNomeTelefone;
     private javax.swing.JLabel txtNomeTotal;
     // End of variables declaration//GEN-END:variables

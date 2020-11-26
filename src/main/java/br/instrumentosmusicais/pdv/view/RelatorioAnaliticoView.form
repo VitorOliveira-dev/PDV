@@ -85,10 +85,10 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="Esquerdo" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="Direito" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Esquerdo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="Direito" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -119,11 +119,11 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtNomeNPedido" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNomeNCompra" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="txtNomeCPF" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="txtNomeCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="36" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -143,7 +143,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblNomeNCompra" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtNomeNPedido" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtNomeNCompra" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -164,7 +164,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Carlos Fernandes da Silva"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="txtNomeCPF">
@@ -172,7 +171,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="222.555.999-00"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeCPF">
@@ -191,12 +189,11 @@
                     <Property name="text" type="java.lang.String" value="N&#xba; Compra:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtNomeNPedido">
+                <Component class="javax.swing.JLabel" name="txtNomeNCompra">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="10.539"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -215,15 +212,7 @@
                                       <Component id="lblNomeEmail" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="lblNomeTelefone" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtNomeTelefone" min="-2" pref="70" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="txtNomeCidade1" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtNomeEmail" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblNomeEndereco" min="-2" pref="70" max="-2" attributes="0"/>
@@ -232,7 +221,10 @@
                                       <Component id="txtNomeEndereco" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="txtNomeCidade" min="-2" pref="90" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblNomeTelefone" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtNomeTelefone" pref="123" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -248,19 +240,26 @@
                               <Component id="lblNomeEndereco" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               <Component id="txtNomeEndereco" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblNomeCidade" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="lblNomeTelefone" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="txtNomeTelefone" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="txtNomeCidade" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="lblNomeCidade" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="txtNomeCidade" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNomeTelefone" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="txtNomeTelefone" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblNomeEmail" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="txtNomeCidade1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="txtNomeEmail" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -281,7 +280,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Rua Carlos Ipiranga"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeTelefone">
@@ -297,7 +295,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ipiranga"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeCidade">
@@ -313,7 +310,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="S&#xe3;o Paulo-SP"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblNomeEmail">
@@ -324,12 +320,11 @@
                     <Property name="text" type="java.lang.String" value="E-mail:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtNomeCidade1">
+                <Component class="javax.swing.JLabel" name="txtNomeEmail">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Bookman Old Style" size="11" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="email@email.com"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -421,7 +416,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Bookman Old Style" size="11" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="10/10/2020"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNomeTotal">
@@ -437,7 +431,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Bookman Old Style" size="11" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="R$ 11.499,99"/>
               </Properties>
             </Component>
           </SubComponents>

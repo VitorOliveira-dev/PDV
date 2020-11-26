@@ -1,7 +1,9 @@
 package br.instrumentosmusicais.pdv.controller;
 
 import br.instrumentosmusicais.pdv.DAO.RelatorioSinteticoDAO;
+import br.instrumentosmusicais.pdv.model.Cliente;
 import br.instrumentosmusicais.pdv.model.RelatorioSintetico;
+import br.instrumentosmusicais.pdv.model.Venda;
 import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
 import java.util.Date;
@@ -41,5 +43,20 @@ public class RelatorioSinteticoController {
         return retorno;
 
     }
+    
+    
+    public static String[] analitico(int cod){
+        String[] dados = RelatorioSinteticoDAO.pesquisarCliente(cod);
+                
+        return dados;
+    }
+    
+    public static ArrayList<String[]>analiticoProduto(int cod){
+        
+        ArrayList<String[]> dados = RelatorioSinteticoDAO.pesquisarProduto(cod);        
+        
+        return dados;
+    }
+    
     
 }
