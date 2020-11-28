@@ -1,10 +1,7 @@
 package br.instrumentosmusicais.pdv.controller;
 
 import br.instrumentosmusicais.pdv.DAO.RelatorioSinteticoDAO;
-import br.instrumentosmusicais.pdv.model.Cliente;
 import br.instrumentosmusicais.pdv.model.RelatorioSintetico;
-import br.instrumentosmusicais.pdv.model.Venda;
-import com.toedter.calendar.JDateChooser;
 import java.util.ArrayList;
 import java.util.Date;
 

@@ -10,10 +10,7 @@ import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
 public class VendaView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TelaVendas
-     */
+    
     public VendaView() {
         initComponents();
         tbProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);

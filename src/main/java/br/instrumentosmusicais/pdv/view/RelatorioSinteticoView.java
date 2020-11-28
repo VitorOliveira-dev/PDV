@@ -2,8 +2,6 @@ package br.instrumentosmusicais.pdv.view;
 
 import br.instrumentosmusicais.pdv.controller.RelatorioSinteticoController;
 import br.instrumentosmusicais.pdv.utils.Validador;
-import com.toedter.calendar.JDateChooser;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -11,9 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class RelatorioSinteticoView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaRelatorioSintetico
-     */
+
     public RelatorioSinteticoView() {
         initComponents();
         tblTabelaProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(50);
