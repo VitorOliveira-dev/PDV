@@ -23,7 +23,7 @@ public class RelatorioSinteticoDAO {
 
         try {
             conexao = GerenciadorConexao.abrirConexao();
-            comandoSQL = conexao.prepareStatement("SELECT data_venda, cod_venda, nome, valor_total FROM Venda INNER JOIN Cliente WHERE MONTH(data_venda) = ?;");
+            comandoSQL = conexao.prepareStatement("SELECT data_venda, cod_venda, nome, valor_total FROM Venda INNER JOIN Cliente on Venda.fk_cod_cliente = Cliente.cod_cliente WHERE MONTH(data_venda) = ?");
             comandoSQL.setInt(1, mes);
 
             rs = comandoSQL.executeQuery();
@@ -73,9 +73,7 @@ public class RelatorioSinteticoDAO {
         try {
             conexao = GerenciadorConexao.abrirConexao();
             comandoSQL = conexao.prepareStatement(
-                "SELECT DATE(data_venda) as data_venda, cod_venda, nome, valor_total " +
-                "FROM Venda " +
-                "INNER JOIN Cliente WHERE data_venda between ? and ?;"
+            "SELECT DATE(data_venda) as data_venda, cod_venda, nome, valor_total FROM Venda INNER JOIN Cliente on Venda.fk_cod_cliente = Cliente.cod_cliente WHERE data_venda between ? and ?"
             );
             comandoSQL.setDate(1, new java.sql.Date( dataInicio.getTime() ));
             comandoSQL.setDate(2, new java.sql.Date( dataFinal.getTime() ));

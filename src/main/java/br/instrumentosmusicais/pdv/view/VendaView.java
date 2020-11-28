@@ -732,6 +732,12 @@ public class VendaView extends javax.swing.JFrame {
 
         if (retorno) {
             JOptionPane.showMessageDialog(this, "SUCESSO");
+            modelo.setRowCount(0);
+            txtCPF.setText("");
+            txtNomeCliente.setText("");
+            valorTotalVenda = 0;
+            lblTotalValor.setText(String.valueOf(valorTotalVenda));
+            
         } else {
             JOptionPane.showMessageDialog(this, "DEU ERRO");
         }
