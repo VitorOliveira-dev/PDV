@@ -1,21 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.instrumentosmusicais.pdv.view;
 
 import br.instrumentosmusicais.pdv.controller.CadastroProdutoController;
-import br.instrumentosmusicais.pdv.controller.PDVController;
 import br.instrumentosmusicais.pdv.utils.Validador;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Amanda
- */
 public class CadastroProdutoView extends javax.swing.JFrame {
 
     int idProduto = 0;
@@ -528,7 +516,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
     private void preencherFormulario(int idProduto) {
 
-        String[] retorno = PDVController.consultarPorID(idProduto);
+        String[] retorno = CadastroProdutoController.consultarPorID(idProduto);
         lblCodigoValor.setText(retorno[0]);
         txtInstrumento.setText(retorno[1]);
         txtCor.setText(retorno[2]);

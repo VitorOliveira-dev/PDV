@@ -6,10 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class SelecionarClienteView extends javax.swing.JFrame {
-
-    /**
-     * Creates new form SelecionarClienteView
-     */
     
         public SelecionarClienteView() {
         initComponents();
