@@ -41,7 +41,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         lblCor = new javax.swing.JLabel();
         txtCor = new javax.swing.JTextField();
         lblTipo = new javax.swing.JLabel();
-        cbbTipo = new javax.swing.JComboBox<>();
         lblFabricante = new javax.swing.JLabel();
         txtFabricante = new javax.swing.JTextField();
         lblQuantidade = new javax.swing.JLabel();
@@ -58,6 +57,8 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         jblMensagemValor = new javax.swing.JLabel();
         lblIcone = new javax.swing.JLabel();
         lblCodigoValor = new javax.swing.JLabel();
+        txtTipo = new javax.swing.JTextField();
+        jblMensagemTipo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -98,16 +99,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         lblTipo.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblTipo.setForeground(new java.awt.Color(255, 255, 255));
         lblTipo.setText("Tipo: *");
-
-        cbbTipo.setBackground(new java.awt.Color(153, 153, 153));
-        cbbTipo.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        cbbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Corda", "Sopro", "Tecla" }));
-        cbbTipo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        cbbTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbTipoActionPerformed(evt);
-            }
-        });
 
         lblFabricante.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblFabricante.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,6 +217,16 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         lblCodigoValor.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblCodigoValor.setForeground(new java.awt.Color(255, 255, 255));
 
+        txtTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTipo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTipoKeyTyped(evt);
+            }
+        });
+
+        jblMensagemTipo.setFont(new java.awt.Font("Bookman Old Style", 1, 11)); // NOI18N
+        jblMensagemTipo.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout pnlCadastroProdutoLayout = new javax.swing.GroupLayout(pnlCadastroProduto);
         pnlCadastroProduto.setLayout(pnlCadastroProdutoLayout);
         pnlCadastroProdutoLayout.setHorizontalGroup(
@@ -249,14 +250,20 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                                                 .addComponent(lblCor)
                                                 .addComponent(lblFabricante)))
                                         .addComponent(lblQuantidade, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spnQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jblMensagemFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jblMensagemValor)
-                                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(spnQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jblMensagemFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jblMensagemValor)
+                                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jblMensagemTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(pnlCadastroProdutoLayout.createSequentialGroup()
                                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblInstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,9 +289,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addGap(155, 155, 155))
         );
 
-        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCor, txtValor});
+        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCor, txtTipo, txtValor});
 
         pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jblMensagemFabricante, jblMensagemValor});
+
+        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jblMensagemCor, jblMensagemTipo});
 
         pnlCadastroProdutoLayout.setVerticalGroup(
             pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,9 +318,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addComponent(jblMensagemCor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTipo))
-                .addGap(34, 34, 34)
+                    .addComponent(lblTipo)
+                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblMensagemTipo)
+                .addGap(10, 10, 10)
                 .addGroup(pnlCadastroProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFabricante))
@@ -329,9 +340,11 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 .addComponent(pnlBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cbbTipo, txtCor, txtFabricante, txtInstrumento, txtValor});
+        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCor, txtFabricante, txtInstrumento, txtTipo, txtValor});
 
         pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jblMensagemFabricante, jblMensagemValor});
+
+        pnlCadastroProdutoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jblMensagemCor, jblMensagemTipo});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -364,9 +377,10 @@ public class CadastroProdutoView extends javax.swing.JFrame {
             objValidar.CampoVazio(txtCor, jblMensagemCor);
             objValidar.CampoVazio(txtFabricante, jblMensagemFabricante);
             objValidar.CampoVazio(txtValor, jblMensagemValor);
+            objValidar.CampoVazio(txtTipo, jblMensagemTipo);
             instrumento = txtInstrumento.getText();
             cor = txtCor.getText();
-            tipo = cbbTipo.getSelectedItem().toString();
+            tipo = txtTipo.getText();
             fabricante = txtFabricante.getText();
             quantidade = Integer.parseInt(spnQuantidade.getValue().toString());
             valor = Float.parseFloat(txtValor.getText().replace(",", "."));
@@ -388,8 +402,10 @@ public class CadastroProdutoView extends javax.swing.JFrame {
             }
 
         } else {
-
-            if (CadastroProdutoController.atualizarProduto(idProduto, instrumento, cor, tipo, fabricante, quantidade, valor)) {
+                if(txtInstrumento.getText().equals("")||txtTipo.getText().equals("") || txtCor.getText().equals("") || txtFabricante.getText().equals("")|| txtValor.getText()==null){
+                JOptionPane.showMessageDialog(this, "Ocorreu um erro ao converter os valores!");
+                return;
+                }if (CadastroProdutoController.atualizarProduto(idProduto, instrumento, cor, tipo, fabricante, quantidade, valor)) {
                 JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso");
                 this.dispose();
             } else {
@@ -403,10 +419,6 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void cbbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbTipoActionPerformed
 
     private void txtInstrumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInstrumentoKeyTyped
         if (txtInstrumento.getText().length() >= 30) {
@@ -451,6 +463,17 @@ public class CadastroProdutoView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtValorKeyReleased
 
+    private void txtTipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTipoKeyTyped
+                if (txtTipo.getText().length() >= 30) {
+            evt.consume();
+            jblMensagemTipo.setText("Máximo de 30 caracteres atingido!");
+        } else {
+            jblMensagemTipo.setText("");
+        }
+
+    
+    }//GEN-LAST:event_txtTipoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -490,10 +513,10 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cbbTipo;
     private javax.swing.JLabel jblMensagemCor;
     private javax.swing.JLabel jblMensagemFabricante;
     private javax.swing.JLabel jblMensagemInstrumento;
+    private javax.swing.JLabel jblMensagemTipo;
     private javax.swing.JLabel jblMensagemValor;
     private javax.swing.JLabel lblCadastroProdutos;
     private javax.swing.JLabel lblCodigo;
@@ -511,6 +534,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     private javax.swing.JTextField txtCor;
     private javax.swing.JTextField txtFabricante;
     private javax.swing.JTextField txtInstrumento;
+    private javax.swing.JTextField txtTipo;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 
@@ -520,7 +544,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         lblCodigoValor.setText(retorno[0]);
         txtInstrumento.setText(retorno[1]);
         txtCor.setText(retorno[2]);
-        cbbTipo.setSelectedItem(retorno[3]);
+        txtTipo.setText(retorno[3]);
         txtFabricante.setText(retorno[4]);
         spnQuantidade.setValue(Integer.parseInt(retorno[5]));
         txtValor.setText(retorno[6]);
