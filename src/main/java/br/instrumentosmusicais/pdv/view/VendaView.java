@@ -10,7 +10,7 @@ import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
 public class VendaView extends javax.swing.JFrame {
-    
+
     public VendaView() {
         initComponents();
         tbProdutosVenda.getColumnModel().getColumn(0).setPreferredWidth(15);
@@ -586,7 +586,7 @@ public class VendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeDoProdutoActionPerformed
 
     private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
-
+        Validador objValidar = new Validador();
         String nome = txtNomeCliente.getText().trim();
         String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
 
@@ -595,7 +595,6 @@ public class VendaView extends javax.swing.JFrame {
 
         if (infoClientes.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Cliente não encontrado");
-            Validador objValidar = new Validador();
             objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
             objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
             return;
@@ -607,14 +606,14 @@ public class VendaView extends javax.swing.JFrame {
             dispose();
 
         } else {
+            if (objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome) || objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF)) {
+                return;
+            }
             String[] info = infoClientes.get(0);
 
             lblCodClienteValor.setText(info[0]);
             txtNomeCliente.setText(info[1]);
             txtCPF.setText(info[2]);
-            Validador objValidar = new Validador();
-            objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
-            objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
 
         }
 
@@ -624,8 +623,11 @@ public class VendaView extends javax.swing.JFrame {
     private void btnAdicionarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarProdutoActionPerformed
         Validador objValidar = new Validador();
 
-        objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
-        objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF);
+        if (objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome) && objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF)) {
+            JOptionPane.showMessageDialog(this, "Preencha as informações do cliente");
+            return;
+            
+        }
         if (txtCodProduto.getText().equals("   Ex: 1234")) {
             txtCodProduto.setText("");
         } else {
@@ -680,13 +682,13 @@ public class VendaView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Quantidade em estoque insuficiente\nQuantidade em estoque: " + (quantidadeEstoque));
                 return;
             }
-            
-            for(int i =0; i<modelo.getRowCount(); i++){
-                
-            if(addProduto[0].equals(modelo.getValueAt(i, 0).toString())){
-            JOptionPane.showMessageDialog(this,"Produto já adicionado\n, caso deseja aumentar a quantidade vendida, exclua o produto da lista\n e adicione-o novamente com a quantidade desejada.");
-            return;
-            }
+
+            for (int i = 0; i < modelo.getRowCount(); i++) {
+
+                if (addProduto[0].equals(modelo.getValueAt(i, 0).toString())) {
+                    JOptionPane.showMessageDialog(this, "Produto já adicionado\n\nCaso deseja aumentar a quantidade vendida, exclua o produto da lista\n e adicione-o novamente com a quantidade desejada.");
+                    return;
+                }
             }
 
             modelo.addRow(addProduto);
@@ -715,6 +717,11 @@ public class VendaView extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo = (DefaultTableModel) tbProdutosVenda.getModel();
 
+        if (modelo.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "Sem produtos adicionados");
+            return;
+        }
+
         int codCliente = Integer.parseInt(lblCodClienteValor.getText());
 
         ArrayList<String[]> itens = new ArrayList<String[]>();
@@ -728,15 +735,16 @@ public class VendaView extends javax.swing.JFrame {
         boolean retorno = VendaController.vendaVender(valorTotalVenda, codCliente, itens);
 
         if (retorno) {
-            JOptionPane.showMessageDialog(this, "SUCESSO");
+            JOptionPane.showMessageDialog(this, "Venda Realizada com Sucesso !");
             modelo.setRowCount(0);
             txtCPF.setText("");
             txtNomeCliente.setText("");
             valorTotalVenda = 0;
             lblTotalValor.setText(String.valueOf(valorTotalVenda));
-            
+
         } else {
-            JOptionPane.showMessageDialog(this, "DEU ERRO");
+            JOptionPane.showMessageDialog(this, "Falha ao concluir venda");
+            return;
         }
 
 
