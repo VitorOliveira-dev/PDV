@@ -24,7 +24,6 @@ public class ManutencaoView extends javax.swing.JFrame {
         btnAtualizaCliente = new javax.swing.JButton();
         btnAdicionarCliente = new javax.swing.JButton();
         btnExcluirCliente = new javax.swing.JButton();
-        lblMensagemErroCliente = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         btnPesquisarCliente = new javax.swing.JButton();
         txtNome = new javax.swing.JTextField();
@@ -42,10 +41,8 @@ public class ManutencaoView extends javax.swing.JFrame {
         txtProduto = new javax.swing.JTextField();
         btnPesquisarProduto = new javax.swing.JButton();
         btnExcluirProduto = new javax.swing.JButton();
-        lblMensagemErroProduto = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        lblMensagem = new javax.swing.JLabel();
         btnCliente = new javax.swing.JButton();
         btnProduto = new javax.swing.JButton();
         lblIcone = new javax.swing.JLabel();
@@ -102,8 +99,6 @@ public class ManutencaoView extends javax.swing.JFrame {
                 btnExcluirClienteActionPerformed(evt);
             }
         });
-
-        lblMensagemErroCliente.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
         lblNome.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblNome.setText("Nome:");
@@ -169,27 +164,24 @@ public class ManutencaoView extends javax.swing.JFrame {
             pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
                 .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                        .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                                .addComponent(lblNome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
-                                .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(btnAtualizaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(19, 19, 19)
-                                .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(38, 38, 38)
-                        .addComponent(lblMensagemErroCliente))
+                    .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
+                            .addComponent(lblNome)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnPesquisarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscaClientesLayout.createSequentialGroup()
+                            .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)
+                            .addComponent(btnAtualizaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(19, 19, 19)
+                            .addComponent(btnExcluirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -197,28 +189,22 @@ public class ManutencaoView extends javax.swing.JFrame {
             pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                        .addComponent(lblMensagemErroCliente)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlBuscaClientesLayout.createSequentialGroup()
-                        .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                            .addComponent(lblCPF))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNome)
-                            .addComponent(btnPesquisarCliente))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnAtualizaCliente)
-                                .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnExcluirCliente))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0))))
+                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(lblCPF))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome)
+                    .addComponent(btnPesquisarCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlBuscaClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAtualizaCliente)
+                        .addComponent(btnAdicionarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnExcluirCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sPnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pnlBuscaClientesLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnPesquisarCliente, txtNome});
@@ -328,8 +314,6 @@ public class ManutencaoView extends javax.swing.JFrame {
             }
         });
 
-        lblMensagemErroProduto.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
-
         lblCodigo.setFont(new java.awt.Font("Bookman Old Style", 1, 14)); // NOI18N
         lblCodigo.setText("Código:");
 
@@ -339,8 +323,6 @@ public class ManutencaoView extends javax.swing.JFrame {
                 txtCodigoKeyTyped(evt);
             }
         });
-
-        lblMensagem.setFont(new java.awt.Font("Bookman Old Style", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout pnlBuscaProdutoLayout = new javax.swing.GroupLayout(pnlBuscaProduto);
         pnlBuscaProduto.setLayout(pnlBuscaProdutoLayout);
@@ -358,18 +340,13 @@ public class ManutencaoView extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addComponent(btnAtualizarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMensagemErroProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnExcluirProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
                         .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMensagem)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         pnlBuscaProdutoLayout.setVerticalGroup(
             pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,23 +354,17 @@ public class ManutencaoView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigo)
-                    .addComponent(lblMensagem))
+                    .addComponent(lblCodigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNomeProduto)
                     .addComponent(txtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lblMensagemErroProduto))
-                    .addGroup(pnlBuscaProdutoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAtualizarProduto)
-                            .addComponent(btnExcluirProduto))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlBuscaProdutoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizarProduto)
+                    .addComponent(btnExcluirProduto))
                 .addGap(79, 79, 79))
         );
 
@@ -408,7 +379,7 @@ public class ManutencaoView extends javax.swing.JFrame {
                 .addComponent(sPnlProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlProdutosLayout.createSequentialGroup()
-                .addComponent(pnlBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlBuscaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlProdutosLayout.setVerticalGroup(
@@ -569,7 +540,8 @@ public class ManutencaoView extends javax.swing.JFrame {
 
     private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
         Validador objValidador = new Validador();
-        if (txtCodigo.getText().equals("") && objValidador.CampoVazio(txtProduto, lblMensagem) == true) {
+        if (txtCodigo.getText().equals("") && txtProduto.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(this, "Preencha um dos campos para pesquisar !");
             return;
         }
 
@@ -608,9 +580,9 @@ public class ManutencaoView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
 
     private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
-        Validador objValidador = new Validador();
-        if (txtCPF.getText().trim().replace(".", "").replace("-", "").equals("") && objValidador.CampoVazio(txtNome, lblMensagemErroCliente) == true) {
-            return;
+      if (txtCPF.getText().trim().replace(".", "").replace("-", "").equals("") && txtNome.getText().trim().equals("")){
+          JOptionPane.showMessageDialog(this, "Preencha um dos campos para pesquisar !");
+          return;
         }
 
         String CPF = txtCPF.getText().trim().replace(".", "").replace("-", "");
@@ -765,9 +737,6 @@ public class ManutencaoView extends javax.swing.JFrame {
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblIcone;
-    private javax.swing.JLabel lblMensagem;
-    private javax.swing.JLabel lblMensagemErroCliente;
-    private javax.swing.JLabel lblMensagemErroProduto;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNomeProduto;
     private javax.swing.JPanel pnlBuscaClientes;

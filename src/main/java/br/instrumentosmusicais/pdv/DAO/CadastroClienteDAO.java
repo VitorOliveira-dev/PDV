@@ -145,7 +145,7 @@ public class CadastroClienteDAO {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println(ex.getMessage());
+            System.out.println("ERROR "+ex.getMessage());
             consultar = null;
         } finally {
 
