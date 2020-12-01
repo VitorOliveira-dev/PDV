@@ -70,6 +70,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         jData = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         pnlInformacoesCliente.setBackground(new java.awt.Color(51, 51, 51));
         pnlInformacoesCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -145,21 +146,11 @@ public class CadastroClienteView extends javax.swing.JFrame {
         btnSexo.add(btnFeminino);
         btnFeminino.setForeground(new java.awt.Color(255, 255, 255));
         btnFeminino.setText("F");
-        btnFeminino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFemininoActionPerformed(evt);
-            }
-        });
 
         btnMasculino.setBackground(new java.awt.Color(51, 51, 51));
         btnSexo.add(btnMasculino);
         btnMasculino.setForeground(new java.awt.Color(255, 255, 255));
         btnMasculino.setText("M");
-        btnMasculino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMasculinoActionPerformed(evt);
-            }
-        });
 
         txtCpf.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         try {
@@ -363,9 +354,9 @@ public class CadastroClienteView extends javax.swing.JFrame {
                     .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCodigo)
-                            .addComponent(lblVlrCodigo))))
+                        .addComponent(lblCodigo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblVlrCodigo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlInformacoesClienteLayout.setVerticalGroup(
@@ -377,9 +368,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
                     .addComponent(lblicone))
                 .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblVlrCodigo)
-                        .addGap(35, 35, 35)
+                        .addGap(82, 82, 82)
                         .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNome)
                             .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -426,7 +415,9 @@ public class CadastroClienteView extends javax.swing.JFrame {
                         .addComponent(pnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlInformacoesClienteLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(lblCodigo)
+                        .addGroup(pnlInformacoesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCodigo)
+                            .addComponent(lblVlrCodigo))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -442,7 +433,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlInformacoesCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
         );
 
         pack();
@@ -475,7 +466,13 @@ public class CadastroClienteView extends javax.swing.JFrame {
             telefone = txtTelefone.getText().replace(")", "").replace("(", "").replace("-", "").trim();
             nasc = jData.getDate();
             email = txtEmail.getText();
-            sexo = genero;
+            
+            if(btnMasculino.isSelected()){
+            sexo = btnMasculino.getText();
+            }else{
+            sexo = btnFeminino.getText();
+            }
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Falha ao converter os dados");
@@ -483,12 +480,15 @@ public class CadastroClienteView extends javax.swing.JFrame {
 
         }
         if (modoTela == "Criar") {
-            txtNome.setText("");
-            txtCpf.setText("");
-            txtEndereco.setText("");
-            txtCidade.setText("");
-            txtTelefone.setText("");
-            txtEmail.setText("");
+            txtNome.setText(null);
+            txtCpf.setText(null);
+            txtEndereco.setText(null);
+            txtCidade.setText(null);
+            txtTelefone.setText(null);
+            txtEmail.setText(null);
+            jData.setDate(null);
+            btnMasculino.setSelected(false);
+            btnFeminino.setSelected(false);
 
             // Gravar no banco
             if (CadastroClienteController.salvarCliente(nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
@@ -497,10 +497,10 @@ public class CadastroClienteView extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Falha ao incluir cliente");
             }
         } else {
-            if(txtNome.getText().equals("")|| txtCpf.getText().equals("") || txtEndereco.getText().equals("")|| txtCidade.getText().equals("")|| txtTelefone.getText().equals("") || txtEmail.getText().equals("")){
+            if (txtNome.getText().equals("") || txtCpf.getText().equals("") || txtEndereco.getText().equals("") || txtCidade.getText().equals("") || txtTelefone.getText().equals("") || txtEmail.getText().equals("")) {
                 JOptionPane.showMessageDialog(this, "Ocorreu um erro ao converter os valores!");
                 return;
-                }
+            }
             if (CadastroClienteController.atualizarCliente(codCliente, nomeCliente, cpf, endereco, cidade, telefone, nasc, email, sexo)) {
                 JOptionPane.showMessageDialog(this, "Cliente atualizado com sucesso");
                 this.dispose();
@@ -573,14 +573,6 @@ public class CadastroClienteView extends javax.swing.JFrame {
             jblMensagemEmail.setText("");
         }
     }//GEN-LAST:event_txtEmailKeyTyped
-
-    private void btnMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasculinoActionPerformed
-        genero = "M";
-    }//GEN-LAST:event_btnMasculinoActionPerformed
-
-    private void btnFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFemininoActionPerformed
-        genero = "F";
-    }//GEN-LAST:event_btnFemininoActionPerformed
 
     private void jDataKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDataKeyTyped
 
@@ -657,7 +649,7 @@ public class CadastroClienteView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
-String genero;
+
 
     private void preencherCliente(int CodCliente) {
 
@@ -674,9 +666,16 @@ String genero;
             txtTelefone.setText(retorno[5]);
             jData.setDate(data);
             txtEmail.setText(retorno[7]);
+            String sexo = retorno[8];
+
+            if (sexo.equals("M")) {
+                btnMasculino.setSelected(true);
+            } else if (sexo.equals("F")) {
+                btnFeminino.setSelected(true);
+            }
         } catch (ParseException ex) {
             Logger.getLogger(CadastroClienteView.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("ERRO");
+            System.out.println("ERRO "+ex);
         }
 
     }

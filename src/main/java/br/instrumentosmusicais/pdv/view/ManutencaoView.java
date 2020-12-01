@@ -48,7 +48,9 @@ public class ManutencaoView extends javax.swing.JFrame {
         lblIcone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Manutenção");
         setBackground(new java.awt.Color(51, 51, 51));
+        setResizable(false);
 
         pnlPrincipal.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -485,13 +487,13 @@ public class ManutencaoView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtualizaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaClienteActionPerformed
 
         int linhaSelecionada = tblClientes.getSelectedRow();
         int idSelecionado = 0;
-
         if (linhaSelecionada >= 0) {
             idSelecionado = Integer.parseInt(tblClientes.getValueAt(linhaSelecionada, 0).toString());
         } else {

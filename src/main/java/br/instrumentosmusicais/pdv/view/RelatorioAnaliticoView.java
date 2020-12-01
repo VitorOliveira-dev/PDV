@@ -80,6 +80,8 @@ public class RelatorioAnaliticoView extends javax.swing.JFrame {
         txtNomeTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Relatório Analítico");
+        setResizable(false);
 
         pnlFundo.setBackground(new java.awt.Color(102, 102, 102));
 

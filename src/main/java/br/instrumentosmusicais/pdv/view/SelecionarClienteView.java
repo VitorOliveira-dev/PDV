@@ -41,6 +41,7 @@ public class SelecionarClienteView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Selecione o Cliente");
         setBackground(new java.awt.Color(51, 51, 51));
+        setResizable(false);
 
         pnlSelecionarClientes.setBackground(new java.awt.Color(102, 102, 102));
 
