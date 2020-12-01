@@ -397,6 +397,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
                 txtInstrumento.setText("");
                 txtCor.setText("");
                 txtFabricante.setText("");
+                txtTipo.setText("");
                 spnQuantidade.setValue(0);
                 txtValor.setText(null);
             } else {
@@ -419,7 +420,7 @@ public class CadastroProdutoView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtInstrumentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInstrumentoKeyTyped

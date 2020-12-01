@@ -408,10 +408,10 @@ public class VendaView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbProdutosVenda.setCellSelectionEnabled(true);
         tbProdutosVenda.setGridColor(new java.awt.Color(51, 51, 51));
         tbProdutosVenda.setRowHeight(20);
         tbProdutosVenda.setRowMargin(3);
+        tbProdutosVenda.setRowSelectionAllowed(false);
         tbProdutosVenda.setSelectionBackground(new java.awt.Color(51, 51, 51));
         pnlTabelaVender.setViewportView(tbProdutosVenda);
 
@@ -613,6 +613,9 @@ public class VendaView extends javax.swing.JFrame {
             txtCPF.setText(info[2]);
 
         }
+        objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome);
+        objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF ); 
+
 
 
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
@@ -645,6 +648,9 @@ public class VendaView extends javax.swing.JFrame {
         ArrayList<String[]> produtos = VendaController.vendaBuscarProduto(codigo, instrumento);
 
         String[] addProduto;
+        
+
+        
 
         if (produtos.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Produto não encontrado");
@@ -655,15 +661,7 @@ public class VendaView extends javax.swing.JFrame {
                 produtosRepetidos = Arrays.toString(produtos.get(i)).replace("[", "").replace("]", "") + "\n" + produtosRepetidos;
             }
             JOptionPane.showMessageDialog(this, "Foram encontrados " + produtos.size() + " produtos\n\n" + produtosRepetidos + "Verifique o código do produto que deseja adicionar á venda e insira-o no campo Código do Produto");
-            txtCodProduto.setText("");
-            txtNomeDoProduto.setText("");
-            if (txtNomeDoProduto.getText().equals("")) {
-                txtNomeDoProduto.setText("Exemplo de produto");
-            }
-            if (txtCodProduto.getText().equals("")) {
-                txtCodProduto.setText("   Ex: 1234");
-                txtCodProduto.setForeground(new java.awt.Color(204, 204, 204));
-            }
+            limparCampos();
             return;
         } else {
             addProduto = produtos.get(0);
@@ -693,16 +691,13 @@ public class VendaView extends javax.swing.JFrame {
             modelo.setValueAt(valorTotalProduto, modelo.getRowCount() - 1, 4);
             linha++;
         }
+        
+                if(objValidar.CampoVazio(txtCodProduto, lblMensagemErroCodProduto)){
+        return;
+        }
+        
         spnQtd.setValue(1);
-        txtCodProduto.setText("");
-        txtNomeDoProduto.setText("");
-        if (txtNomeDoProduto.getText().equals("")) {
-            txtNomeDoProduto.setText("Exemplo de produto");
-        }
-        if (txtCodProduto.getText().equals("")) {
-            txtCodProduto.setText("   Ex: 1234");
-            txtCodProduto.setForeground(new java.awt.Color(204, 204, 204));
-        }
+        limparCampos();
 
         valorTotalVenda = valorTotalProduto + valorTotalVenda;
 
@@ -852,4 +847,17 @@ public class VendaView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtNomeDoProduto;
     // End of variables declaration//GEN-END:variables
+
+public void limparCampos(){
+        txtCodProduto.setText("");
+        txtNomeDoProduto.setText("");
+        if (txtNomeDoProduto.getText().equals("")) {
+            txtNomeDoProduto.setText("Exemplo de produto");
+        }
+        if (txtCodProduto.getText().equals("")) {
+            txtCodProduto.setText("   Ex: 1234");
+            txtCodProduto.setForeground(new java.awt.Color(204, 204, 204));
+        }
 }
+}
+

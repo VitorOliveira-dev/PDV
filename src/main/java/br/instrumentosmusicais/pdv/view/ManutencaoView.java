@@ -549,7 +549,8 @@ public class ManutencaoView extends javax.swing.JFrame {
 
         String codigo = txtCodigo.getText();
         String instrumento = txtProduto.getText();
-
+        txtCodigo.setText("");
+        txtProduto.setText("");
         if (instrumento.equals("//") || codigo.equals("//")) {
             ArrayList<String[]> listaProdutos = ManutencaoController.manutencaoPesquisarTodosProdutos();
 
@@ -582,13 +583,15 @@ public class ManutencaoView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
 
     private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
-      if (txtCPF.getText().trim().replace(".", "").replace("-", "").equals("") && txtNome.getText().trim().equals("")){
+      if (txtCPF.getText().equals("   .   .   -  ") && txtNome.getText().trim().equals("")){
           JOptionPane.showMessageDialog(this, "Preencha um dos campos para pesquisar !");
           return;
         }
 
         String CPF = txtCPF.getText().trim().replace(".", "").replace("-", "");
         String nomeCliente = txtNome.getText();
+            txtCPF.setText("");
+            txtNome.setText("");
 
         if (nomeCliente.equals("//") || CPF.equals("//")) {
             ArrayList<String[]> listaClientes = ManutencaoController.manutencaoPesquisarTodosClientes();
@@ -601,6 +604,7 @@ public class ManutencaoView extends javax.swing.JFrame {
             for (String[] dados : listaClientes) {
                 modelo.addRow(dados);
             }
+
         } else {
             ArrayList<String[]> listaClientes = ManutencaoController.manutencaoPesquisarCliente(CPF, nomeCliente);
 
@@ -615,7 +619,6 @@ public class ManutencaoView extends javax.swing.JFrame {
             for (String[] dados : listaClientes) {
                 modelo.addRow(dados);
             }
-
         }
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
 
@@ -644,7 +647,7 @@ public class ManutencaoView extends javax.swing.JFrame {
             if (ManutencaoController.manutencaoExcluirCliente(codCliente)) {
                 JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
             } else {
-                JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");
+                JOptionPane.showMessageDialog(this, "Não foi possível excluir o registro\n\nObs: caso o cliente já tenha realizado vendas não será possível\nexcluir para manter a consistência dos dados");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Exclusão cancelada");
@@ -667,7 +670,7 @@ public class ManutencaoView extends javax.swing.JFrame {
             if (ManutencaoController.manutencaoExcluirProduto(codInstrumento)) {
                 JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso");
             } else {
-                JOptionPane.showMessageDialog(this, "Falha ao excluir, tente novamente");
+                JOptionPane.showMessageDialog(this, "Não foi possível excluir o registro\n\nObs: caso o produto já tenha sido vendido anteriormente\nnão será possível excluir para manter a consistência dos dados");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Exclusão cancelada");

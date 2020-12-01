@@ -7,10 +7,19 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+/***
+ * @see br.instrumentosmusicais.pdv.utils.Validador
+ */
 public class Validador {
 
     public ArrayList<String> mensagensErro = new ArrayList<>();
-
+    
+    /**
+     * Método para validar número inteiro.
+    * @param txt, Int a ser convertido.
+    * @throws NumberFormatException, pode trazer uma mensagem de exceção.
+    * @return void não retorna, apenas formata o campo.
+    */
     public void ValidarNumero(JTextField txt) {
 
         try {
@@ -23,7 +32,13 @@ public class Validador {
         }
 
     }
-
+    /**
+     * Método para validar campo vazio.
+    * @param txt JTextField, variável para ser testada.
+    * @param jbl JLabel, formatar campo em caso de erro.
+    * @throws IllegalArgumentException, pode trazer uma mensagem de exceção.
+    * @return boolean, <b>true:</b> campo vazio | <b>false:<b/> campo preenchido.
+    */
     public boolean CampoVazio(JTextField txt, JLabel jbl) {
         try {
 
@@ -41,7 +56,13 @@ public class Validador {
         }
         return false;
     }
-
+    /**
+     * Método para limpar e validar campo vazio.
+    * @param txt JFormattedTextField, variável para ser testada.
+    * @param jbl JLabel, formatar campo em caso de erro.
+    * @throws IllegalArgumentException, pode trazer uma mensagem de exceção.
+    * @return boolean, <b>true:</b> campo vazio | <b>false:<b/> campo preenchido.
+    */
     public boolean CampoVazioFormatado(JFormattedTextField txt, JLabel jbl) {
         try {
 
@@ -59,7 +80,13 @@ public class Validador {
         }
     return false;
     }
-
+    /**
+     * Método para validar data vazia.
+    * @param txt JDateChooser, variável para ser testada.
+    * @param jbl JLabel, formatar campo em caso de erro.
+    * @throws IllegalArgumentException, pode trazer uma mensagem de exceção.
+    * @return void não retorna, apenas formata o campo.
+    */
     public void CampoVazioFormatadoData(JDateChooser txt, JLabel jbl) {
         try {
 
@@ -75,7 +102,13 @@ public class Validador {
             jbl.setText("Campo Obrigatório");
         }
     }
-
+    /**
+     * Método para validar número float
+    * @param txt JTextField, variável para ser testada
+    * @param jbl JLabel, formatar campo em caso de erro
+    * @throws NumberFormatException, pode trazer uma mensagem de exceção
+    * @return void void não retorna, apenas formata o campo
+    */
     public void ValidarFloat(JTextField txt, JLabel jbl) {
 
         try {
