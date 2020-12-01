@@ -37,7 +37,7 @@ public class ManutencaoDAO {
 
         } catch (ClassNotFoundException | SQLException e) {
             listaClientes = null;
-                        System.out.println("ERROR "+e);
+            System.out.println("ERROR " + e);
         } finally {
 
             //Libero os recursos da memória
@@ -84,7 +84,7 @@ public class ManutencaoDAO {
 
         } catch (ClassNotFoundException | SQLException e) {
             listaClientes = null;
-                        System.out.println("ERROR "+e);
+            System.out.println("ERROR " + e);
         } finally {
 
             //Libero os recursos da memória
@@ -131,7 +131,7 @@ public class ManutencaoDAO {
 
         } catch (ClassNotFoundException | SQLException e) {
             listaProdutos = null;
-                        System.out.println("ERROR "+e);
+            System.out.println("ERROR " + e);
         } finally {
 
             //Libero os recursos da memória
@@ -161,7 +161,7 @@ public class ManutencaoDAO {
             conexao = GerenciadorConexao.abrirConexao();
             comandoSQL = conexao.prepareStatement("SELECT * FROM produto WHERE cod_produto LIKE ? OR instrumento LIKE ?");
             comandoSQL.setString(1, pCodigo);
-             comandoSQL.setString(2, pInstrumento);
+            comandoSQL.setString(2, pInstrumento);
 
             rs = comandoSQL.executeQuery();
 
@@ -191,8 +191,8 @@ public class ManutencaoDAO {
 
         } catch (ClassNotFoundException | SQLException e) {
             listaProdutos = null;
-            System.out.println("ERROR "+e);
-            
+            System.out.println("ERROR " + e);
+
         } finally {
 
             //Libero os recursos da memória
