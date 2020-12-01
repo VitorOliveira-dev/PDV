@@ -50,6 +50,8 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         txtTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Relatório Sintético");
+        setResizable(false);
 
         pnlFundo.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -215,7 +217,6 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblTabelaProdutosVenda.setColumnSelectionAllowed(false);
         tblTabelaProdutosVenda.setGridColor(new java.awt.Color(51, 51, 51));
         tblTabelaProdutosVenda.setRowHeight(20);
         tblTabelaProdutosVenda.setRowMargin(3);
@@ -313,6 +314,7 @@ public class RelatorioSinteticoView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbNomeMesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNomeMesesActionPerformed

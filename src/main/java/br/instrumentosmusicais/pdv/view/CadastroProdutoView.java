@@ -61,6 +61,8 @@ public class CadastroProdutoView extends javax.swing.JFrame {
         jblMensagemTipo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastrar Produto");
+        setResizable(false);
 
         pnlCadastroProduto.setBackground(new java.awt.Color(51, 51, 51));
         pnlCadastroProduto.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));

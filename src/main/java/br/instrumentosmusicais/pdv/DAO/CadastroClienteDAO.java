@@ -38,8 +38,8 @@ public class CadastroClienteDAO {
                 retorno = false;
             }
 
-        } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("ERRO" + ex.getMessage());
+        } catch (SQLException | ClassNotFoundException | NullPointerException ex ) {
+            System.out.println("ERROR " + ex.getMessage());
             retorno = false;
         } finally {
 
@@ -93,7 +93,7 @@ public class CadastroClienteDAO {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("ERRO" + ex.getMessage());
+            System.out.println("ERRO" + ex);
             retorno = false;
         } finally {
 
@@ -145,7 +145,7 @@ public class CadastroClienteDAO {
             }
 
         } catch (SQLException | ClassNotFoundException ex) {
-            System.out.println("ERROR "+ex.getMessage());
+            System.out.println("ERROR "+ex);
             consultar = null;
         } finally {
 

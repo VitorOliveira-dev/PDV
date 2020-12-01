@@ -28,8 +28,9 @@ public class MainView extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Main");
         setBackground(new java.awt.Color(153, 153, 153));
-        setUndecorated(true);
+        setResizable(false);
 
         pnlFundo.setBackground(new java.awt.Color(51, 51, 51));
 

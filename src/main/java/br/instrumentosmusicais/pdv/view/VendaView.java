@@ -83,6 +83,7 @@ public class VendaView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda");
+        setResizable(false);
 
         pnlVenderEsq.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -589,8 +590,7 @@ public class VendaView extends javax.swing.JFrame {
         Validador objValidar = new Validador();
         String nome = txtNomeCliente.getText().trim();
         String CPF = txtCPF.getText().replace(".", "").replace("-", "").trim();
-
-        //String[] infoCliente = PDVController.vendaBuscarCliente(nome, CPF);
+        
         ArrayList<String[]> infoClientes = VendaController.vendaBuscarCliente(nome, CPF);
 
         if (infoClientes.isEmpty()) {
@@ -606,9 +606,6 @@ public class VendaView extends javax.swing.JFrame {
             dispose();
 
         } else {
-            if (objValidar.CampoVazio(txtNomeCliente, lblMensagemErroNome) || objValidar.CampoVazioFormatado(txtCPF, lblMensagemErroCPF)) {
-                return;
-            }
             String[] info = infoClientes.get(0);
 
             lblCodClienteValor.setText(info[0]);
